@@ -61,7 +61,12 @@ class SvgController extends AbstractController
         $text = ['selected', 'accepted', 'declined', 'tolerated', 'ignored', '1. Test'];
         $x = [240, 120, 360, 120, 360, 60];
         $y = [150, 70, 70, 230, 230, 280];
-        $svg = "<svg version\"1.1\" width=\"2545px\" height=\"1000x\" viewBox=\"-0.5 -0.5 481 321\" class=\"ge-export-svg-dark\" style=\"background-color: rgb(18, 18, 18);\">
+        $htmlStyle = "<style>
+        body {
+        background-color: #3A3A3A
+        }
+        </style>";
+        $svg = "<svg version\"1.1\" width=\"2530px\" height=\"1100px\" viewBox=\"-0.5 -0.5 481 321\" class=\"ge-export-svg-dark\">
         <defs>
           <style type=\"text/css\">
             svg.ge-export-svg-dark &gt;
@@ -82,7 +87,7 @@ class SvgController extends AbstractController
             $svg .= $this->getSvgItem($rx[$i], $ry[$i], $x[$i], $y[$i], $text[$i], $text[$i] === $selected);
         
         $svg .= "</svg>";
-        return $svg;   
+        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";   
     }
 
     public function getSvgItem($rx, $ry, $x, $y, $text, $selected)
