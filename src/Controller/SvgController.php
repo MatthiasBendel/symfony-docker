@@ -14,11 +14,11 @@ class SvgController extends AbstractController
     private $file = 'test.json';
     private $svgFile = 'test.svg';
 
-    #[Route('/svg', name: 'app_svg')]
-    public function index(): Response
+    #[Route('/svg/{selected}', name: 'app_svg')]
+    public function index($selected): Response
     {
         return new Response(
-            $this->createSvg(),
+            $this->createSvg($selected),
             Response::HTTP_OK,
             ['content-type' => 'text/html']
         );
@@ -54,10 +54,8 @@ class SvgController extends AbstractController
         ]);
     }
 
-    public function createSvg()
+    public function createSvg($selected)
     {
-        $cx = [240, 120, 360, 120, 360, 60];
-        $cy = [150, 70, 70, 230, 230, 280];
         $rx = [60, 60, 60, 60, 60, 40];
         $ry = [40, 40, 40, 40, 40, 20];
         $text = ['selected', 'accepted', 'declined', 'tolerated', 'ignored', '1. Test'];
@@ -80,21 +78,37 @@ class SvgController extends AbstractController
           </style>
         </defs>
         <g>";
-
-        for ($i = 0; $i < 6; $i++) {
-            $svg .= $this->getSvgItem($cx[$i], $cy[$i], $rx[$i], $ry[$i], $x[$i], $y[$i], $text[$i]);
-        }
-
+        for ($i = 0; $i < 6; $i++)
+            $svg .= $this->getSvgItem($rx[$i], $ry[$i], $x[$i], $y[$i], $text[$i], $text[$i] === $selected);
+        
         $svg .= "</svg>";
         return $svg;   
     }
 
-    public function getSvgItem($cx, $cy, $rx, $ry, $x, $y, $text)
+    public function getSvgItem($rx, $ry, $x, $y, $text, $selected)
     {
-        $svg = "<ellipse cx=\"" . $cx . "\" cy=\"" . $cy . "\" rx=\"" . $rx . "\" ry=\"" . $ry . 
+        $font = "Courier New";
+        $link = "https://localhost/svg/" . $text;
+        $svg = "<ellipse cx=\"" . $x . "\" cy=\"" . $y . "\" rx=\"" . $rx . "\" ry=\"" . $ry . 
                 "\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(0, 0, 0)\" pointer-events=\"all\" />";
-        $svg .= "<text x=\"" . $x . "\" y=\"" . $y . "\" fill=\"rgb(0, 0, 0)\" font-family=\"Helvetica\" font-size=\"12px\" text-anchor=\"middle\">" . $text . "</text>";
-        
+       # $svg .= "<text x=\"" . $x . "\" y=\"" . $y . "\" fill=\"rgb(0, 0, 0)\" font-family=\"" . $font . "\" font-size=\"12px\" text-anchor=\"middle\">" . $text . "</text>";
+       if ($selected)
+           $svg .= "<foreignObject pointer-events=\"none\" width=\"100%\" height=\"100%\" style=\"overflow: visible; text-align: left;\">
+            <div style=\"display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: " . $y . "px; margin-left: " . $x - 57 . "px;\">
+              <div data-drawio-colors=\"color: rgb(0, 0, 0); \" style=\"box-sizing: border-box; font-size: 0px; text-align: center;\">
+                <div style=\"display: inline-block; font-size: 12px; font-family: " . $font . "; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;\">
+                  <font face=\"" . $font . "\">
+                    <u>
+                      <a href=\"https://localhost/svg\" target=\"_top\">" . $text . "</a>
+                    </u>
+                  </font>
+                </div>
+              </div>
+            </div>
+          </foreignObject>";
+       else
+           $svg .= "<a href=\"" . $link . "\" target=\"_top\">" . "<text x=\"" . $x . "\" y=\"" . $y . "\" fill=\"rgb(0, 0, 0)\" font-family=\"" . $font . "\" font-size=\"12px\" text-anchor=\"middle\">" . $text . "</text>" . "</a>";
+
         return $svg;   
     }
 }
