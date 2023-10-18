@@ -56,11 +56,12 @@ class SvgController extends AbstractController
 
     public function createSvg($selected)
     {
-        $rx = [60, 60, 60, 60, 60, 40];
-        $ry = [40, 40, 40, 40, 40, 20];
-        $text = ['selected', 'accepted', 'declined', 'tolerated', 'ignored', '1. Test'];
-        $x = [240, 120, 360, 120, 360, 60];
-        $y = [150, 70, 70, 230, 230, 280];
+        $rx = 40;
+        $ry = 20;
+        $text = ['1. Test', 'ignored', 'tolerated', 'declined', 'accepted', 'selected'];
+
+        $x = [60, 360, 120, 360, 120, 240];
+        $y = [280, 230, 230, 70, 70, 150];
         $htmlStyle = "<style>
         body {
         background-color: #3A3A3A
@@ -84,7 +85,7 @@ class SvgController extends AbstractController
         </defs>
         <g>";
         for ($i = 0; $i < 6; $i++)
-            $svg .= $this->getSvgItem($rx[$i], $ry[$i], $x[$i], $y[$i], $text[$i], $text[$i] === $selected);
+            $svg .= $this->getSvgItem(++$rx, ++$ry, $x[$i], $y[$i], $text[$i], $text[$i] === $selected);
         
         $svg .= "</svg>";
         return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";   
