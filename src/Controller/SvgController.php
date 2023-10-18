@@ -95,7 +95,7 @@ class SvgController extends AbstractController
         $font = "Courier New";
         $link = "https://localhost/svg/" . $text;
         $svg = "<ellipse cx=\"" . $x . "\" cy=\"" . $y . "\" rx=\"" . $rx . "\" ry=\"" . $ry . 
-                "\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(0, 0, 0)\" pointer-events=\"all\" />";
+                "\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(200, 200, 200)\" pointer-events=\"all\" />";
        # $svg .= "<text x=\"" . $x . "\" y=\"" . $y . "\" fill=\"rgb(0, 0, 0)\" font-family=\"" . $font . "\" font-size=\"12px\" text-anchor=\"middle\">" . $text . "</text>";
        if ($selected)
            $svg .= "<foreignObject pointer-events=\"none\" width=\"100%\" height=\"100%\" style=\"overflow: visible; text-align: left;\">
@@ -104,7 +104,7 @@ class SvgController extends AbstractController
                 <div style=\"display: inline-block; font-size: 12px; font-family: " . $font . "; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;\">
                   <font face=\"" . $font . "\">
                     <u>
-                      <a href=\"https://localhost/svg\" target=\"_top\">" . $text . "</a>
+                      <a href=\"" . $link . "\" target=\"_top\">" . $text . "</a>
                     </u>
                   </font>
                 </div>
