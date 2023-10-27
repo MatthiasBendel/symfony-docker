@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:html="http://www.w3.org/1999/xhtml" viewBox="0 0 1600 1000">
+    <defs>
+        <style>
+            :root { background: black }
+            text { fill: white; font: 60px sans-serif; font-weight: 900; text-anchor: middle; pointer-events: none }
+            #about { pointer-events: visiblePainted; }
+            a { fill: #4096EE; }
+            a:hover { text-decoration: underline; }
+            .button:hover { filter: url(#huerot80) }
+            .button:active { filter: url(#huerot50) }
+            #about { font-size: 12px }
+        </style>
+        <filter id="ds">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+            <feOffset dx="2" dy="2"/>
+            <feComposite in="SourceGraphic" operator="over"/>
+        </filter>
+        <filter id="huerot80" x="0" y="0" width="1" height="1">
+            <feColorMatrix type="hueRotate" values="80"/>
+        </filter>
+        <filter id="huerot50" x="0" y="0" width="1" height="1">
+            <feColorMatrix type="hueRotate" values="50"/>
+        </filter>
+        <linearGradient id="stops">
+            <stop style="stop-color:#4096EE;stop-opacity:1" offset="0"/>
+            <stop style="stop-color:#4096EE;stop-opacity:0" offset="1"/>
+        </linearGradient>
+        <linearGradient x1="0" y1="0" x2="0" y2="-1.5" id="fill" xlink:href="#stops" spreadMethod="reflect"/>
+        <linearGradient x1="0" y1="0" x2="0" y2="-1.5" id="stroke" xlink:href="#stops" spreadMethod="reflect" gradientTransform="scale(1 -1)"/>
+        <script>
+            function $(sel) { return document.querySelector(sel); }
+        </script>
+        <audio xmlns="http://www.w3.org/1999/xhtml">
+            <source src="Bird_in_Rain-Mike_Koenig-441535833.mp3" type="audio/ogg"/>
+
+        </audio>
+    </defs>
+
+    <g class="button" transform="translate(600, 200)">
+        <rect width="400" height="86" rx="16"
+              fill="url(#fill)" stroke="url(#stroke)"
+              onclick="try { $('audio').currentTime=0; } catch(e) {} $('audio').play()"/>
+        <text x="200" y="65" filter="url(#ds)">Click me</text>
+    </g>
+
+    <g class="button" transform="translate(600, 300)">
+        <rect width="400" height="86" rx="16"
+              fill="url(#fill)" stroke="url(#stroke)"
+              onmouseover="$('audio').play(); $('audio').loop=true;" onmouseout="$('audio').pause(); try { $('audio').currentTime=0; } catch(e) {} $('audio').loop=false;"/>
+        <text x="200" y="65" filter="url(#ds)">Hover me</text>
+    </g>
+
+    <text id="about" x="50%" y="50%">This example uses HTML5 audio together with SVG.
+        <a xlink:href="http://soundbible.com/1137-Bubbles.html">Bubbles sound effect</a> recorded by Mike Koenig (<a xlink:href="http://creativecommons.org/licenses/by/3.0/">CC-By</a>).
+    </text>
+
+</svg>
