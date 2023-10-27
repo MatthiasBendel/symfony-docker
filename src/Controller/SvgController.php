@@ -117,26 +117,7 @@ class SvgController extends AbstractController
 
     public function getSvgItem($rx, $ry, $entity)
     {
-        $font = "Courier New";
-        $link = "https://localhost/svg/" . $entity->text;
         $svg = $entity->show();
-        if ($entity->isSelected)
-          $svg .= "<foreignObject pointer-events=\"none\" width=\"100%\" height=\"100%\" style=\"overflow: visible; text-align: left;\">
-            <div style=\"display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: " . $entity->y . "px; margin-left: " . $entity->x - 57 . "px;\">
-              <div data-drawio-colors=\"color: rgb(0, 0, 0); \" style=\"box-sizing: border-box; font-size: 0px; text-align: center;\">
-                <div style=\"display: inline-block; font-size: 12px; font-family: " . $font . "; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;\">
-                  <font face=\"" . $font . "\">
-                    <u>
-                      <a href=\"" . $link . "\" target=\"_top\">" . $entity->text . "</a>
-                    </u>
-                  </font>
-                </div>
-              </div>
-            </div>
-          </foreignObject>";
-        else
-           $svg .= "<a href=\"" . $link . "\" target=\"_top\">" . "<text x=\"" . $entity->x . "\" y=\"" . $entity->y . "\" fill=\"rgb(0, 0, 0)\" font-family=\"" . $font . "\" font-size=\"12px\" text-anchor=\"middle\">" . $entity->text . "</text>" . "</a>";
-
         
         return $svg;   
     }
