@@ -37,13 +37,13 @@ class SvgController extends AbstractController
     public function vote($vote, $item):  JsonResponse
     {
       if ($item == null)
-        $item = $entity->text;
+        $item = $entity->getJson['text'];
       if (in_array($vote, ['accept', 'tolerate', 'ignore', 'decline', 'select'])) {
           $str = file_get_contents($this->file);
-          $json = json_decode($str, true); 
+          $json = json_decode($str, true);
           $time = time();
           $json[$time] = array("vote" => $vote, "item" => $item);
-          if (isset($entity)) 
+          if (isset($entity))
             $json[$item] = $entity;
           if (!isset($json[$item]['showAs']))
             $json[$item]['showAs'] = 'Entity';
@@ -64,7 +64,7 @@ class SvgController extends AbstractController
     public function getJson(): JsonResponse
     {
         $str = file_get_contents($this->file);
-        $json = json_decode($str, true); 
+        $json = json_decode($str, true);
         return $this->json([
             'message' => 'This is ' . $this->file . '!',
             'content' => $json
@@ -85,13 +85,13 @@ class SvgController extends AbstractController
         <defs>
           <style type=\"text/css\">
             svg.ge-export-svg-dark &gt;
-      
+
             * {
               filter: invert(100%) hue-rotate(180deg);
             }
-      
+
             &#xa;
-      
+
             svg.ge-export-svg-dark image {
               filter: invert(100%) hue-rotate(180deg)
             }
@@ -100,7 +100,7 @@ class SvgController extends AbstractController
         <g>";
 
         foreach (array_reverse($entities) as $entity)
-            if ($entity->isSelected)
+            if ($entity->toJson()['showAs'])
               $selectedEntity = $entity;
             #else
             #  $svg .= $this->getSvgConnection(++$rx, ++$ry, $entity->x, $entity->y, $entity->text, $entity->isSelected);
@@ -110,25 +110,25 @@ class SvgController extends AbstractController
           $entity->ry = ++$ry;
           $svg .= $this->getSvgItem(++$rx, ++$ry, $entity);
         }
-        
+
         $svg .= "</svg>";
-        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";   
+        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";
     }
 
     public function getSvgItem($rx, $ry, $entity)
     {
         $svg = $entity->show();
-        
-        return $svg;   
+
+        return $svg;
     }
 
     public function getSvgConnection($rx, $ry, $x, $y, $text, $selected)
     {
         $font = "Courier New";
         $link = "https://localhost/svg/" . $text;
-        $svg = "<path d=\"M " . $x . " " . $y . " Q 137.44 228.19 240 150\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\" />";        
-        $svg .= "<ellipse cx=\"" . $x . "\" cy=\"" . $y . "\" rx=\"" . $rx . "\" ry=\"" . $ry . 
+        $svg = "<path d=\"M " . $x . " " . $y . " Q 137.44 228.19 240 150\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\" />";
+        $svg .= "<ellipse cx=\"" . $x . "\" cy=\"" . $y . "\" rx=\"" . $rx . "\" ry=\"" . $ry .
                 "\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(200, 200, 200)\" pointer-events=\"all\" />";
-        return $svg;   
+        return $svg;
     }
 }

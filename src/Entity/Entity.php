@@ -9,85 +9,71 @@ class Entity
 {
     public static $file = 'test.json';
 
-    public ?string $text = null;
-    public ?string $font = null;
-    public ?string $link = null;
-    public ?int $x = null;
-    public ?int $y = null;
-    public bool $isSelected = false;
-    public float $accepted = 0;
-    public float $ignored = 0;
-    public float $tolerated = 0;
-    public float $declined = 0;
-    public ?string $showAsSvg = null;
-    public ?Entity $showAs = null;
+    private array $values = [
+        'text' => "",
+        'x' => "0",
+        'y' => "0",
+        'isSelected' => false,
+        'accepted' => 0,
+        'tolerated' => 0,
+        'ignored' => 0,
+        'declined' => 0,
+        'showAsSvg' => "",
+        'showAs' => "",
+        'font' => "Courier New",
+        'link' => "",
+        'file' => 'test.json',
+    ];
 
     public function __construct($jsonEntity, $selected)
     {
         #dd($jsonEntity);
-        if (isset($jsonEntity['text']))
-            $this->text = $jsonEntity['text'];
-        if (isset($jsonEntity['x']))
-            $this->x    = $jsonEntity['x'];
-        if (isset($jsonEntity['y']))
-            $this->y    = $jsonEntity['y'];
-        $this->isSelected = $selected === $this->text;
-        if (isset($jsonEntity['showAsSvg']))
-            $this->showAsSvg = $jsonEntity['showAsSvg'];
-        if (isset($jsonEntity['showAsSvgIfSelected']))
-            $this->showAsSvgIfSelected = $jsonEntity['showAsSvgIfSelected'];
-        if (isset($jsonEntity['showAsSvgIfNotSelected']))
-            $this->showAsSvgIfNotSelected = $jsonEntity['showAsSvgIfNotSelected'];
-        if (isset($jsonEntity['showAs']))
-            $this->showAs = new Entity($this->findInJsonFile($jsonEntity['showAs']), $selected);
+        $this->values = $jsonEntity;
+        $this->values['isSelected'] = isset($this->values['text']) && $selected === $this->values['text'];
+        if (isset($this->values['showAs']))
+            $this->values['showAs'] = new Entity($this->findInJsonFile($this->values['showAs']), $selected);
     }
 
-    public function toJson() {
-        return [
-            'text' => $this->text,
-            'x' => $this->x,
-            'y' => $this->y,
-            'accpted' => $this->accepted,
-            'ignored' => $this->ignored,
-            'tolerated' => $this->tolerated,
-            'declined' => $this->declined,
-            'showAs' => $this->showAs,
-            'showAsSvg' => $this->showAsSvg
-        ];
+    public function toJson(): array {
+        return $this->values;
     }
 
     public function show() {
         $showAs = "";
-        if (isset($this->showAs))
-            $showAs .= $this->showAs->show();
-        if (isset($this->showAsSvg))
-            $showAs .= $this->showAsSvg;
-        if ($this->isSelected && isset($this->showAsSvgIfSelected))
-            $showAs .= $this->showAsSvgIfSelected;
-        elseif (isset($this->showAsSvgIfNotSelected))
-            $showAs .= $this->showAsSvgIfNotSelected;
-#dd($showAs);
+        if (isset($this->values['showAs']))
+            $showAs .= $this->values['showAs']->show();
 
-        $this->font = "Courier New";
+        if (isset($this->values['showAsSvg']))
+            $showAs .= $this->values['showAsSvg'];
 
+        if ($this->values['isSelected'] && isset($this->values['showAsSvgIfSelected']))
+            $showAs .= $this->values['showAsSvgIfSelected'];
+        elseif (isset($this->values['showAsSvgIfNotSelected']))
+            $showAs .= $this->values['showAsSvgIfNotSelected'];
 
-        if (isset($this->text)){ # ToDo fix this!
-            $showAs = str_replace('{{ text }}', $this->text, $showAs);
-            dd($showAs);
-            $this->link = "https://localhost/svg/" . $this->text;
-            $showAs = str_replace('{{ link }}', $this->link, $showAs);
+        if (isset($this->values['text'])){ # ToDo fix this!
+            $showAs = str_replace('{{ text }}', $this->values['text'], $showAs);
+            #dd($showAs);
+            $this->values['link'] = "https://localhost/svg/" . $this->values['text'];
+            $showAs = str_replace('{{ link }}', $this->values['link'] , $showAs);
         }
-        if (isset($this->x))
-            $showAs = str_replace('{{ x }}', $this->x, $showAs);
-        if (isset($this->y))
-            $showAs = str_replace('{{ y }}', $this->y, $showAs);
-        if (isset($this->rx))
-            $showAs = str_replace('{{ rx }}', $this->rx, $showAs);
-        if (isset($this->ry))
-            $showAs = str_replace('{{ ry }}', $this->ry, $showAs);
-        if (isset($this->font))
-            $showAs = str_replace('{{ font }}', $this->font, $showAs);
+
+        if (isset($this->values['x']))
+            $showAs = str_replace('{{ x }}', $this->values['x'], $showAs);
+        if (isset($this->values['y']))
+            $showAs = str_replace('{{ y }}', $this->values['y'], $showAs);
+        if (isset($this->values['rx']))
+            $showAs = str_replace('{{ rx }}', $this->values['rx'], $showAs);
+        if (isset($this->values['ry']))
+            $showAs = str_replace('{{ ry }}', $this->values['ry'], $showAs);
+        if (isset($this->values['font']))
+            $showAs = str_replace('{{ font }}', $this->values['font'], $showAs);
         if (isset($this->link))
+
+        #foreach($this->values as $key)
+        #    $showAs = str_replace('{{ ' . $key . ' }}', $this->values[$key], $showAs);
+
+        dd($showAs);
         return $showAs;
     }
 
