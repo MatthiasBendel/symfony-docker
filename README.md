@@ -28,6 +28,9 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 
 **Enjoy!**
 
+Potentially ToDo:
+- https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_and_CSS
+
 ## Docs
 
 1. [Build options](docs/build.md)
