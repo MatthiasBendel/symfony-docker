@@ -62,18 +62,18 @@ class Entity
             $showAs .= $this->showAs->show();
         if (isset($this->showAsSvg))
             $showAs .= $this->showAsSvg;
+
         if ($this->isSelected && isset($this->showAsSvgIfSelected))
             $showAs .= $this->showAsSvgIfSelected;
         elseif (isset($this->showAsSvgIfNotSelected))
             $showAs .= $this->showAsSvgIfNotSelected;
-#dd($showAs);
+
 
         $this->font = "Courier New";
 
 
         if (isset($this->text)){ # ToDo fix this!
             $showAs = str_replace('{{ text }}', $this->text, $showAs);
-            dd($showAs);
             $this->link = "https://localhost/svg/" . $this->text;
             $showAs = str_replace('{{ link }}', $this->link, $showAs);
         }
@@ -87,7 +87,6 @@ class Entity
             $showAs = str_replace('{{ ry }}', $this->ry, $showAs);
         if (isset($this->font))
             $showAs = str_replace('{{ font }}', $this->font, $showAs);
-        if (isset($this->link))
         return $showAs;
     }
 
