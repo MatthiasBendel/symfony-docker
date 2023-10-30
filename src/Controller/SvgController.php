@@ -108,18 +108,11 @@ class SvgController extends AbstractController
         foreach (array_reverse($entities) as $entity){
           $entity->rx = ++$rx;
           $entity->ry = ++$ry;
-          $svg .= $this->getSvgItem(++$rx, ++$ry, $entity);
+          $svg .= $entity->show();
         }
 
         $svg .= "</svg>";
         return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";
-    }
-
-    public function getSvgItem($rx, $ry, $entity)
-    {
-        $svg = $entity->show();
-
-        return $svg;
     }
 
     public function getSvgConnection($rx, $ry, $x, $y, $text, $selected)

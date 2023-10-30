@@ -53,27 +53,29 @@ class Entity
 
         if (isset($this->values['text'])){ # ToDo fix this!
             $showAs = str_replace('{{ text }}', $this->values['text'], $showAs);
-            #dd($showAs);
             $this->values['link'] = "https://localhost/svg/" . $this->values['text'];
             $showAs = str_replace('{{ link }}', $this->values['link'] , $showAs);
+
+        #dd(['showAs'=>$showAs, 'this' => $this]);
+        #dd(['showAs'=>$showAs, 'this' => $this]);
         }
 
         if (isset($this->values['x']))
             $showAs = str_replace('{{ x }}', $this->values['x'], $showAs);
         if (isset($this->values['y']))
             $showAs = str_replace('{{ y }}', $this->values['y'], $showAs);
-        if (isset($this->values['rx']))
-            $showAs = str_replace('{{ rx }}', $this->values['rx'], $showAs);
-        if (isset($this->values['ry']))
-            $showAs = str_replace('{{ ry }}', $this->values['ry'], $showAs);
+        if (isset($this->rx))
+            $showAs = str_replace('{{ rx }}', $this->rx, $showAs);
+        if (isset($this->ry))
+            $showAs = str_replace('{{ ry }}', $this->ry, $showAs);
         if (isset($this->values['font']))
             $showAs = str_replace('{{ font }}', $this->values['font'], $showAs);
+        
         #if (isset($this->link))
 
         #foreach($this->values as $key)
         #    $showAs = str_replace('{{ ' . $key . ' }}', $this->values[$key], $showAs);
 
-        #dd($showAs);
         return $showAs;
     }
 
