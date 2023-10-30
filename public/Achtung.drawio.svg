@@ -12,6 +12,14 @@
             .button:hover { filter: url(#huerot80) }
             .button:active { filter: url(#huerot50) }
             #about { font-size: 12px }
+
+            svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            }
         </style>
         <filter id="ds">
             <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
@@ -52,4 +60,16 @@
               onmouseover="$('audio').play(); $('audio').loop=true;" onmouseout="$('audio').pause(); try { $('audio').currentTime=0; } catch(e) {} $('audio').loop=false;"/>
         <text x="180" y="65" filter="url(#ds)">Hover me</text>
     </g>
+
+    <svg>
+        <path id="arrow" d="M 100 100 L 400 400" stroke="black" stroke-width="4" marker-end="url(#arrowhead)" />
+    </svg>
+    <script>
+        var arrow = document.getElementById('arrow');
+        document.addEventListener('mousemove', function(event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        arrow.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+        });
+    </script>
 </svg>

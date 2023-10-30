@@ -112,7 +112,15 @@ class SvgController extends AbstractController
         }
 
         $svg .= "</svg>";
-        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . "</body> </html>";
+        $script = "<script>
+                    var arrow = document.getElementById('arrow');
+                    document.addEventListener('mousemove', function(event) {
+                    var x = event.clientX;
+                    var y = event.clientY;
+                    arrow.setAttribute('transform', 'translate(' + x + ',' + y + ')');
+                    });
+                    </script>";
+        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . $script . "</body> </html>";
     }
 
     public function getSvgConnection($rx, $ry, $x, $y, $text, $selected)
