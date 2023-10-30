@@ -68,12 +68,12 @@ class Entity
             $showAs = str_replace('{{ ry }}', $this->values['ry'], $showAs);
         if (isset($this->values['font']))
             $showAs = str_replace('{{ font }}', $this->values['font'], $showAs);
-        if (isset($this->link))
+        #if (isset($this->link))
 
         #foreach($this->values as $key)
         #    $showAs = str_replace('{{ ' . $key . ' }}', $this->values[$key], $showAs);
 
-        dd($showAs);
+        #dd($showAs);
         return $showAs;
     }
 
