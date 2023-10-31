@@ -9,26 +9,13 @@ class Entity
 {
     public static $file = 'test.json';
 
-    private array $values = [
-        'text' => "",
-        'x' => "0",
-        'y' => "0",
-        'isSelected' => false,
-        'accepted' => 0,
-        'tolerated' => 0,
-        'ignored' => 0,
-        'declined' => 0,
-        'showAsSvg' => "",
-        'showAs' => "",
-        'font' => "Courier New",
-        'link' => "",
-        'file' => 'test.json',
-    ];
+    private array $values = [];
 
     public function __construct($jsonEntity, $selected)
     {
         #dd($jsonEntity);
         $this->values = $jsonEntity;
+        $this->values['font'] = "Courier New";
         $this->values['isSelected'] = isset($this->values['text']) && $selected === $this->values['text'];
         if (isset($this->values['showAs']))
             $this->values['showAs'] = new Entity($this->findInJsonFile($this->values['showAs']), $selected);
@@ -41,15 +28,24 @@ class Entity
     public function show() {
         $showAs = "";
         if (isset($this->values['showAs']))
-            $showAs .= $this->values['showAs']->show();
+            $showAs .= $this->values['showAs']->values['showAsSvg'];
 
         if (isset($this->values['showAsSvg']))
             $showAs .= $this->values['showAsSvg'];
 
-        if ($this->values['isSelected'] && isset($this->values['showAsSvgIfSelected']))
-            $showAs .= $this->values['showAsSvgIfSelected'];
+        if ($this->values['isSelected']) {
+            #if (!isset($this->values['showAsSvgIfSelected'])
+            #    $this->values['showAsSvgIfSelected'] = $this->values['showAs']->values['showAsSvgIfSelected'];
+
+            $showAs = $this->replaceXY(0, 0, $showAs);
+            $showAs .= $this->values['showAs']->values['showAsSvgIfSelected'];
+            $showAs = $this->replaceXY(-59, -5, $showAs);
+            #dd(['showAs'=>$showAs, 'this' => $this]);
+        }
         elseif (isset($this->values['showAsSvgIfNotSelected']))
             $showAs .= $this->values['showAsSvgIfNotSelected'];
+        elseif (isset($this->values['showAs']->values['showAsSvgIfNotSelected']))
+              $showAs .= $this->values['showAs']->values['showAsSvgIfNotSelected'];
 
         if (isset($this->values['text'])){ # ToDo fix this!
             $showAs = str_replace('{{ text }}', $this->values['text'], $showAs);
@@ -57,7 +53,6 @@ class Entity
             $this->values['link'] = 'https://multidimensional.online' . "/svg/" . $this->values['text'];
             $showAs = str_replace('{{ link }}', $this->values['link'] , $showAs);
 
-        #dd(['showAs'=>$showAs, 'this' => $this]);
         #dd(['showAs'=>$showAs, 'this' => $this]);
         }
 
@@ -77,6 +72,14 @@ class Entity
         #foreach($this->values as $key)
         #    $showAs = str_replace('{{ ' . $key . ' }}', $this->values[$key], $showAs);
 
+        return $showAs;
+    }
+
+    public function replaceXY($deltaX, $deltaY, $showAs) {
+        if (isset($this->values['x']))
+            $showAs = str_replace('{{ x }}', $this->values['x'] + $deltaX, $showAs);
+        if (isset($this->values['y']))
+            $showAs = str_replace('{{ y }}', $this->values['y'] + $deltaY, $showAs);
         return $showAs;
     }
 
