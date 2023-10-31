@@ -113,6 +113,9 @@ class SvgController extends AbstractController
         $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
         $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
         $html = str_replace('{{ svg }}', $svg , $html);
+        $html = str_replace('<body>', "<body>\n" .
+                    "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
+        #dd($html);
         return $html;
     }
 }
