@@ -76,11 +76,6 @@ class SvgController extends AbstractController
         $rx = 40;
         $ry = 20;
 
-        $htmlStyle = "<style>
-        body {
-        background-color: #3A3A3A
-        }
-        </style>";
         $svg = "<svg version\"1.1\" width=\"2530px\" height=\"1100px\" viewBox=\"-0.5 -0.5 481 321\" class=\"ge-export-svg-dark\">
         <defs>
           <style type=\"text/css\">
@@ -112,24 +107,9 @@ class SvgController extends AbstractController
         }
 
         $svg .= "</svg>";
-        $script = "<script>
-                    var arrow = document.getElementById('arrow');
-                    document.addEventListener('mousemove', function(event) {
-                    var x = event.clientX;
-                    var y = event.clientY;
-                    arrow.setAttribute('transform', 'translate(' + x + ',' + y + ')');
-                    });
-                    </script>";
-        return "<!DOCTYPE html><html><head>" . $htmlStyle . "<body>" . $svg . $script . "</body> </html>";
-    }
-
-    public function getSvgConnection($rx, $ry, $x, $y, $text, $selected)
-    {
-        $font = "Courier New";
-        $link = "https://localhost/svg/" . $text;
-        $svg = "<path d=\"M " . $x . " " . $y . " Q 137.44 228.19 240 150\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\" />";
-        $svg .= "<ellipse cx=\"" . $x . "\" cy=\"" . $y . "\" rx=\"" . $rx . "\" ry=\"" . $ry .
-                "\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(200, 200, 200)\" pointer-events=\"all\" />";
-        return $svg;
+        $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
+        $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
+        $html = str_replace('{{ svg }}', $svg , $html);
+        return $html;
     }
 }

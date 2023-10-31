@@ -50,7 +50,7 @@ class Entity
         if (isset($this->values['text'])){ # ToDo fix this!
             $showAs = str_replace('{{ text }}', $this->values['text'], $showAs);
             $this->values['link'] = getenv("SERVER_NAME");# . "/svg/" . $this->values['text'];
-            $this->values['link'] = 'https://multidimensional.online' . "/svg/" . $this->values['text'];
+            $this->values['link'] = 'https://localhost' . "/svg/" . $this->values['text'];
             $showAs = str_replace('{{ link }}', $this->values['link'] , $showAs);
 
         #dd(['showAs'=>$showAs, 'this' => $this]);
