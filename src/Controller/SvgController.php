@@ -49,7 +49,7 @@ class SvgController extends AbstractController
             $json[$item]['showAs'] = 'Entity';
           #if (!isset($json[$item]['showAsSvg']))
           #  $json[$item]['showAsSvg'] = $this->getSvgItem(30, 30, new Entity($json[$item], $item));
-          file_put_contents($this->file, json_encode($json));
+          file_put_contents($this->file, json_encode($json, JSON_PRETTY_PRINT));
           return $this->json([
               'message' => 'Voted '. $vote .' for ' . $item . ' (at ' . date('m.d.Y h:i:s a', $time) . ' (and added to ' . $this->file . '!',
               'entities' => $json
@@ -97,15 +97,18 @@ class SvgController extends AbstractController
         foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
               $selectedEntity = $entity;
-            #else
-            #  $svg .= $this->getSvgConnection(++$rx, ++$ry, $entity->x, $entity->y, $entity->text, $entity->isSelected);
 
+
+        # $entities->trim($showEntityCount);
+        #$svg = $selectedEntity->getSvg();
         foreach (array_reverse($entities) as $entity){
           $entity->rx = ++$rx;
           $entity->ry = ++$ry;
           $svg .= $entity->show();
         }
 
+        #$svg .= $selectedEntity->getSvgClosure();
+        #dd($svg);
         $svg .= "</svg>";
         $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
         $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
