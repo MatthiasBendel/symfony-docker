@@ -2077,5 +2077,265 @@
     "1698767789": {
         "vote": "select",
         "item": "selected"
+    },
+    "1698768582": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "newText": {
+        "showAs": "Entity"
+    },
+    "1698768650": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768651": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768665": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768676": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768677": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768902": {
+        "vote": "select",
+        "item": "Test"
+    },
+    "Test": {
+        "showAs": "Entity"
+    },
+    "1698768911": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698769091": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698769094": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698769095": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698769097": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698769107": {
+        "vote": "select",
+        "item": "2test"
+    },
+    "2test": {
+        "showAs": "Entity"
+    },
+    "1698769113": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "2test2": {
+        "showAs": "Entity"
+    },
+    "1698769138": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769140": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769141": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769143": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769145": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769146": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769147": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769151": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769152": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769208": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769209": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769210": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769211": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769212": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769213": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769214": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769215": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769216": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769217": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769218": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769219": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769220": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769221": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769222": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769223": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769224": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769225": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769226": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769228": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769229": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769230": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769231": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769240": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769241": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769242": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769243": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769244": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769245": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769246": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769247": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769249": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769250": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769251": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769252": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769257": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769258": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769259": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769260": {
+        "vote": "select",
+        "item": "2test2"
     }
 }

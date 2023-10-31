@@ -22,12 +22,15 @@ class SvgController extends AbstractController
         $entities = [];
         $jsonResponse = $this->vote("select", $selected);
         foreach (json_decode($jsonResponse->getContent(), true)['entities'] as $entity) {
-          if (gettype($entity) == "array" && isset($entity['text']))
+          if (gettype($entity) == "array" && isset($entity['text'])){
+            $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
+            $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
             array_push($entities, new Entity($entity, $selected));
+          }
         }
 
         return new Response(
-            $this->createSvg($entities),
+            $this->createHtml($entities),
             Response::HTTP_OK,
             ['content-type' => 'text/html']
         );
@@ -60,18 +63,7 @@ class SvgController extends AbstractController
         ]);
     }
 
-    #[Route('/json', name: 'app_json')]
-    public function getJson(): JsonResponse
-    {
-        $str = file_get_contents($this->file);
-        $json = json_decode($str, true);
-        return $this->json([
-            'message' => 'This is ' . $this->file . '!',
-            'content' => $json
-        ]);
-    }
-
-    public function createSvg($entities)
+    public function createHtml($entities)
     {
         $rx = 40;
         $ry = 20;
@@ -116,6 +108,8 @@ class SvgController extends AbstractController
         $html = str_replace('<body>', "<body>\n" .
                     "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
         #dd($html);
+        if ($selectedEntity == null)
+            dd($selectedEntity);
         return $html;
     }
 }
