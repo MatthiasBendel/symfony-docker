@@ -36,6 +36,23 @@ class SvgController extends AbstractController
         );
     }
 
+    #[Route('/twig/{selected}', name: 'app_twig')]
+    public function twig($selected): Response
+    {
+        $entities = [];
+        $jsonResponse = $this->vote("select", $selected);
+        foreach (json_decode($jsonResponse->getContent(), true)['entities'] as $entity) {
+          if (gettype($entity) == "array" && isset($entity['text'])){
+            $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
+            $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
+            array_push($entities, new Entity($entity, $selected));
+          }
+        }
+        return $this->render('time_sequence.html.twig', [
+          'svg' => $this->createSvg($entities, 'https://localhost/twig/')
+        ]);
+    }
+
     #[Route('/vote/{vote}/{item}', name: 'app_vote')]
     public function vote($vote, $item):  JsonResponse
     {
@@ -63,12 +80,28 @@ class SvgController extends AbstractController
         ]);
     }
 
-    public function createHtml($entities)
+    public function createHtml($entities, $linkPrefix='https://localhost/svg/')
+    {
+        foreach (array_reverse($entities) as $entity)
+            if ($entity->toJson()['showAs'])
+              $selectedEntity = $entity;
+        $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
+        $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
+        $html = str_replace('{{ svg }}', $this->createSvg($entities, $linkPrefix) , $html);
+        $html = str_replace('<body>', "<body>\n" .
+                    "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
+        #dd($html);
+        if ($selectedEntity == null)
+            dd($selectedEntity);
+        return $html;
+    }
+
+    public function createSvg($entities, $linkPrefix='https://localhost/svg/')
     {
         $rx = 40;
         $ry = 20;
 
-        $svg = "<svg version\"1.1\" width=\"3030px\" height=\"1500px\" viewBox=\"-0.5 -0.5 400 321\" class=\"ge-export-svg-dark\">
+        $svg = "<svg width=\"3030px\" height=\"1500px\" viewBox=\"-0.5 -0.5 400 321\" class=\"ge-export-svg-dark\">
         <defs>
           <style type=\"text/css\">
             svg.ge-export-svg-dark &gt;
@@ -84,7 +117,7 @@ class SvgController extends AbstractController
             }
           </style>
         </defs>
-        <g>";
+        <g id=\"all\">";
 
         foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
@@ -94,6 +127,7 @@ class SvgController extends AbstractController
         # $entities->trim($showEntityCount);
         #$svg = $selectedEntity->getSvg();
         foreach (array_reverse($entities) as $entity){
+          $entity->values['link_prefix'] = $linkPrefix;
           $entity->rx = ++$rx;
           $entity->ry = ++$ry;
           $svg .= $entity->show();
@@ -102,14 +136,6 @@ class SvgController extends AbstractController
         #$svg .= $selectedEntity->getSvgClosure();
         #dd($svg);
         $svg .= "</svg>";
-        $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
-        $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
-        $html = str_replace('{{ svg }}', $svg , $html);
-        $html = str_replace('<body>', "<body>\n" .
-                    "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
-        #dd($html);
-        if ($selectedEntity == null)
-            dd($selectedEntity);
-        return $html;
+        return $svg;
     }
 }

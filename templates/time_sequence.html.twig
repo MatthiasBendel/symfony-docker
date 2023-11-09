@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiple SVGs in Sequence</title>
+</head>
+<body>
+	<svg id="svg1" width="100" height="100">
+		<circle cx="50" cy="50" r="40" fill="black" />
+	</svg>
+	<svg id="svg2" width="100" height="100">
+		<rect x="10" y="10" width="80" height="80" fill="black" />
+	</svg>
+	<svg id="svg3" width="100" height="100">
+		<ellipse cx="50" cy="50" rx="40" ry="20" fill="black" />
+	</svg>
+	{{ svg | raw }}
+
+	<script>
+		// Get the SVG elements
+		var svg1 = document.getElementById("svg1");
+		var svg2 = document.getElementById("svg2");
+		var svg3 = document.getElementById("svg3");
+		var group = document.getElementById("all");
+
+		var ellipses = group.querySelectorAll("ellipse");
+
+
+		// Hide all SVGs except the first one
+		svg1.style.display = "none";
+		svg2.style.display = "none";
+		svg3.style.display = "none";
+
+		// Show the SVGs in sequence
+		/*setTimeout(function() {
+			svg2.style.display = "block";
+		}, 1000); // Show the second SVG after 1 second
+
+        setTimeout(function() {
+            svg3.style.display = "block";
+        }, 2000); // Show the third SVG after 2 seconds
+
+        setTimeout(function() {
+			svg1.querySelector("circle").setAttribute("fill", "blue");
+        }, 3000); // Show the third SVG after 3 seconds
+
+        setTimeout(function() {
+            svg2.querySelector("rect").setAttribute("fill", "red");
+        }, 4000); // Show the third SVG after 4 seconds
+
+        setTimeout(function() {
+            svg3.querySelector("ellipse").setAttribute("fill", "black");
+        }, 5000); // Show the third SVG after 4 seconds
+*/
+		var svg = document.getElementById("svg1");
+		var colors = ["rgb(205,205,205)", "rgb(155,155,155)", "rgb(205,205,205)", "rgb(255,255,255)"];
+		var i = 0;
+
+
+		setInterval(function() {
+			svg1.querySelector("circle").setAttribute("fill", colors[i]);
+			svg2.querySelector("rect").setAttribute("fill", colors[i]);
+			svg3.querySelector("ellipse").setAttribute("fill", colors[i]);
+			var colorValue = 100 + Math.floor(Math.random() * 155);
+			for (var j = 0; j < ellipses.length; j++) {
+
+				//var colorValue = 100 + Math.floor(Math.random() * 155);
+				colorValue = colorValue - 1 + Math.floor(Math.random() * 1)
+				ellipses[j].setAttribute("fill", "rgb(" + colorValue + ", " + colorValue + ", " + colorValue + ")");
+			}
+			i = (i + 1) % colors.length;
+		}, 1000);
+	</script>
+</body>
+</html>

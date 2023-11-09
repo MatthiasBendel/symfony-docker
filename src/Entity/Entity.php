@@ -9,7 +9,7 @@ class Entity
 {
     public static $file = 'test.json';
 
-    private array $values = [];
+    public array $values = [];
 
     public function __construct($jsonEntity, $selected)
     {
@@ -19,6 +19,7 @@ class Entity
         $this->values['isSelected'] = isset($this->values['text']) && $selected === $this->values['text'];
         if (isset($this->values['showAs']))
             $this->values['showAs'] = new Entity($this->findInJsonFile($this->values['showAs']), $selected);
+        #$this->values['link_prefix'] = getenv("SERVER_NAME") . "/svg/";
     }
 
     public function toJson(): array {
@@ -49,8 +50,7 @@ class Entity
 
         if (isset($this->values['text'])){ # ToDo fix this!
             $showAs = str_replace('{{ text }}', $this->values['text'], $showAs);
-            $this->values['link'] = getenv("SERVER_NAME");# . "/svg/" . $this->values['text'];
-            $this->values['link'] = 'https://localhost' . "/svg/" . $this->values['text'];
+            $this->values['link'] = $this->values['link_prefix']. $this->values['text'];
             $showAs = str_replace('{{ link }}', $this->values['link'] , $showAs);
 
         #dd(['showAs'=>$showAs, 'this' => $this]);
