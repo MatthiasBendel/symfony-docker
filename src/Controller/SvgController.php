@@ -49,7 +49,7 @@ class SvgController extends AbstractController
           }
         }
         return $this->render('time_sequence.html.twig', [
-          'svg' => $this->createSvg($entities, 'https://localhost/twig/')
+          'svg' => $this->createSvg($entities, 'https://multidimensional.online/twig/')
         ]);
     }
 
