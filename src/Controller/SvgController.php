@@ -76,7 +76,7 @@ class SvgController extends AbstractController
         $rx = 40;
         $ry = 20;
 
-        $svg = "<svg version\"1.1\" width=\"2530px\" height=\"1100px\" viewBox=\"-0.5 -0.5 481 321\" class=\"ge-export-svg-dark\">
+        $svg = "<svg version\"1.1\" width=\"3030px\" height=\"1500px\" viewBox=\"-0.5 -0.5 400 321\" class=\"ge-export-svg-dark\">
         <defs>
           <style type=\"text/css\">
             svg.ge-export-svg-dark &gt;
