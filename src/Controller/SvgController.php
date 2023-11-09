@@ -22,12 +22,15 @@ class SvgController extends AbstractController
         $entities = [];
         $jsonResponse = $this->vote("select", $selected);
         foreach (json_decode($jsonResponse->getContent(), true)['entities'] as $entity) {
-          if (gettype($entity) == "array" && isset($entity['text']))
+          if (gettype($entity) == "array" && isset($entity['text'])){
+            $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
+            $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
             array_push($entities, new Entity($entity, $selected));
+          }
         }
 
         return new Response(
-            $this->createSvg($entities),
+            $this->createHtml($entities),
             Response::HTTP_OK,
             ['content-type' => 'text/html']
         );
@@ -49,7 +52,7 @@ class SvgController extends AbstractController
             $json[$item]['showAs'] = 'Entity';
           #if (!isset($json[$item]['showAsSvg']))
           #  $json[$item]['showAsSvg'] = $this->getSvgItem(30, 30, new Entity($json[$item], $item));
-          file_put_contents($this->file, json_encode($json));
+          file_put_contents($this->file, json_encode($json, JSON_PRETTY_PRINT));
           return $this->json([
               'message' => 'Voted '. $vote .' for ' . $item . ' (at ' . date('m.d.Y h:i:s a', $time) . ' (and added to ' . $this->file . '!',
               'entities' => $json
@@ -60,18 +63,7 @@ class SvgController extends AbstractController
         ]);
     }
 
-    #[Route('/json', name: 'app_json')]
-    public function getJson(): JsonResponse
-    {
-        $str = file_get_contents($this->file);
-        $json = json_decode($str, true);
-        return $this->json([
-            'message' => 'This is ' . $this->file . '!',
-            'content' => $json
-        ]);
-    }
-
-    public function createSvg($entities)
+    public function createHtml($entities)
     {
         $rx = 40;
         $ry = 20;
@@ -97,19 +89,27 @@ class SvgController extends AbstractController
         foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
               $selectedEntity = $entity;
-            #else
-            #  $svg .= $this->getSvgConnection(++$rx, ++$ry, $entity->x, $entity->y, $entity->text, $entity->isSelected);
 
+
+        # $entities->trim($showEntityCount);
+        #$svg = $selectedEntity->getSvg();
         foreach (array_reverse($entities) as $entity){
           $entity->rx = ++$rx;
           $entity->ry = ++$ry;
           $svg .= $entity->show();
         }
 
+        #$svg .= $selectedEntity->getSvgClosure();
+        #dd($svg);
         $svg .= "</svg>";
         $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
         $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
         $html = str_replace('{{ svg }}', $svg , $html);
+        $html = str_replace('<body>', "<body>\n" .
+                    "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
+        #dd($html);
+        if ($selectedEntity == null)
+            dd($selectedEntity);
         return $html;
     }
 }

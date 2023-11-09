@@ -1,1 +1,2341 @@
-{"1697543770":{"vote":"accept","item":"olkfm"},"1698157014":{"vote":"select","item":"selected"},"1698157340":{"vote":"select","item":"selected"},"1698157479":{"vote":"select","item":"selected"},"1698157480":{"vote":"select","item":"selected"},"1698157508":{"vote":"select","item":"selected"},"1698157518":{"vote":"select","item":"selected"},"1698157520":{"vote":"select","item":"accepted"},"1698157521":{"vote":"select","item":"declined"},"1698157522":{"vote":"select","item":"ignored"},"1698157523":{"vote":"select","item":"tolerated"},"1698157524":{"vote":"select","item":"selected"},"1698157525":{"vote":"select","item":"accepted"},"1698157526":{"vote":"select","item":"declined"},"1698157527":{"vote":"select","item":"selected"},"1698157528":{"vote":"select","item":"tolerated"},"1698158417":{"vote":"select","item":"tolerated"},"1698158418":{"vote":"select","item":"accepted"},"1698158572":{"vote":"select","item":"accepted"},"1698158573":{"vote":"select","item":"selected"},"1698158574":{"vote":"select","item":"ignored"},"1698158576":{"vote":"select","item":"tolerated"},"1698158577":{"vote":"select","item":"selected"},"1698158613":{"vote":"select","item":"accepted"},"1698158615":{"vote":"select","item":"selected"},"1698158616":{"vote":"select","item":"declined"},"1698158669":{"vote":"select","item":{"text":"accepted","x":120,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158678":{"vote":"select","item":{"text":"declined","x":360,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158679":{"vote":"select","item":{"text":"selected","x":240,"y":150,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158680":{"vote":"select","item":{"text":"tolerated","x":120,"y":230,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158681":{"vote":"select","item":{"text":"selected","x":240,"y":150,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158682":{"vote":"select","item":{"text":"declined","x":360,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158683":{"vote":"select","item":{"text":"selected","x":240,"y":150,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158684":{"vote":"select","item":{"text":"tolerated","x":120,"y":230,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158748":{"vote":"select","item":"selected","selected":{"text":"selected","x":240,"y":150,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158749":{"vote":"select","item":"declined","declined":{"text":"declined","x":360,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158750":{"vote":"select","item":"tolerated","tolerated":{"text":"tolerated","x":120,"y":230,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":null,"showAsSvg":null}},"1698158809":{"vote":"select","item":"accepted"},"accepted":{"text":"accepted","x":120,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":"Entity"},"1698158810":{"vote":"select","item":"declined"},"declined":{"text":"declined","x":360,"y":70,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":"Entity"},"1698158811":{"vote":"select","item":"declined"},"selected":{"text":"selected","x":240,"y":150,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":"Entity"},"1698158812":{"vote":"select","item":"declined"},"1698158813":{"vote":"select","item":"selected"},"1698158814":{"vote":"select","item":"ignored"},"ignored":{"text":"ignored","x":360,"y":230,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":"Entity"},"1698158815":{"vote":"select","item":"tolerated"},"tolerated":{"text":"tolerated","x":120,"y":230,"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"showAs":"Entity"},"1698238228":{"vote":"select","item":"tolerated"},"1698238615":{"vote":"select","item":"accepted"},"1698238641":{"vote":"select","item":"accepted"},"1698238692":{"vote":"select","item":"accepted"},"1698238700":{"vote":"select","item":"accepted"},"1698238701":{"vote":"select","item":"accepted"},"1698238740":{"vote":"select","item":"accepted"},"1698238741":{"vote":"select","item":"accepted"},"1698238742":{"vote":"select","item":"accepted"},"1698238756":{"vote":"select","item":"accepted"},"1698238792":{"vote":"select","item":"accepted"},"1698238801":{"vote":"select","item":"accepted"},"1698238812":{"vote":"select","item":"accepted"},"1698238817":{"vote":"select","item":"accepted"},"1698238870":{"vote":"select","item":"accepted"},"1698238933":{"vote":"select","item":"accepted"},"1698238934":{"vote":"select","item":"accepted"},"1698238963":{"vote":"select","item":"accepted"},"1698238997":{"vote":"select","item":"accepted"},"1698239172":{"vote":"select","item":"accepted"},"1698239515":{"vote":"select","item":"tolerated"},"1698239531":{"vote":"select","item":"tolerated"},"1698239544":{"vote":"select","item":"tolerated"},"1698239591":{"vote":"select","item":"tolerated"},"1698239595":{"vote":"select","item":"tolerated"},"1698239596":{"vote":"select","item":"tolerated"},"1698239600":{"vote":"select","item":"tolerated"},"1698239628":{"vote":"select","item":"tolerated"},"1698239632":{"vote":"select","item":"accepted"},"1698239633":{"vote":"select","item":"declined"},"1698239634":{"vote":"select","item":"ignored"},"1698239635":{"vote":"select","item":"selected"},"1698239636":{"vote":"select","item":"tolerated"},"1698239638":{"vote":"select","item":"selected"},"1698239874":{"vote":"select","item":"declined"},"1698239875":{"vote":"select","item":"selected"},"1698239877":{"vote":"select","item":"accepted"},"1698239879":{"vote":"select","item":"selected"},"1698239881":{"vote":"select","item":"selected"},"1698239882":{"vote":"select","item":"selected"},"1698239939":{"vote":"select","item":"accepted"},"1698239941":{"vote":"select","item":"declined"},"1698239943":{"vote":"select","item":"ignored"},"1698240555":{"vote":"select","item":"accepted"},"1698240682":{"vote":"select","item":"accepted"},"1698240780":{"vote":"select","item":"accepted"},"1698240793":{"vote":"select","item":"accepted"},"1698240795":{"vote":"select","item":"selected"},"1698240796":{"vote":"select","item":"declined"},"1698240797":{"vote":"select","item":"accepted"},"1698240798":{"vote":"select","item":"ignored"},"1698240799":{"vote":"select","item":"selected"},"1698240841":{"vote":"select","item":"accepted"},"1698240842":{"vote":"select","item":"declined"},"1698240843":{"vote":"select","item":"ignored"},"1698240844":{"vote":"select","item":"tolerated"},"1698240876":{"vote":"select","item":"accepted"},"1698240877":{"vote":"select","item":"declined"},"1698240878":{"vote":"select","item":"ignored"},"1698240879":{"vote":"select","item":"tolerated"},"1698240946":{"vote":"select","item":"declined"},"1698240947":{"vote":"select","item":"selected"},"1698240948":{"vote":"select","item":"ignored"},"1698240949":{"vote":"select","item":"tolerated"},"1698242114":{"vote":"select","item":"accepted"},"1698242115":{"vote":"select","item":"declined"},"1698242116":{"vote":"select","item":"ignored"},"1698242117":{"vote":"select","item":"tolerated"},"1698243152":{"vote":"select","item":"accepted"},"1698243153":{"vote":"select","item":"selected"},"1698243154":{"vote":"select","item":"declined"},"1698243155":{"vote":"select","item":"ignored"},"1698243778":{"vote":"select","item":"accepted"},"1698243785":{"vote":"select","item":"selected"},"1698243786":{"vote":"select","item":"declined"},"Entity":{"isSelected":true,"accepted":0,"ignored":0,"tolerated":0,"declined":0,"html":"<!DOCTYPE html><html><head>{{ style }}<body>{{ svg }}<\/body> <\/html>","style":"<style>\n        body {\n        background-color: #3A3A3A\n        }\n        <\/style>","showAsSvgIfSelected":"<foreignObject pointer-events=\"none\" width=\"100%\" height=\"100%\" style=\"overflow: visible; text-align: left;\"><div style=\"display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: {{ y }}px; margin-left: {{ x }}px;\"><div data-drawio-colors=\"color: rgb(0, 0, 0); \" style=\"box-sizing: border-box; font-size: 0px; text-align: center;\"><div style=\"display: inline-block; font-size: 12px; font-family: {{ font }}; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;\"><font face=\"{{ font }}\"><u><a href=\"{{ link }}\" target=\"_top\">{{ text }}<\/a><\/u><\/font><\/div><\/div><\/div><\/foreignObject>","showAsSvgIfNotSelected":"<a href=\"{{ link }}\" target=\"_top\"><text x=\"{{ x }}\" y=\"{{ y }}\" fill=\"rgb(0, 0, 0)\" font-family=\"{{ font }}\" font-size=\"12px\" text-anchor=\"middle\">{{ text }}<\/text><\/a>","showAsSvg":"<ellipse cx=\"{{ x }}\" cy=\"{{ y }}\" rx=\"{{ rx }}\" ry=\"{{ ry }}\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(200, 200, 200)\" pointer-events=\"all\" \/>"},"1698400176":{"vote":"select","item":"accepted"},"1698400180":{"vote":"select","item":"accepted"},"1698400324":{"vote":"select","item":"accepted"},"1698400383":{"vote":"select","item":"accepted"},"1698400457":{"vote":"select","item":"accepted"},"1698400460":{"vote":"select","item":"selected"},"1698400461":{"vote":"select","item":"declined"},"1698400462":{"vote":"select","item":"tolerated"},"1698400463":{"vote":"select","item":"selected"},"1698400495":{"vote":"select","item":"selected"},"1698400679":{"vote":"select","item":"selected"},"1698400719":{"vote":"select","item":"selected"},"1698400742":{"vote":"select","item":"selected"},"1698400744":{"vote":"select","item":"accepted"},"1698400745":{"vote":"select","item":"selected"},"1698400746":{"vote":"select","item":"ignored"},"1698400747":{"vote":"select","item":"tolerated"},"1698400756":{"vote":"select","item":"accepted"},"1698400764":{"vote":"select","item":"tolerated"},"1698400765":{"vote":"select","item":"selected"},"1698400768":{"vote":"select","item":"declined"},"1698400770":{"vote":"select","item":"ignored"},"1698400771":{"vote":"select","item":"tolerated"},"1698400772":{"vote":"select","item":"declined"},"1698400773":{"vote":"select","item":"accepted"},"1698400884":{"vote":"select","item":"accepted"},"1698400885":{"vote":"select","item":"accepted"},"1698400886":{"vote":"select","item":"selected"},"1698400887":{"vote":"select","item":"declined"},"1698400888":{"vote":"select","item":"ignored"},"1698400889":{"vote":"select","item":"tolerated"},"1698404370":{"vote":"select","item":"selected"},"1698404371":{"vote":"select","item":"accepted"},"1698404372":{"vote":"select","item":"declined"},"1698404373":{"vote":"select","item":"ignored"},"1698404374":{"vote":"select","item":"tolerated"},"1698404375":{"vote":"select","item":"selected"},"1698404432":{"vote":"select","item":"accepted"},"1698404433":{"vote":"select","item":"selected"},"1698404434":{"vote":"select","item":"declined"},"1698404435":{"vote":"select","item":"ignored"},"1698404450":{"vote":"select","item":"accepted"},"1698404474":{"vote":"select","item":"accepted"},"1698404475":{"vote":"select","item":"accepted"},"1698404476":{"vote":"select","item":"accepted"},"1698404477":{"vote":"select","item":"accepted"},"1698404478":{"vote":"select","item":"accepted"},"1698404479":{"vote":"select","item":"accepted"},"1698404485":{"vote":"select","item":"accepted"},"1698404519":{"vote":"select","item":"accepted"},"1698404548":{"vote":"select","item":"accepted"},"1698404550":{"vote":"select","item":"accepted"},"1698404563":{"vote":"select","item":"accepted"},"1698404564":{"vote":"select","item":"accepted"},"1698404565":{"vote":"select","item":"selected"},"1698404570":{"vote":"select","item":"accepted"},"1698404571":{"vote":"select","item":"selected"},"1698404572":{"vote":"select","item":"declined"},"1698404573":{"vote":"select","item":"selected"},"1698404581":{"vote":"select","item":"accepted"},"1698404598":{"vote":"select","item":"accepted"},"1698404694":{"vote":"select","item":"accepted"},"1698404695":{"vote":"select","item":"accepted"},"1698404770":{"vote":"select","item":"accepted"},"1698404780":{"vote":"select","item":"accepted"},"1698404781":{"vote":"select","item":"selected"},"1698404782":{"vote":"select","item":"declined"},"1698404783":{"vote":"select","item":"ignored"},"1698404784":{"vote":"select","item":"selected"},"1698404785":{"vote":"select","item":"tolerated"},"1698404836":{"vote":"select","item":"tolerated"},"1698404838":{"vote":"select","item":"accepted"},"1698404839":{"vote":"select","item":"selected"},"1698404840":{"vote":"select","item":"declined"},"1698404841":{"vote":"select","item":"ignored"},"1698404842":{"vote":"select","item":"selected"},"1698404891":{"vote":"select","item":"tolerated"},"1698404892":{"vote":"select","item":"selected"},"1698404898":{"vote":"select","item":"accepted"},"1698404899":{"vote":"select","item":"selected"},"1698405019":{"vote":"select","item":"accepted"},"1698405020":{"vote":"select","item":"selected"},"1698405021":{"vote":"select","item":"ignored"},"1698405022":{"vote":"select","item":"declined"},"1698405023":{"vote":"select","item":"selected"},"1698405034":{"vote":"select","item":"accepted"},"1698405035":{"vote":"select","item":"declined"},"1698405036":{"vote":"select","item":"selected"},"1698405037":{"vote":"select","item":"ignored"},"1698405053":{"vote":"select","item":"accepted"},"1698405054":{"vote":"select","item":"selected"},"1698405055":{"vote":"select","item":"declined"},"1698405056":{"vote":"select","item":"ignored"},"1698405074":{"vote":"select","item":"accepted"},"1698405075":{"vote":"select","item":"tolerated"},"1698411707":{"vote":"select","item":"tolerated"},"1698412131":{"vote":"select","item":"accepted"},"1698412368":{"vote":"select","item":"accepted"},"1698412369":{"vote":"select","item":"accepted"},"1698412370":{"vote":"select","item":"accepted"},"1698412385":{"vote":"select","item":"accepted"},"1698412386":{"vote":"select","item":"accepted"},"1698412403":{"vote":"select","item":"accepted"},"1698412475":{"vote":"select","item":"accepted"},"1698412557":{"vote":"select","item":"accepted"},"1698412567":{"vote":"select","item":"accepted"},"1698412568":{"vote":"select","item":"{{ link }}"},"{{ link }}":{"showAs":"Entity"},"1698412569":{"vote":"select","item":"{{ link }}"},"1698412570":{"vote":"select","item":"{{ link }}"},"1698412674":{"vote":"select","item":"{{ link }}"},"1698412694":{"vote":"select","item":"{{ link }}"},"1698412879":{"vote":"select","item":"{{ link }}"},"1698412902":{"vote":"select","item":"{{ link }}"},"1698412903":{"vote":"select","item":"{{ link }}"},"1698412910":{"vote":"select","item":"{{ link }}"},"1698412918":{"vote":"select","item":"accepted"},"1698412950":{"vote":"select","item":"accepted"},"1698412964":{"vote":"select","item":"accepted"},"1698413013":{"vote":"select","item":"accepted"},"1698413097":{"vote":"select","item":"accepted"},"1698413101":{"vote":"select","item":"accepted"},"1698413103":{"vote":"select","item":"{{ link }}"},"1698413104":{"vote":"select","item":"{{ link }}"},"1698413107":{"vote":"select","item":"accepted"},"1698413108":{"vote":"select","item":"{{ link }}"},"1698413110":{"vote":"select","item":"{{ link }}"},"1698413111":{"vote":"select","item":"{{ link }}"},"1698413113":{"vote":"select","item":"{{ link }}"},"1698413124":{"vote":"select","item":"{{ link }}"},"1698413125":{"vote":"select","item":"{{ link }}"},"1698413126":{"vote":"select","item":"{{ link }}"},"1698413127":{"vote":"select","item":"{{ link }}"},"1698413157":{"vote":"select","item":"{{ link }}"},"1698413158":{"vote":"select","item":"{{ link }}"},"1698413164":{"vote":"select","item":"{{ link }}"},"1698413165":{"vote":"select","item":"{{ link }}"},"1698413166":{"vote":"select","item":"{{ link }}"},"1698413180":{"vote":"select","item":"{{ link }}"},"1698413182":{"vote":"select","item":"{{ link }}"},"1698416073":{"vote":"select","item":"{{ link }}"},"1698418684":{"vote":"select","item":"accepted"},"1698418767":{"vote":"select","item":"accepted"},"1698418785":{"vote":"select","item":"accepted"},"1698418788":{"vote":"select","item":"accepted"},"1698418834":{"vote":"select","item":"accepted"},"1698418886":{"vote":"select","item":"accepted"},"1698418902":{"vote":"select","item":"accepted"},"1698418924":{"vote":"select","item":"accepted"},"1698418959":{"vote":"select","item":"accepted"},"1698418973":{"vote":"select","item":"accepted"},"1698418998":{"vote":"select","item":"accepted"},"1698419102":{"vote":"select","item":"accepted"},"1698419104":{"vote":"select","item":"accepted"},"1698419151":{"vote":"select","item":"accepted"},"1698419372":{"vote":"select","item":"accepted"},"1698419390":{"vote":"select","item":"accepted"},"1698419391":{"vote":"select","item":"accepted"},"1698419548":{"vote":"select","item":"accepted"},"1698419581":{"vote":"select","item":"accepted"},"1698419627":{"vote":"select","item":"accepted"},"1698419628":{"vote":"select","item":"accepted"},"1698419654":{"vote":"select","item":"accepted"},"1698419667":{"vote":"select","item":"accepted"},"1698419674":{"vote":"select","item":"accepted"},"1698419681":{"vote":"select","item":"selected"},"1698419683":{"vote":"select","item":"accepted"},"1698419684":{"vote":"select","item":"declined"},"1698419686":{"vote":"select","item":"ignored"},"1698419687":{"vote":"select","item":"selected"},"1698420813":{"vote":"select","item":"selected"},"1698437997":{"vote":"select","item":"selected"},"1698437998":{"vote":"select","item":"selected"},"1698438011":{"vote":"select","item":"selected"},"1698438013":{"vote":"select","item":"selected"},"1698680054":{"vote":"select","item":"Achtung.drawio.svg"},"Achtung.drawio.svg":{"showAs":"Entity"},"1698755490":{"vote":"select","item":"selected"},"1698755491":{"vote":"select","item":"accepted"},"1698755493":{"vote":"select","item":"declined"},"1698755494":{"vote":"select","item":"selected"},"1698755495":{"vote":"select","item":"ignored"},"1698755504":{"vote":"select","item":"selected"},"1698755506":{"vote":"select","item":"tolerated"},"1698756374":{"vote":"select","item":"selected"},"1698756375":{"vote":"select","item":"ignored"},"1698756423":{"vote":"select","item":"tolerated"},"1698756426":{"vote":"select","item":"ignored"},"1698756431":{"vote":"select","item":"accepted"},"1698756433":{"vote":"select","item":"selected"},"1698756435":{"vote":"select","item":"declined"},"1698756446":{"vote":"select","item":"selected"},"1698756447":{"vote":"select","item":"ignored"},"1698756453":{"vote":"select","item":"tolerated"},"1698756454":{"vote":"select","item":"selected"},"1698756455":{"vote":"select","item":"declined"},"1698756457":{"vote":"select","item":"ignored"},"1698756506":{"vote":"select","item":"selected"},"1698756660":{"vote":"select","item":"ignored"},"1698756672":{"vote":"select","item":"tolerated"},"1698756702":{"vote":"select","item":"tolerated"},"1698756812":{"vote":"select","item":"tolerated"},"1698756820":{"vote":"select","item":"tolerated"},"1698756822":{"vote":"select","item":"tolerated"},"1698756823":{"vote":"select","item":"tolerated"},"1698756858":{"vote":"select","item":"tolerated"},"1698756859":{"vote":"select","item":"tolerated"},"1698756860":{"vote":"select","item":"tolerated"},"1698756905":{"vote":"select","item":"tolerated"},"1698756924":{"vote":"select","item":"selected"},"1698757051":{"vote":"select","item":"selected"},"1698757063":{"vote":"select","item":"selected"},"1698757064":{"vote":"select","item":"accepted"},"1698757065":{"vote":"select","item":"selected"},"1698757066":{"vote":"select","item":"declined"},"1698757067":{"vote":"select","item":"ignored"},"1698757068":{"vote":"select","item":"selected"},"1698757069":{"vote":"select","item":"tolerated"},"1698757071":{"vote":"select","item":"selected"},"1698757072":{"vote":"select","item":"ignored"},"1698757085":{"vote":"select","item":"accepted"},"1698757086":{"vote":"select","item":"selected"},"1698757087":{"vote":"select","item":"declined"},"1698757088":{"vote":"select","item":"ignored"},"1698760137":{"vote":"select","item":"selected"},"1698760155":{"vote":"select","item":"selected"},"1698760156":{"vote":"select","item":"selected"},"1698760187":{"vote":"select","item":"selected"},"1698760189":{"vote":"select","item":"declined"},"1698760190":{"vote":"select","item":"selected"},"1698760240":{"vote":"select","item":"accepted"},"1698760241":{"vote":"select","item":"declined"},"1698760242":{"vote":"select","item":"ignored"},"1698760243":{"vote":"select","item":"selected"},"1698760244":{"vote":"select","item":"tolerated"},"1698760603":{"vote":"select","item":"accepted"},"1698760604":{"vote":"select","item":"selected"},"1698760605":{"vote":"select","item":"declined"},"1698760606":{"vote":"select","item":"selected"},"1699537963":{"vote":"select","item":"selected"},"1699537965":{"vote":"select","item":"selected"},"1699537966":{"vote":"select","item":"declined"},"1699537970":{"vote":"select","item":"selected"},"1699537971":{"vote":"select","item":"tolerated"},"1699537972":{"vote":"select","item":"ignored"},"1699537973":{"vote":"select","item":"selected"},"1699538036":{"vote":"select","item":"accepted"},"1699538042":{"vote":"select","item":"selected"},"1699538047":{"vote":"select","item":"declined"},"1699538052":{"vote":"select","item":"selected"},"1699538061":{"vote":"select","item":"accepted"},"1699538062":{"vote":"select","item":"declined"},"1699538069":{"vote":"select","item":"accepted"},"1699538075":{"vote":"select","item":"selected"},"1699538086":{"vote":"select","item":"selected"},"1699538098":{"vote":"select","item":"accepted"},"1699538108":{"vote":"select","item":"accepted"},"1699538114":{"vote":"select","item":"accepted"},"1699538119":{"vote":"select","item":"selected"},"1699538124":{"vote":"select","item":"selected"},"1699538130":{"vote":"select","item":"accepted"},"1699538139":{"vote":"select","item":"selected"},"1699538150":{"vote":"select","item":"accepted"}}
+{
+    "1697543770": {
+        "vote": "accept",
+        "item": "olkfm"
+    },
+    "1698157014": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157340": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157479": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157480": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157508": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157518": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157520": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698157521": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698157522": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698157523": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698157524": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157525": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698157526": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698157527": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698157528": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698158417": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698158418": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698158572": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698158573": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698158574": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698158576": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698158577": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698158613": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698158615": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698158616": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698158669": {
+        "vote": "select",
+        "item": {
+            "text": "accepted",
+            "x": 120,
+            "y": 70,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158678": {
+        "vote": "select",
+        "item": {
+            "text": "declined",
+            "x": 360,
+            "y": 70,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158679": {
+        "vote": "select",
+        "item": {
+            "text": "selected",
+            "x": 240,
+            "y": 150,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158680": {
+        "vote": "select",
+        "item": {
+            "text": "tolerated",
+            "x": 120,
+            "y": 230,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158681": {
+        "vote": "select",
+        "item": {
+            "text": "selected",
+            "x": 240,
+            "y": 150,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158682": {
+        "vote": "select",
+        "item": {
+            "text": "declined",
+            "x": 360,
+            "y": 70,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158683": {
+        "vote": "select",
+        "item": {
+            "text": "selected",
+            "x": 240,
+            "y": 150,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158684": {
+        "vote": "select",
+        "item": {
+            "text": "tolerated",
+            "x": 120,
+            "y": 230,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158748": {
+        "vote": "select",
+        "item": "selected",
+        "selected": {
+            "text": "selected",
+            "x": 240,
+            "y": 150,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158749": {
+        "vote": "select",
+        "item": "declined",
+        "declined": {
+            "text": "declined",
+            "x": 360,
+            "y": 70,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158750": {
+        "vote": "select",
+        "item": "tolerated",
+        "tolerated": {
+            "text": "tolerated",
+            "x": 120,
+            "y": 230,
+            "isSelected": true,
+            "accepted": 0,
+            "ignored": 0,
+            "tolerated": 0,
+            "declined": 0,
+            "showAs": null,
+            "showAsSvg": null
+        }
+    },
+    "1698158809": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "accepted": {
+        "text": "accepted",
+        "x": 120,
+        "y": 70,
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "showAs": "Entity"
+    },
+    "1698158810": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "declined": {
+        "text": "declined",
+        "x": 360,
+        "y": 70,
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "showAs": "Entity"
+    },
+    "1698158811": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "selected": {
+        "text": "selected",
+        "x": 240,
+        "y": 150,
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "showAs": "Entity"
+    },
+    "1698158812": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698158813": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698158814": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "ignored": {
+        "text": "ignored",
+        "x": 360,
+        "y": 230,
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "showAs": "Entity"
+    },
+    "1698158815": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "tolerated": {
+        "text": "tolerated",
+        "x": 120,
+        "y": 230,
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "showAs": "Entity"
+    },
+    "1698238228": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698238615": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238641": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238692": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238700": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238701": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238740": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238741": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238742": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238756": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238792": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238801": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238812": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238817": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238870": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238933": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238934": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238963": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698238997": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698239172": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698239515": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239531": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239544": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239591": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239595": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239596": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239600": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239628": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239632": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698239633": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698239634": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698239635": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239636": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698239638": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239874": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698239875": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239877": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698239879": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239881": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239882": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698239939": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698239941": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698239943": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698240555": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240682": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240780": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240793": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240795": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698240796": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698240797": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240798": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698240799": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698240841": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240842": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698240843": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698240844": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698240876": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698240877": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698240878": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698240879": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698240946": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698240947": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698240948": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698240949": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698242114": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698242115": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698242116": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698242117": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698243152": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698243153": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698243154": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698243155": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698243778": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698243785": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698243786": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "Entity": {
+        "isSelected": true,
+        "accepted": 0,
+        "ignored": 0,
+        "tolerated": 0,
+        "declined": 0,
+        "svg": "<svg version\\\"1.1\\\" width=\\\"2530px\\\" height=\\\"1100px\\\" viewBox=\\\"-0.5 -0.5 481 321\\\" class=\\\"ge-export-svg-dark\\\">\n        <defs>\n          <style type=\\\"text\/css\\\">\n            svg.ge-export-svg-dark &gt;\n\n            * {\n              filter: invert(100%) hue-rotate(180deg);\n            }\n\n            &#xa;\n\n            svg.ge-export-svg-dark image {\n              filter: invert(100%) hue-rotate(180deg)\n            position: relative;\n            }\n          <\/style>\n        <\/defs>\n        <g>",
+        "svgClosure": "<\n\/svg>",
+        "html": "<!DOCTYPE html><html><head>{{ style }}\n<body>{{ svg }}<\/body> <\/html>",
+        "style": "<style>\n        body {\n        background-color: #3A3A3A\n        }\n   p { \n  display: flex;\n  justify-content: center; \n  margin: 0;\n  position: absolute;\n  top: 50%;\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%); \n} \n   svg { \n  display: flex;\n  justify-content: center;}     <\/style>",
+        "showAsSvgIfSelected": "<foreignObject pointer-events=\"none\" width=\"100%\" height=\"100%\" style=\"overflow: visible; text-align: left;\"><div style=\"display: flex; align-items: unsafe center; justify-content: unsafe center; width: 118px; height: 1px; padding-top: {{ y }}px; margin-left: {{ x }}px;\"><div data-drawio-colors=\"color: rgb(0, 0, 0); \" style=\"box-sizing: border-box; font-size: 0px; text-align: center;\"><div style=\"display: inline-block; font-size: 12px; font-family: {{ font }}; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;\"><font face=\"{{ font }}\"><u><a href=\"{{ link }}\" target=\"_top\">{{ text }}<\/a><\/u><\/font><\/div><\/div><\/div><\/foreignObject>",
+        "showAsSvgIfNotSelected": "<a href=\"{{ link }}\" target=\"_top\"><text x=\"{{ x }}\" y=\"{{ y }}\" fill=\"rgb(0, 0, 0)\" font-family=\"{{ font }}\" font-size=\"12px\" text-anchor=\"middle\">{{ text }}<\/text><\/a>",
+        "showAsSvg": "<ellipse cx=\"{{ x }}\" cy=\"{{ y }}\" rx=\"{{ rx }}\" ry=\"{{ ry }}\" fill=\"rgb(255, 255, 255)\" stroke=\"rgb(200, 200, 200)\" pointer-events=\"all\" \/>"
+    },
+    "1698400176": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400180": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400324": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400383": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400457": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400460": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400461": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698400462": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698400463": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400495": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400679": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400719": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400742": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400744": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400745": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400746": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698400747": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698400756": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400764": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698400765": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400768": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698400770": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698400771": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698400772": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698400773": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400884": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400885": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698400886": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698400887": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698400888": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698400889": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698404370": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404371": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404372": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698404373": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698404374": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698404375": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404432": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404433": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404434": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698404435": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698404450": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404474": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404475": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404476": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404477": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404478": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404479": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404485": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404519": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404548": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404550": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404563": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404564": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404565": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404570": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404571": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404572": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698404573": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404581": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404598": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404694": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404695": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404770": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404780": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404781": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404782": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698404783": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698404784": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404785": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698404836": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698404838": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404839": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404840": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698404841": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698404842": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404891": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698404892": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698404898": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698404899": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698405019": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698405020": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698405021": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698405022": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698405023": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698405034": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698405035": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698405036": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698405037": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698405053": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698405054": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698405055": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698405056": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698405074": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698405075": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698411707": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698412131": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412368": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412369": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412370": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412385": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412386": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412403": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412475": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412557": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412567": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412568": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "{{ link }}": {
+        "showAs": "Entity"
+    },
+    "1698412569": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412570": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412674": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412694": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412879": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412902": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412903": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412910": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698412918": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412950": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698412964": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698413013": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698413097": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698413101": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698413103": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413104": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413107": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698413108": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413110": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413111": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413113": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413124": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413125": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413126": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413127": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413157": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413158": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413164": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413165": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413166": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413180": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698413182": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698416073": {
+        "vote": "select",
+        "item": "{{ link }}"
+    },
+    "1698418684": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418767": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418785": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418788": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418834": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418886": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418902": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418924": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418959": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418973": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698418998": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419102": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419104": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419151": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419372": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419390": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419391": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419548": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419581": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419627": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419628": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419654": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419667": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419674": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419681": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698419683": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698419684": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698419686": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698419687": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698420813": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698437997": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698437998": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698438011": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698438013": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698680054": {
+        "vote": "select",
+        "item": "Achtung.drawio.svg"
+    },
+    "Achtung.drawio.svg": {
+        "showAs": "Entity"
+    },
+    "1698755490": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698755491": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698755493": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698755494": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698755495": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698755504": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698755506": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756374": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698756375": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698756423": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756426": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698756431": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698756433": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698756435": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698756446": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698756447": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698756453": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756454": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698756455": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698756457": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698756506": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698756660": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698756672": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756702": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756812": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756820": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756822": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756823": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756858": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756859": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756860": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756905": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698756924": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757051": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757063": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757064": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698757065": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757066": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698757067": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698757068": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757069": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698757071": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757072": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698757085": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698757086": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698757087": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698757088": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698760137": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760155": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760156": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760187": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760189": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698760190": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760240": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698760241": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698760242": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698760243": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760244": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698760603": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698760604": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698760605": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698760606": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764246": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698764259": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698764289": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698764327": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698764366": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1698764368": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698764374": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764375": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698764379": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764417": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764542": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764543": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764604": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764615": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764628": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764756": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764843": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764844": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764930": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764932": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764955": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764986": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698764987": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698765019": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698765021": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765096": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765106": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765180": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765181": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765227": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765228": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765254": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765255": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765256": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765305": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765306": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765307": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765486": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698765487": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698765489": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698765498": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698765500": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698765501": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698765502": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766048": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766061": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766091": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698766092": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766148": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766150": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766217": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766301": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766407": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766409": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766410": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698766411": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766413": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766445": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766519": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766551": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766552": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766560": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766562": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766575": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698766586": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766589": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766597": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766663": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766690": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766756": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766757": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766758": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766765": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766766": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766767": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698766783": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767065": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767066": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767105": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767122": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767123": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767144": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767180": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767189": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767365": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767367": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767387": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767389": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767390": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767392": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698767393": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767394": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767482": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767483": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767503": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767505": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767545": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767579": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767580": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767588": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767605": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767607": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767617": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698767621": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767654": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767656": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698767657": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767673": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767674": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767675": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767740": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767760": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767788": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698767789": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698768582": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "newText": {
+        "showAs": "Entity"
+    },
+    "1698768650": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768651": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768665": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768676": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768677": {
+        "vote": "select",
+        "item": "newText"
+    },
+    "1698768902": {
+        "vote": "select",
+        "item": "Test"
+    },
+    "Test": {
+        "showAs": "Entity"
+    },
+    "1698768911": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698769091": {
+        "vote": "select",
+        "item": "declined"
+    },
+    "1698769094": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1698769095": {
+        "vote": "select",
+        "item": "accepted"
+    },
+    "1698769097": {
+        "vote": "select",
+        "item": "ignored"
+    },
+    "1698769107": {
+        "vote": "select",
+        "item": "2test"
+    },
+    "2test": {
+        "showAs": "Entity"
+    },
+    "1698769113": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "2test2": {
+        "showAs": "Entity"
+    },
+    "1698769138": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769140": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769141": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769143": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769145": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769146": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769147": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769151": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769152": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769208": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769209": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769210": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769211": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769212": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769213": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769214": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769215": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769216": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769217": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769218": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769219": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769220": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769221": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769222": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769223": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769224": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769225": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769226": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769228": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769229": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769230": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769231": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769240": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769241": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769242": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769243": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769244": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769245": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769246": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769247": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769249": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769250": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769251": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769252": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769257": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769258": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769259": {
+        "vote": "select",
+        "item": "2test2"
+    },
+    "1698769260": {
+        "vote": "select",
+        "item": "2test2"
+    }
+}

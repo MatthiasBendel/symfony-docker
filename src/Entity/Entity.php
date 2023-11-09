@@ -83,6 +83,20 @@ class Entity
         return $showAs;
     }
 
+    public function getSvg() {
+        if (isset($this->values['svg']))
+            return $this->values['svg'];
+        if (isset($this->values['showAs']->values['svg']))
+            return $this->values['showAs']->values['svg'];
+    }
+
+    public function getSvgClosure() {
+        if (isset($this->values['svgClosure']))
+            return $this->values['svgClosure'];
+        if (isset($this->values['showAs']->values['svgClosure']))
+            return $this->values['showAs']->values['svgClosure'];
+    }
+
     public static function findInJsonFile($title) {
         #dd($title);
         $str = file_get_contents(Entity::$file);
