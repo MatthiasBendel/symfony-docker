@@ -16,6 +16,7 @@
 
 		var ellipses = group.querySelectorAll("ellipse");
 		var ancors = group.querySelectorAll("a");
+		var foreignObjects = group.querySelectorAll("foreignObject");
 
 
 
@@ -33,8 +34,12 @@
 				ellipses[j].setAttribute("cx", x);
 				ellipses[j].setAttribute("cy", y);
 
-				ancors[j].firstElementChild.setAttribute("x", x);
-				ancors[j].firstElementChild.setAttribute("y", y);
+				if (ancors[j].firstElementChild != null) {
+					ancors[j].firstElementChild.setAttribute("x", x);
+					ancors[j].firstElementChild.setAttribute("y", y);
+				}
+				foreignObjects[0].firstElementChild.setAttribute("padding-top", y);
+				foreignObjects[0].firstElementChild.setAttribute("margin-left", x);
 			}
 		}, 50);
 	</script>
