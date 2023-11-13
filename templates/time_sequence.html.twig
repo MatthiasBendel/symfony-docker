@@ -26,8 +26,7 @@
 		setInterval(function() {
 			for (var j = 0; j < ellipses.length; j++) {
 				var random = Math.random();
-				colorValue = (100 + Math.floor(random * 155)) / 100 + 220;
-				ellipses[j].setAttribute("colorValue", ellipses[j].getAttribute("colorValue") - 1 + Math.floor(Math.random() * 2));
+				colorValue += -1 + random * 2;
 				ellipses[j].setAttribute("fill", "rgb(" + colorValue + ", " + colorValue + ", " + colorValue + ")");
 				var x = ellipses[j].getAttribute("cx") - 0.5 + random;
 				var y = ellipses[j].getAttribute("cy") - 0.5 + random;
