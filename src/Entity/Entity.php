@@ -22,6 +22,10 @@ class Entity
         #$this->values['link_prefix'] = getenv("SERVER_NAME") . "/svg/";
     }
 
+    public static function createEntity($selected) {
+        return new Entity(["text" => $selected, "showAs" => "Entity", "x" => 30, "y" => 20], $selected);
+    }
+
     public function toJson(): array {
         return $this->values;
     }
