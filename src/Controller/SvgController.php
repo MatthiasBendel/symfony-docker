@@ -19,15 +19,7 @@ class SvgController extends AbstractController
     #[Route('/svg/{selected}', name: 'app_svg')]
     public function index($selected): Response
     {
-        $entities = [];
-        $jsonResponse = $this->vote("select", $selected);
-        foreach (json_decode($jsonResponse->getContent(), true)['entities'] as $entity) {
-          if (gettype($entity) == "array" && isset($entity['text'])){
-            $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
-            $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
-            array_push($entities, new Entity($entity, $selected));
-          }
-        }
+      $entities = $this->prepareEntities($selected);
 
         return new Response(
             $this->createHtml($entities),
@@ -39,33 +31,56 @@ class SvgController extends AbstractController
     #[Route('/twig/{selected}', name: 'app_twig')]
     public function twig($selected): Response
     {
-        $entities = [];
-        $jsonResponse = $this->vote("select", $selected);
-        foreach (json_decode($jsonResponse->getContent(), true)['entities'] as $entity) {
-          if (gettype($entity) == "array" && isset($entity['text'])){
-            $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
-            $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
-            array_push($entities, new Entity($entity, $selected));
-          }
-        }
+        $entities = $this->prepareEntities($selected);
         return $this->render('time_sequence.html.twig', [
-          'svg' => $this->createSvg($entities, 'https://multidimensional.online/twig/')
+          'svg' => $this->createSvg($entities, 'https://localhost/twig/')
         ]);
     }
 
+    private function prepareEntities($selected) {
+      $entities = [];
+      $json = $this->getJsonResponse();
+      foreach ($json as $entity) {
+        if (gettype($entity) == "array" && isset($entity['text'])){
+          $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
+          $entity['y'] = rand($entity['y'] - 20, $entity['y'] + 20);
+          $newSelectedEntity = new Entity($entity, $selected);
+          array_push($entities, $newSelectedEntity);
+          if ($entity['text'] === $selected)
+            $jsonResponse = $this->vote("select", $newSelectedEntity);
+        }
+      }
+      if (!$this->containsEntity($entities, $selected)) {
+        $newSelectedEntity = Entity::createEntity($selected);
+        array_push($entities, $newSelectedEntity);
+        $jsonResponse = $this->vote("select", $newSelectedEntity);
+      }
+      return $entities;
+    }
+
+    private function containsEntity($entities, $selected) {
+      foreach ($entities as $entity) {
+        if ($entity->values['text'] === $selected)
+          return true;
+      }
+      return false;
+    }
+
     #[Route('/vote/{vote}/{item}', name: 'app_vote')]
-    public function vote($vote, $item):  JsonResponse
+    public function vote($vote, $entity):  JsonResponse
     {
+      $item = $entity->values['text'];
       if ($item == null)
         $item = $entity->getJson['text'];
       if (in_array($vote, ['accept', 'tolerate', 'ignore', 'decline', 'select'])) {
-          $str = file_get_contents($this->file);
-          $json = json_decode($str, true);
+          $json = $this->getJsonResponse();
           $time = time();
           $json[$time] = array("vote" => $vote, "item" => $item);
-          if (isset($entity))
-            $json[$item] = $entity;
-          if (!isset($json[$item]['showAs']))
+          //if (isset($entity))
+            //$json[$item] = $entity;
+          if (!isset($json[$item]))
+            $json[$item] = $entity->values;
+          if (!isset($json[$item]->values['showAs']))
             $json[$item]['showAs'] = 'Entity';
           #if (!isset($json[$item]['showAsSvg']))
           #  $json[$item]['showAsSvg'] = $this->getSvgItem(30, 30, new Entity($json[$item], $item));
@@ -78,9 +93,17 @@ class SvgController extends AbstractController
         return $this->json([
             'error' => 'Invalid vote: ' . $vote
         ]);
+      }
+  
+    private function getJsonResponse() {
+      if (!isset($this->jsonResponse)){
+        $str = file_get_contents($this->file);
+        $this->jsonResponse = json_decode($str, true);
+      }
+      return $this->jsonResponse;
     }
 
-    public function createHtml($entities, $linkPrefix='https://localhost/svg/')
+    private function createHtml($entities, $linkPrefix='https://localhost/svg/')
     {
         foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
@@ -96,7 +119,7 @@ class SvgController extends AbstractController
         return $html;
     }
 
-    public function createSvg($entities, $linkPrefix='https://localhost/svg/')
+    private function createSvg($entities, $linkPrefix='https://localhost/svg/')
     {
         $rx = 40;
         $ry = 20;
@@ -119,10 +142,10 @@ class SvgController extends AbstractController
         </defs>
         <g id=\"all\">";
 
-        foreach (array_reverse($entities) as $entity)
+/*        foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
               $selectedEntity = $entity;
-
+*/
 
         # $entities->trim($showEntityCount);
         #$svg = $selectedEntity->getSvg();
