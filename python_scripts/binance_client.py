@@ -3,7 +3,7 @@
 # ----------------------------------
 # IMPORT STATEMENTS
 
-from binance.client import Client
+#from binance.client import Client
 import time
 # websocket
 import websocket
