@@ -19,7 +19,7 @@ class SvgController extends AbstractController
     public function __construct()
     {
         //$env = parse_ini_file('../.env');
-        $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
+        $this->serverName = 'https://' . "multidimensional.online";//$env["SERVER_NAME"];
     }
 
     #[Route('/svg/{selected}', name: 'app_svg')]
