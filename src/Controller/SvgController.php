@@ -16,6 +16,12 @@ class SvgController extends AbstractController
     private $file = 'test.json';
     private $svgFile = 'test.svg';
 
+    public function __construct()
+    {
+        //$env = parse_ini_file('../.env');
+        $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
+    }
+
     #[Route('/svg/{selected}', name: 'app_svg')]
     public function index($selected): Response
     {
@@ -28,12 +34,27 @@ class SvgController extends AbstractController
         );
     }
 
+    #[Route('/python/{selected}', name: 'app_python')]
+    public function python($selected): Response
+    {
+        $entities = $this->prepareEntities($selected);
+        $newPythonEntity = Entity::createEntity("binance_client.py"); # todo search for already existing one
+        array_push($entities, $newPythonEntity);
+        if ($selected === "binance_client.py") {
+            exec("docker exec -it symfony-docker-python-1 pip install -r /scripts/requirements.txt");
+            exec("docker exec -it symfony-docker-python-1 python /scripts/binance_client.py");
+        }
+        return $this->render('time_sequence.html.twig', [
+          'svg' => $this->createSvg($entities, $this->serverName . '/python/')
+        ]);
+    }
+
     #[Route('/twig/{selected}', name: 'app_twig')]
     public function twig($selected): Response
     {
         $entities = $this->prepareEntities($selected);
         return $this->render('time_sequence.html.twig', [
-          'svg' => $this->createSvg($entities, 'https://localhost/twig/')
+          'svg' => $this->createSvg($entities, $this->serverName . '/twig/')
         ]);
     }
 
@@ -94,7 +115,7 @@ class SvgController extends AbstractController
             'error' => 'Invalid vote: ' . $vote
         ]);
       }
-  
+
     private function getJsonResponse() {
       if (!isset($this->jsonResponse)){
         $str = file_get_contents($this->file);
@@ -103,8 +124,9 @@ class SvgController extends AbstractController
       return $this->jsonResponse;
     }
 
-    private function createHtml($entities, $linkPrefix='https://localhost/svg/')
+    private function createHtml($entities, $linkPrefix='/svg/')
     {
+        $link_prefix = $this->serverName . $link_prefix;
         foreach (array_reverse($entities) as $entity)
             if ($entity->toJson()['showAs'])
               $selectedEntity = $entity;
@@ -112,15 +134,15 @@ class SvgController extends AbstractController
         $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
         $html = str_replace('{{ svg }}', $this->createSvg($entities, $linkPrefix) , $html);
         $html = str_replace('<body>', "<body>\n" .
-                    "<p>Welc    kkkkjjjjjjj\n\n\njjjjjjjjome!</p>", $html);
-        #dd($html);
+                    "<p>Welcome!</p>", $html);
         if ($selectedEntity == null)
             dd($selectedEntity);
         return $html;
     }
 
-    private function createSvg($entities, $linkPrefix='https://localhost/svg/')
+    private function createSvg($entities, $linkPrefix='/svg/')
     {
+        #$linkPrefix = $this->serverName . $linkPrefix;
         $rx = 40;
         $ry = 20;
 
