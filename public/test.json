@@ -3751,5 +3751,89 @@
         "y": 20,
         "font": "Courier New",
         "isSelected": true
+    },
+    "1700668217": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1700729895": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1700729903": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1700729910": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1700729916": {
+        "vote": "select",
+        "item": "tested"
+    },
+    "tested": {
+        "text": "tested",
+        "showAs": "Entity",
+        "x": 30,
+        "y": 20,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700729932": {
+        "vote": "select",
+        "item": "not_tested"
+    },
+    "not_tested": {
+        "text": "not_tested",
+        "showAs": "Entity",
+        "x": 30,
+        "y": 20,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700729945": {
+        "vote": "select",
+        "item": "what"
+    },
+    "what": {
+        "text": "what",
+        "showAs": "Entity",
+        "x": 450,
+        "y": 290,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700730045": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730055": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730075": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730093": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730177": {
+        "vote": "select",
+        "item": "test2"
+    },
+    "test2": {
+        "text": "test2",
+        "showAs": "Entity",
+        "x": 80,
+        "y": 226,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700730199": {
+        "vote": "select",
+        "item": "selected"
     }
 }

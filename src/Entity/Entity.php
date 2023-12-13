@@ -23,7 +23,7 @@ class Entity
     }
 
     public static function createEntity($selected) {
-        return new Entity(["text" => $selected, "showAs" => "Entity", "x" => 30, "y" => 20], $selected);
+        return new Entity(["text" => $selected, "showAs" => "Entity", "x" => rand(30, 450), "y" => rand(20, 290)], $selected);
     }
 
     public function toJson(): array {
