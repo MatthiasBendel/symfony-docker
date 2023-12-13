@@ -41,6 +41,8 @@ services:
       - ./python_scripts:/scripts
       - ./python_data:/data
     tty: true
+    environment:
+      - PYTHONUNBUFFERED=0
 
 # Mercure is installed as a Caddy module, prevent the Flex recipe from installing another service
 ###> symfony/mercure-bundle ###
