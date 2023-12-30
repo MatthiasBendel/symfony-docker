@@ -3751,5 +3751,189 @@
         "y": 20,
         "font": "Courier New",
         "isSelected": true
+    },
+    "1700668217": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1700729895": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1700729903": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1700729910": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1700729916": {
+        "vote": "select",
+        "item": "tested"
+    },
+    "tested": {
+        "text": "tested",
+        "showAs": "Entity",
+        "x": 30,
+        "y": 20,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700729932": {
+        "vote": "select",
+        "item": "not_tested"
+    },
+    "not_tested": {
+        "text": "not_tested",
+        "showAs": "Entity",
+        "x": 30,
+        "y": 20,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700729945": {
+        "vote": "select",
+        "item": "what"
+    },
+    "what": {
+        "text": "what",
+        "showAs": "Entity",
+        "x": 450,
+        "y": 290,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700730045": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730055": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730075": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730093": {
+        "vote": "select",
+        "item": "what"
+    },
+    "1700730177": {
+        "vote": "select",
+        "item": "test2"
+    },
+    "test2": {
+        "text": "test2",
+        "showAs": "Entity",
+        "x": 80,
+        "y": 226,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1700730199": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479351": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479379": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479401": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479606": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479667": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702479668": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1702479674": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1702479686": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1702479687": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1702479689": {
+        "vote": "select",
+        "item": "tolerated"
+    },
+    "1702479692": {
+        "vote": "select",
+        "item": "Python Code"
+    },
+    "Python Code": {
+        "text": "Python Code",
+        "showAs": "Entity",
+        "x": 302,
+        "y": 244,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1702480012": {
+        "vote": "select",
+        "item": "Python Code"
+    },
+    "1702480015": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "binance_client.py": {
+        "text": "binance_client.py",
+        "showAs": "Entity",
+        "x": 201,
+        "y": 132,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1702480048": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480067": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480109": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480116": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480117": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480124": {
+        "vote": "select",
+        "item": "binance_client.py"
+    },
+    "1702480125": {
+        "vote": "select",
+        "item": "selected"
+    },
+    "1702480126": {
+        "vote": "select",
+        "item": "binance_client.py"
     }
 }

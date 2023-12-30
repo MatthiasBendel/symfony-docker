@@ -61,7 +61,7 @@ def websocketOnMessage(ws, message):
 
     counter_reached = COUNTER % 1800
     if counter_reached == 0:
-        with open('data_file_' + str(COUNTER) + '.txt', 'w') as file:
+        with open('data_file_' + str(COUNTER) + '.json', 'w') as file:
             file.write(json.dumps(LIST_WITH_ALL_MESSAGES))  # use `json.loads` to do the reverse
             print('file created')
 
