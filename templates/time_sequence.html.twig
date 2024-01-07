@@ -9,7 +9,9 @@
 	</style>
 </head>
 <body>
-	{{ svg | raw }}
+	<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+      <text x="10" y="50" font-family="Courier New" font-size="16" id="myText">Press a key</text>
+    </svg>
 
 	<script>
 		var group = document.getElementById("all");
@@ -42,6 +44,12 @@
 				foreignObjects[0].firstElementChild.setAttribute("margin-left", x);
 			}
 		}, 50);
+
+        var svgText = document.getElementById('myText');
+
+        document.addEventListener('keydown', (event) => {
+          svgText.textContent = event.key;
+        });
 	</script>
 </body>
 </html>

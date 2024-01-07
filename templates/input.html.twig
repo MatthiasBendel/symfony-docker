@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Ellipses</title>
+  <style>
+    body, html, #svg {
+      width: 2225;
+      height: 1290;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="position: absolute; bottom: 0; width: 100%;">
+    <svg id="svg" width="2225" height="1290">
+      <text x="10" y="100" font-family="{{ font }}" font-size="36" id="inputText">...</text>
+    </svg>
+  </div>
+
+  <script>
+    // Select the SVG text element
+    const svgText = document.getElementById('inputText');
+
+    function createSVGEllipseWithText(svg, text) {
+      var svgWidth = svg.getAttribute('width');
+      var svgHeight = svg.getAttribute('height');
+
+      // Generate random cx and cy values within the range of the SVG dimensions
+      var cx = Math.random() * parseInt(svgWidth);
+      var cy = Math.random() * parseInt(svgHeight);
+
+      // Generate random rx value
+      var rx = (100 * (text.length / 5)).toString();
+      var ry = 40;
+      var strokeWidth = 1;
+
+      // Create the ellipse and text elements
+      var ellipse = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+      ellipse.setAttribute("cx", cx.toString());
+      ellipse.setAttribute("cy", cy.toString());
+      ellipse.setAttribute("rx", rx);
+      ellipse.setAttribute("ry", ry.toString());
+      ellipse.setAttribute("fill", "grey");
+      ellipse.setAttribute("stroke", "white");
+      ellipse.setAttribute("stroke-width", strokeWidth.toString());
+
+      var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      textElement.setAttribute("x", cx.toString());
+      textElement.setAttribute("y", (cy + 5).toString()); // Adjust the Y position for the text
+      textElement.setAttribute("text-anchor", "middle"); // Center the text horizontally
+      textElement.setAttribute("font-size", "36");
+      textElement.setAttribute("font-family", "{{ font }}");
+      textElement.textContent = text;
+
+      // Append the ellipse and text to the existing "svg" element
+      svg.appendChild(ellipse);
+      svg.appendChild(textElement);
+    }
+
+    // Add an event listener to the document to listen for keyboard input
+    document.addEventListener('keydown', (event) => {
+      if (event.key == 'Enter') {
+        createSVGEllipseWithText(document.getElementById('svg'), svgText.textContent.slice(0, -4));
+        svgText.textContent = " ..."
+      } else if (event.key == 'Backspace') {
+        svgText.textContent = svgText.textContent.slice(0, -5) + " ..."
+      } else if (event.key == 'Shift') {
+      } else {
+        svgText.textContent = svgText.textContent.slice(0, -4) + event.key + " ...";
+      }
+    });
+  </script>
+</body>
+</html>

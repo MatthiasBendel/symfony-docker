@@ -12,5 +12,19 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+        <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+          <text x="10" y="50" font-family="Arial" font-size="16" id="myText">Press a key</text>
+        </svg>
     </body>
+
+    <javascript>
+        // Select the SVG text element
+        const svgText = document.querySelector('svg text');
+
+        // Add an event listener to the document to listen for keyboard input
+        document.addEventListener('keydown', (event) => {
+          // Update the text content of the SVG text element with the key that was pressed
+          svgText.textContent = event.key;
+        });
+    </javascript>
 </html>

@@ -53,8 +53,9 @@ class SvgController extends AbstractController
     public function twig($selected): Response
     {
         $entities = $this->prepareEntities($selected);
-        return $this->render('time_sequence.html.twig', [
-          'svg' => $this->createSvg($entities, $this->serverName . '/twig/')
+        return $this->render('input.html.twig', [
+          'svg' => $this->createSvg($entities, $this->serverName . '/twig/'),
+          'font' => 'Courier New'
         ]);
     }
 
