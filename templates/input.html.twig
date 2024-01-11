@@ -24,7 +24,9 @@
     // Select the SVG text element
     const svgText = document.getElementById('inputText');
 
-    function createSVGEllipseWithText(svg, text) {
+    function createSVGEllipseWithText(svg
+    ) {
+      var text = svgText.textContent.slice(0, -4)
       var svgWidth = svg.getAttribute('width');
       var svgHeight = svg.getAttribute('height');
 
@@ -61,17 +63,31 @@
     }
 
     // Add an event listener to the document to listen for keyboard input
-    document.addEventListener('keydown', (event) => {
-      if (event.key == 'Enter') {
-        createSVGEllipseWithText(document.getElementById('svg'), svgText.textContent.slice(0, -4));
+    var meta = false;
+    document.addEventListener('keydown', async () => {
+      if (event.key == 'Enter' || event.key == 'ArrowUp' || event.key == 'ArrowDown' || event.key == 'ArrowLeft'
+       || event.key == 'ArrowRight') {
+        createSVGEllipseWithText(document.getElementById('svg'));
         svgText.textContent = " ..."
       } else if (event.key == 'Backspace') {
         svgText.textContent = svgText.textContent.slice(0, -5) + " ..."
       } else if (event.key == 'Shift') {
+      } else if (event.key == 'Meta') {
+        meta = true;
+      } else if (event.key == 'v') {
+          try {
+            const text = await navigator.clipboard.readText();
+            svgText.textContent = svgText.textContent.slice(0, -9) + text + " ...";
+            console.log('Text from clipboard: ', text);
+            // Handle the text read from the clipboard
+          } catch (err) {
+            console.error('Failed to read from clipboard: ', err);
+          }
       } else {
         svgText.textContent = svgText.textContent.slice(0, -4) + event.key + " ...";
       }
     });
+
   </script>
 </body>
 </html>
