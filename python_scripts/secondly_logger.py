@@ -3,7 +3,7 @@ import logging
 
 def log_everything():
     # Create and configure logger
-    logging.basicConfig(filename='/workspace/symmfony-docker/logs/example.log', format='%(asctime)s - %(message)s', level=logging.INFO)
+    logging.basicConfig(filename='example.log', format='%(asctime)s - %(message)s', level=logging.INFO)
 
     # Create a custom logger
     logger = logging.getLogger(__name__)
