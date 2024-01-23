@@ -24,20 +24,51 @@
     // Select the SVG text element
     const svgText = document.getElementById('inputText');
 
-    function createSVGEllipseWithText(svg
-    ) {
+    function createSVGEllipseWithText(svg) {
       var text = svgText.textContent.slice(0, -4)
-      var svgWidth = svg.getAttribute('width');
-      var svgHeight = svg.getAttribute('height');
+      var cy = Math.random() * parseInt(svg.getAttribute('height'));
+      if (text && text.includes(" ")) {
+        let parts = text.split(" ");
+        parts.forEach(function(part, index) {
+          createSVGEllipseText(svg, part, index, parts.length - index, cy);
+        });
+        return;
+      } else  {
+        createSVGEllipseText(svg, text, 0, 0, cy);
+      }
 
-      // Generate random cx and cy values within the range of the SVG dimensions
-      var cx = Math.random() * parseInt(svgWidth);
-      var cy = Math.random() * parseInt(svgHeight);
+      if (checkOverlap()) {
+        removeAndRecreateOverlappingElements();
+      }
+    }
+
+    function removeAndRecreateOverlappingElements() {
+      let svg = document.getElementById('svg');
+      let elements = svg.querySelectorAll('ellipse, text');
+      let overlapping = false;
+
+      elements.forEach(element => {
+        element.remove(); // Remove all existing ellipse and text elements
+      });
+
+      do {
+
+        createSVGEllipseWithText(svg); // Recreate the ellipse and text elements
+        overlapping = checkOverlap(elements); // Check if the new elements overlap
+      } while (overlapping);
+    }
+
+    function createSVGEllipseText(svg, text, leftWeight, rightWeight, cy) {
+      console.log("Create ellipse for: " + text);
+      var svgWidth = svg.getAttribute('width');
 
       // Generate random rx value
       var rx = (100 * (text.length / 5)).toString();
       var ry = 40;
       var strokeWidth = 1;
+
+      // Generate random cx and cy values within the range of the SVG dimensions
+      var cx = rx + (leftWeight * Math.random() * (parseInt(svgWidth) - 2*rx) / (leftWeight + rightWeight)) + leftWeight * rx;
 
       // Create the ellipse and text elements
       var ellipse = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
@@ -72,6 +103,10 @@
       } else if (event.key == 'Backspace') {
         svgText.textContent = svgText.textContent.slice(0, -5) + " ..."
       } else if (event.key == 'Shift') {
+      } else if (event.key == 'Alt') {
+      } else if (event.key == 'Shift') {
+      } else if (event.key == 'Tab') {
+      } else if (event.key == 'Control') {
       } else if (event.key == 'Meta') {
         meta = true;
       } else if (event.key == 'v') {
@@ -87,6 +122,29 @@
         svgText.textContent = svgText.textContent.slice(0, -4) + event.key + " ...";
       }
     });
+
+    function checkOverlap() {
+      const elements = document.querySelectorAll('ellipse, text'); // Select the elements to be checked for overlap
+      elements.forEach((element, index) => {
+        for (let i = index + 1; i < elements.length; i++) {
+          if (doOverlap(element, elements[i])) {
+            console.log(element, " and ", elements[i], " are overlapping");
+            createSVGEllipseText(svg, text, leftWeight, rightWeight, cy);
+          }
+        }
+      });
+    }
+
+    function doOverlap(element1, element2) {
+      const rect1 = element1.getBoundingClientRect();
+      const rect2 = element2.getBoundingClientRect();
+      return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+    }
 
   </script>
 </body>

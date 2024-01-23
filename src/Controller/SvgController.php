@@ -34,6 +34,19 @@ class SvgController extends AbstractController
         );
     }
 
+    #[Route('/import/{selected}', name: 'app_import')]
+    public function import($selected): Response
+    {
+      //TODO: import file!
+      $entities = $this->prepareEntities($selected);
+
+        return new Response(
+            $this->createHtml($entities),
+            Response::HTTP_OK,
+            ['content-type' => 'text/html']
+        );
+    }
+
     #[Route('/python/{selected}', name: 'app_python')]
     public function python($selected): Response
     {
@@ -125,7 +138,7 @@ class SvgController extends AbstractController
       return $this->jsonResponse;
     }
 
-    private function createHtml($entities, $linkPrefix='/svg/')
+    private function createHtml($entities, $link_prefix='/svg/')
     {
         $link_prefix = $this->serverName . $link_prefix;
         foreach (array_reverse($entities) as $entity)
@@ -133,7 +146,7 @@ class SvgController extends AbstractController
               $selectedEntity = $entity;
         $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
         $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
-        $html = str_replace('{{ svg }}', $this->createSvg($entities, $linkPrefix) , $html);
+        $html = str_replace('{{ svg }}', $this->createSvg($entities, $link_prefix) , $html);
         $html = str_replace('<body>', "<body>\n" .
                     "<p>Welcome!</p>", $html);
         if ($selectedEntity == null)

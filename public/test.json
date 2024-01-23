@@ -4483,5 +4483,229 @@
     "1704999099": {
         "vote": "select",
         "item": "test"
+    },
+    "1705167722": {
+        "vote": "select",
+        "item": "Werte_v3.1.drawio.svg"
+    },
+    "Werte_v3.1.drawio.svg": {
+        "text": "Werte_v3.1.drawio.svg",
+        "showAs": "Entity",
+        "x": 173,
+        "y": 67,
+        "font": "Courier New",
+        "isSelected": true
+    },
+    "1705167830": {
+        "vote": "select",
+        "item": "Werte_v3.1.drawio.svg"
+    },
+    "1705167852": {
+        "vote": "select",
+        "item": "Werte_v3.1.drawio.svg"
+    },
+    "1705167962": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1705167967": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1705168006": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022244": {
+        "vote": "select",
+        "item": "Werte_v3.1.drawio.svg"
+    },
+    "1706022251": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022372": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022455": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022477": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022484": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022516": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022543": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022617": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022640": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022663": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022775": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022858": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706022971": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023045": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023319": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023399": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023443": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023468": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023496": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023717": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706023798": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024000": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024018": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024148": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024174": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024205": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024351": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024433": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024534": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024762": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706024837": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025074": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025118": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025301": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025421": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025541": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025543": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025638": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025743": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025773": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025981": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706025992": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706026015": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706026076": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706026194": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706026232": {
+        "vote": "select",
+        "item": "test"
+    },
+    "1706026369": {
+        "vote": "select",
+        "item": "test"
     }
 }

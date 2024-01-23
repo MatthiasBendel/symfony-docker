@@ -3,12 +3,26 @@ import logging
 import time
 
 
+def buy_directly_no_sell(coin="EUR"):
+    return {
+        "buy": True,
+        "sell": 'never',
+        "coin": coin
+    }
+
+
+def best_strategy():
+    buy_directly_no_sell()
+
 def log_secondly_for_one_minute():
     # Set the end time for the script to run for 1 minute (60 seconds)
     end_time = time.time() + 60
 
     while time.time() < end_time:
         log_everything()
+        # todo: download data
+        # todo: take buy decision
+        best_strategy()
         time.sleep(1)  # Pause for 1 second
 
 
