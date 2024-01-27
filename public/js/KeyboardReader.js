@@ -7,7 +7,7 @@ function createSVGEllipseWithText(svg) {
   if (text && text.includes(" ")) {
     let parts = text.split(" ");
     parts.forEach(function(part, index) {
-      (svg, part, index, parts.length - index, cy);
+      createSVGEllipseText(svg, part, index, parts.length - index, cy);
     });
   } else  {
     createSVGEllipseText(svg, text, 0, 0, cy);
@@ -21,6 +21,7 @@ function removeAndRecreateOverlappingElements(svg, text) {
     let elements = svg.querySelectorAll('ellipse, text');
     let elementsArray = Array.from(elements); // Convert the NodeList to an array
     let element = svg.querySelector('#' + text);
+    console.log(elementsArray);
     console.log("Searching for overlap with " + text);
     if (element != null) {
       for (let i = 0; i < elementsArray.length; i++) {
@@ -77,7 +78,7 @@ function createSVGEllipseText(svg, text, leftWeight, rightWeight, cy) {
   textElement.setAttribute("y", (cy + 5).toString()); // Adjust the Y position for the text
   textElement.setAttribute("text-anchor", "middle"); // Center the text horizontally
   textElement.setAttribute("font-size", "36");
-  textElement.setAttribute("font-family", "{{ font }}");
+  textElement.setAttribute("font-family", 'Courier New');
   textElement.textContent = text;
   textElement.setAttribute("id", text);
 
