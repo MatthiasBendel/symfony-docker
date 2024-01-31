@@ -1,0 +1,43 @@
+{# Your Twig template #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placing an SVG at a Random Position</title>
+    <style>
+        .random-position {
+            position: absolute;
+            /* Set the top and left properties to random values */
+            top: {{ randomTop }}px;
+            left: {{ randomLeft }}px;
+            transform: scale(2); /* This will double the size of the SVG */
+        }
+        body, html, #svg {
+          width: 12ßß;
+          height: 6ß0;
+          margin: 0;
+          padding: 0;
+        }
+      </style>
+</head>
+<body>
+    {# Include the SVG file using an img tag #}
+    <img src="{{ asset('Werte_v3.6_controls.svg') }}" class="random-position" alt="Randomly Positioned SVG">
+
+    <div style="position: absolute; bottom: 0; width: 100%;">
+        <svg id="svg" width="1200" height="6ßß">
+          <text x="10" y="100" font-family="{{ font }}" font-size="36" id="inputText">...</text>
+        </svg>
+      </div>
+      <script src="{{ asset('js/KeyboardReader.js') }}"></script>
+      <script>
+        // Select the SVG element
+        var svgElement = document.getElementById('accept_triangle');
+
+        // Add a click event listener to the SVG element
+        svgElement.addEventListener('click', function(event) {
+            // Your click event handling logic here
+            console.log('The SVG element was clicked');
+        });
+      </script>
+</body>
+</html>

@@ -66,9 +66,16 @@ class SvgController extends AbstractController
     public function twig($selected): Response
     {
         $entities = $this->prepareEntities($selected);
-        return $this->render('input.html.twig', [
-          'svg' => $this->createSvg($entities, $this->serverName . '/twig/'),
-          'font' => 'Courier New'
+        // Generate random values for randomTop and randomLeft
+        $randomTop = rand(0, 600); // Replace 500 with the maximum top value
+        $randomLeft = rand(0, 1200); // Replace 500 with the maximum left value
+
+        // Pass the randomTop and randomLeft variables to the Twig template
+        return $this->render('controls.html.twig', [
+            'randomTop' => $randomTop,
+            'randomLeft' => $randomLeft,
+            'svg' => $this->createSvg($entities, $this->serverName . '/twig/'),
+            'font' => 'Courier New'
         ]);
     }
 
