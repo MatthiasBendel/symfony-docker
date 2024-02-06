@@ -38,14 +38,17 @@ class SvgController extends AbstractController
         //...
 
         // Pass the randomTop and randomLeft variables to the Twig template
-        return $this->render('v2.html.twig', [
+        return $this->render('draganddrop.html.twig', [
             'randomTop' => $randomTop,
             'randomLeft' => $randomLeft,
             'svg' => $this->createSvg($entities, $this->serverName . '/v2/'),
             'font' => 'Courier New',
             'iFrame' => "<iframe src=\"https://www.audio.com/pukpuk\" width=\"100%\" height=\"200\" style=\"border:none;\">
                   </iframe>",
-            'scripts' => ["js/KeyboardReader.js"]
+            'scripts' => [
+                    "js/KeyboardReader.js",
+                    "js/DragAndDropEllipses.js"
+                ]
         ]);
     }
 
