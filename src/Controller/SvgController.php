@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Util\XmlUtils;
+use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +17,8 @@ class SvgController extends AbstractController
 {
     private $file = 'test.json';
     private $svgFile = 'test.svg';
+    private $v2_jsonFfile = 'test.json';
+    private $v2_svgFile = 'Werte_v3.6_controls.svg';
 
     public function __construct()
     {
@@ -22,66 +26,32 @@ class SvgController extends AbstractController
         $this->serverName = 'https://' . "multidimensional.online";//$env["SERVER_NAME"];
     }
 
-    #[Route('/svg/{selected}', name: 'app_svg')]
-    public function index($selected): Response
+    #[Route('/v2/{selected}', name: 'app_v2')]
+    public function v2($selected): Response
     {
-      $entities = $this->prepareEntities($selected);
-
-        return new Response(
-            $this->createHtml($entities),
-            Response::HTTP_OK,
-            ['content-type' => 'text/html']
-        );
-    }
-
-    #[Route('/import/{selected}', name: 'app_import')]
-    public function import($selected): Response
-    {
-      //TODO: import file!
-      $entities = $this->prepareEntities($selected);
-
-        return new Response(
-            $this->createHtml($entities),
-            Response::HTTP_OK,
-            ['content-type' => 'text/html']
-        );
-    }
-
-    #[Route('/python/{selected}', name: 'app_python')]
-    public function python($selected): Response
-    {
-        $entities = $this->prepareEntities($selected);
-        $newPythonEntity = Entity::createEntity("binance_client.py"); # todo search for already existing one
-        array_push($entities, $newPythonEntity);
-        if ($selected === "binance_client.py") {
-            exec("docker exec -it symfony-docker-python-1 pip install -r /scripts/requirements.txt");
-            exec("docker exec -it symfony-docker-python-1 python /scripts/binance_client.py");
-        }
-        return $this->render('time_sequence.html.twig', [
-          'svg' => $this->createSvg($entities, $this->serverName . '/python/')
-        ]);
-    }
-
-    #[Route('/twig/{selected}', name: 'app_twig')]
-    public function twig($selected): Response
-    {
-        $entities = $this->prepareEntities($selected);
+        $entities = $this->prepareEntities($selected, $this->v2_jsonFfile);
         // Generate random values for randomTop and randomLeft
         $randomTop = rand(0, 600); // Replace 500 with the maximum top value
         $randomLeft = rand(0, 1200); // Replace 500 with the maximum left value
 
+        $svg = XmlUtils::loadFile($this->v2_svgFile);
+        //...
+
         // Pass the randomTop and randomLeft variables to the Twig template
-        return $this->render('controls.html.twig', [
+        return $this->render('v2.html.twig', [
             'randomTop' => $randomTop,
             'randomLeft' => $randomLeft,
-            'svg' => $this->createSvg($entities, $this->serverName . '/twig/'),
-            'font' => 'Courier New'
+            'svg' => $this->createSvg($entities, $this->serverName . '/v2/'),
+            'font' => 'Courier New',
+            'iFrame' => "<iframe src=\"https://www.audio.com/pukpuk\" width=\"100%\" height=\"200\" style=\"border:none;\">
+                  </iframe>",
+            'scripts' => ["js/KeyboardReader.js"]
         ]);
     }
 
-    private function prepareEntities($selected) {
+    private function prepareEntities($selected, $jsonFile) {
       $entities = [];
-      $json = $this->getJsonResponse();
+      $json = $this->getJsonResponse($jsonFile);
       foreach ($json as $entity) {
         if (gettype($entity) == "array" && isset($entity['text'])){
           $entity['x'] = rand($entity['x'] - 30, $entity['x'] + 30);
@@ -98,67 +68,6 @@ class SvgController extends AbstractController
         $jsonResponse = $this->vote("select", $newSelectedEntity);
       }
       return $entities;
-    }
-
-    private function containsEntity($entities, $selected) {
-      foreach ($entities as $entity) {
-        if ($entity->values['text'] === $selected)
-          return true;
-      }
-      return false;
-    }
-
-    #[Route('/vote/{vote}/{item}', name: 'app_vote')]
-    public function vote($vote, $entity):  JsonResponse
-    {
-      $item = $entity->values['text'];
-      if ($item == null)
-        $item = $entity->getJson['text'];
-      if (in_array($vote, ['accept', 'tolerate', 'ignore', 'decline', 'select'])) {
-          $json = $this->getJsonResponse();
-          $time = time();
-          $json[$time] = array("vote" => $vote, "item" => $item);
-          //if (isset($entity))
-            //$json[$item] = $entity;
-          if (!isset($json[$item]))
-            $json[$item] = $entity->values;
-          if (!isset($json[$item]->values['showAs']))
-            $json[$item]['showAs'] = 'Entity';
-          #if (!isset($json[$item]['showAsSvg']))
-          #  $json[$item]['showAsSvg'] = $this->getSvgItem(30, 30, new Entity($json[$item], $item));
-          file_put_contents($this->file, json_encode($json, JSON_PRETTY_PRINT));
-          return $this->json([
-              'message' => 'Voted '. $vote .' for ' . $item . ' (at ' . date('m.d.Y h:i:s a', $time) . ' (and added to ' . $this->file . '!',
-              'entities' => $json
-          ]);
-        }
-        return $this->json([
-            'error' => 'Invalid vote: ' . $vote
-        ]);
-      }
-
-    private function getJsonResponse() {
-      if (!isset($this->jsonResponse)){
-        $str = file_get_contents($this->file);
-        $this->jsonResponse = json_decode($str, true);
-      }
-      return $this->jsonResponse;
-    }
-
-    private function createHtml($entities, $link_prefix='/svg/')
-    {
-        $link_prefix = $this->serverName . $link_prefix;
-        foreach (array_reverse($entities) as $entity)
-            if ($entity->toJson()['showAs'])
-              $selectedEntity = $entity;
-        $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
-        $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
-        $html = str_replace('{{ svg }}', $this->createSvg($entities, $link_prefix) , $html);
-        $html = str_replace('<body>', "<body>\n" .
-                    "<p>Welcome!</p>", $html);
-        if ($selectedEntity == null)
-            dd($selectedEntity);
-        return $html;
     }
 
     private function createSvg($entities, $linkPrefix='/svg/')
@@ -203,5 +112,123 @@ class SvgController extends AbstractController
         #dd($svg);
         $svg .= "</svg>";
         return $svg;
+    }
+
+    #[Route('/svg/{selected}', name: 'app_svg')]
+    public function index($selected): Response
+    {
+      $entities = $this->prepareEntities($selected, $this->file);
+
+        return new Response(
+            $this->createHtml($entities),
+            Response::HTTP_OK,
+            ['content-type' => 'text/html']
+        );
+    }
+
+    #[Route('/import/{selected}', name: 'app_import')]
+    public function import($selected): Response
+    {
+      //TODO: import file!
+      $entities = $this->prepareEntities($selected, $this->file);
+
+        return new Response(
+            $this->createHtml($entities),
+            Response::HTTP_OK,
+            ['content-type' => 'text/html']
+        );
+    }
+
+    #[Route('/python/{selected}', name: 'app_python')]
+    public function python($selected): Response
+    {
+        $entities = $this->prepareEntities($selected, $this->file);
+        $newPythonEntity = Entity::createEntity("binance_client.py"); # todo search for already existing one
+        array_push($entities, $newPythonEntity);
+        if ($selected === "binance_client.py") {
+            exec("docker exec -it symfony-docker-python-1 pip install -r /scripts/requirements.txt");
+            exec("docker exec -it symfony-docker-python-1 python /scripts/binance_client.py");
+        }
+        return $this->render('time_sequence.html.twig', [
+          'svg' => $this->createSvg($entities, $this->serverName . '/python/')
+        ]);
+    }
+
+    #[Route('/twig/{selected}', name: 'app_twig')]
+    public function twig($selected): Response
+    {
+        $entities = $this->prepareEntities($selected, $this->file);
+        // Generate random values for randomTop and randomLeft
+        $randomTop = rand(0, 600); // Replace 500 with the maximum top value
+        $randomLeft = rand(0, 1200); // Replace 500 with the maximum left value
+
+        // Pass the randomTop and randomLeft variables to the Twig template
+        return $this->render('controls.html.twig', [
+            'randomTop' => $randomTop,
+            'randomLeft' => $randomLeft,
+            'svg' => $this->createSvg($entities, $this->serverName . '/twig/'),
+            'font' => 'Courier New'
+        ]);
+    }
+
+    private function containsEntity($entities, $selected) {
+      foreach ($entities as $entity) {
+        if ($entity->values['text'] === $selected)
+          return true;
+      }
+      return false;
+    }
+
+    #[Route('/vote/{vote}/{item}', name: 'app_vote')]
+    public function vote($vote, $entity):  JsonResponse
+    {
+      $item = $entity->values['text'];
+      if ($item == null)
+        $item = $entity->getJson['text'];
+      if (in_array($vote, ['accept', 'tolerate', 'ignore', 'decline', 'select'])) {
+          $json = $this->getJsonResponse($this->file);
+          $time = time();
+          $json[$time] = array("vote" => $vote, "item" => $item);
+          //if (isset($entity))
+            //$json[$item] = $entity;
+          if (!isset($json[$item]))
+            $json[$item] = $entity->values;
+          if (!isset($json[$item]->values['showAs']))
+            $json[$item]['showAs'] = 'Entity';
+          #if (!isset($json[$item]['showAsSvg']))
+          #  $json[$item]['showAsSvg'] = $this->getSvgItem(30, 30, new Entity($json[$item], $item));
+          file_put_contents($this->file, json_encode($json, JSON_PRETTY_PRINT));
+          return $this->json([
+              'message' => 'Voted '. $vote .' for ' . $item . ' (at ' . date('m.d.Y h:i:s a', $time) . ' (and added to ' . $this->file . '!',
+              'entities' => $json
+          ]);
+        }
+        return $this->json([
+            'error' => 'Invalid vote: ' . $vote
+        ]);
+      }
+
+    private function getJsonResponse($svgFile) {
+      if (!isset($this->jsonResponse)){
+        $str = file_get_contents($svgFile);
+        $this->jsonResponse = json_decode($str, true);
+      }
+      return $this->jsonResponse;
+    }
+
+    private function createHtml($entities, $link_prefix='/svg/')
+    {
+        $link_prefix = $this->serverName . $link_prefix;
+        foreach (array_reverse($entities) as $entity)
+            if ($entity->toJson()['showAs'])
+              $selectedEntity = $entity;
+        $html = $selectedEntity->toJson()['showAs']->toJson()['html'];
+        $html = str_replace('{{ style }}', $selectedEntity->toJson()['showAs']->toJson()['style'] , $html);
+        $html = str_replace('{{ svg }}', $this->createSvg($entities, $link_prefix) , $html);
+        $html = str_replace('<body>', "<body>\n" .
+                    "<p>Welcome!</p>", $html);
+        if ($selectedEntity == null)
+            dd($selectedEntity);
+        return $html;
     }
 }

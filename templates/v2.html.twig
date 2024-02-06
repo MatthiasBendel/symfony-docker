@@ -30,10 +30,12 @@
         </svg>
       </div>
 
-      <iframe src="https://www.audio.com/pukpuk" width="100%" height="200" style="border:none;">
-      </iframe>
+    {{ iFrame | raw }}
 
-      <script src="{{ asset('js/KeyboardReader.js') }}"></script>
+    {% for script in scripts %}
+        <script src="{{ asset(script) }}"></script>
+    {% endfor %}
+
       <script>
         // Select the SVG element
         var svgElement = document.getElementById('accept_triangle');

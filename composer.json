@@ -11,6 +11,7 @@
         "ext-iconv": "*",
         "runtime/frankenphp-symfony": "^0.1.1",
         "symfony/asset": "6.3.*",
+        "symfony/config": "6.3.*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
@@ -18,6 +19,7 @@
         "symfony/requirements-checker": "^2.0",
         "symfony/runtime": "6.3.*",
         "symfony/twig-bundle": "6.3.*",
+        "symfony/validator": "6.3.*",
         "symfony/yaml": "6.3.*"
     },
     "config": {
