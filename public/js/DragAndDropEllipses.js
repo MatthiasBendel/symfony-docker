@@ -1,11 +1,7 @@
-// Select all the SVG ellipses
-const ellipses = document.querySelectorAll('ellipse');
-
-// Initialize variables for tracking the active ellipse and the offset
+const svg = document.querySelector('svg');
 let activeEllipse = null;
 let offset = { x: 0, y: 0 };
 
-// Function to handle the mousedown event
 function handleMouseDown(e) {
   activeEllipse = e.target;
   const bbox = activeEllipse.getBBox();
@@ -15,24 +11,62 @@ function handleMouseDown(e) {
   };
 }
 
-// Function to handle the mousemove event
 function handleMouseMove(e) {
   if (activeEllipse) {
+    const bbox = activeEllipse.getBBox();
     activeEllipse.setAttribute('cx', e.clientX - offset.x);
     activeEllipse.setAttribute('cy', e.clientY - offset.y);
   }
 }
 
-// Function to handle the mouseup event
 function handleMouseUp() {
-  activeEllipse = null;
+  if (activeEllipse) {
+    checkForOverlap(activeEllipse)
+    activeEllipse = null;
+  }
 }
 
-// Add event listeners to each ellipse
+function checkForOverlap(activeEllipse) {
+    // Check for overlap with other ellipses
+    ellipses.forEach(ellipse => {
+      if (ellipse !== activeEllipse) {
+        const rect1 = activeEllipse.getBoundingClientRect();
+        const rect2 = ellipse.getBoundingClientRect();
+        if (!(rect1.right < rect2.left ||
+              rect1.left > rect2.right ||
+              rect1.bottom < rect2.top ||
+              rect1.top > rect2.bottom)) {
+          // If there is an overlap, replace the active ellipse
+          ellipse.setAttribute('cx', Math.random() * 100);
+          ellipse.setAttribute('cy', Math.random() * 100);
+          checkForOverlap(activeEllipse);
+          checkForOverlap(ellipse);
+        }
+      }
+    });
+}
+
+
+const ellipses = document.querySelectorAll('ellipse');
 ellipses.forEach(ellipse => {
   ellipse.addEventListener('mousedown', handleMouseDown);
 });
 
-// Add global event listeners for mousemove and mouseup
 document.addEventListener('mousemove', handleMouseMove);
 document.addEventListener('mouseup', handleMouseUp);
+
+// Function to handle the click event on the ellipses
+function handleEllipseClick(e) {
+  const colorPicker = document.createElement('input');
+  colorPicker.setAttribute('type', 'color');
+  colorPicker.value = e.target.getAttribute('fill');
+  colorPicker.addEventListener('input', function() {
+    e.target.setAttribute('fill', colorPicker.value);
+  });
+  colorPicker.click();
+}
+
+// Add event listeners to each ellipse to handle the click event
+ellipses.forEach(ellipse => {
+  ellipse.addEventListener('click', handleEllipseClick);
+});
