@@ -1,6 +1,18 @@
-"code": "Wir enthält Sven.
-Sven mag Musik.
-Ich mag Musik.
-Wir enthält mich.
-Mich darstellen als Ich.
-Ich will mich treffen um Musik zu machen."
+{
+  "person_1": {
+    "code": "Wir enthält Sven. Sven mag Musik. Ich mag Musik. Wir enthält mich. Mich darstellen als Ich.  Ich will mich treffen um Musik zu machen.",
+    "entities": [
+      {
+        "text": "Ich",
+        "x": "0",
+        "y": "0",
+        "svg": ""
+      }, {
+        "text": "Ansicht auf alles",
+        "svg": "",
+        "html": "",
+        "js": ""
+      }
+    ]
+  }
+}

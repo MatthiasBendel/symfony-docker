@@ -13,34 +13,23 @@
 <body>
 <div id="circleOfEllipses"></div>
 <svg width="500" height="500">
-    <ellipse cx="100" cy="100" rx="50" ry="30" fill="red">Test</ellipse>
+    <ellipse cx="100" cy="100" rx="50" ry="30" fill="red"></ellipse>
     <ellipse cx="200" cy="200" rx="40" ry="25" fill="blue"></ellipse>
     <ellipse cx="300" cy="300" rx="60" ry="35" fill="green"></ellipse>
 
 </svg>
 
-<script src="{{ asset('js/DragAndDropEllipses.js') }}"></script>
+{% for js_script in js_scripts %}
 
+    <script src="{{ asset( js_script ) }}"></script>
+
+{% endfor %}
 
 <script>
-    function generateCircleOfEllipses(centerX, centerY, radius, numEllipses) {
-      let svgCode2 = '<svg width="500" height="500">';
-      for (let i = 0; i < numEllipses; i++) {
-        let angle = (i / numEllipses) * 2 * Math.PI;
-        let x = centerX + radius * -1 * Math.sin(angle);
-        let y = centerY + radius * -1 * Math.cos(angle);
-        let ellipse = `<ellipse cx="${x}" cy="${y}" rx="20" ry="10" fill="blue" />`;
-        svgCode2 += ellipse;
-        radius = radius - 5;
-      }
-      svgCode2 += '</svg>';
-      return svgCode2;
-    }
-
-    // Example usage
-    let svg2 = generateCircleOfEllipses(250, 250, 200, 16);
-    document.getElementById('circleOfEllipses').innerHTML = svg2;
-  </script>
+{% for script in scripts %}
+    {{ script | raw }}
+{% endfor %}
+</script>
 
 
 </body>

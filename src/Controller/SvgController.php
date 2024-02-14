@@ -45,10 +45,11 @@ class SvgController extends AbstractController
             'font' => 'Courier New',
             'iFrame' => "<iframe src=\"https://www.audio.com/pukpuk\" width=\"100%\" height=\"200\" style=\"border:none;\">
                   </iframe>",
-            'scripts' => [
+            'js_scripts' => [
                     "js/KeyboardReader.js",
                     "js/DragAndDropEllipses.js"
-                ]
+                ],
+            'scripts' => []
         ]);
     }
 
