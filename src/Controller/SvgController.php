@@ -49,7 +49,8 @@ class SvgController extends AbstractController
                     "js/KeyboardReader.js",
                     "js/DragAndDropEllipses.js"
                 ],
-            'scripts' => []
+            'scripts' => [],
+            'link' => 'localhost/v2/'
         ]);
     }
 
@@ -212,9 +213,27 @@ class SvgController extends AbstractController
         ]);
       }
 
-    private function getJsonResponse($svgFile) {
+    /**
+     * @Route("/save", name="app_save", methods={"POST"})
+     */
+    public function save(Request $request)
+    {
+            return new JsonResponse(['message' => 'Data saved successfully']);
+
+        // Get the JSON data from the request
+        $jsonData = json_decode($request->getContent(), true);
+
+        $json = getJsonResponse();
+        $json['person_1']['entities']['ellipse']['x'] = $jsonData['x'];
+        $json['person_1']['entities']['ellipse']['y'] = $jsonData['y'];
+
+        // Return a JSON response
+        return new JsonResponse(['message' => 'Data saved successfully']);
+    }
+
+    private function getJsonResponse($jsonFile) {
       if (!isset($this->jsonResponse)){
-        $str = file_get_contents($svgFile);
+        $str = file_get_contents($jsonFile);
         $this->jsonResponse = json_decode($str, true);
       }
       return $this->jsonResponse;

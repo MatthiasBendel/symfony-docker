@@ -2,17 +2,11 @@
 const svgText = document.getElementById('inputText');
 
 function createSVGEllipseWithText(svg) {
-  var text = svgText.textContent.slice(0, -4)
+  var text = svgText.textContent.slice(0, -4);
   var cy = Math.random() * parseInt(svg.getAttribute('height'));
-  if (text && text.includes(" ")) {
-    let parts = text.split(" ");
-    parts.forEach(function(part, index) {
-      createSVGEllipseText(svg, part, index, parts.length - index, cy);
-    });
-  } else  {
-    createSVGEllipseText(svg, text, 0, 0, cy);
-  }
-  removeAndRecreateOverlappingElements(svg);
+  createSVGEllipseText(svg, text, 0, 0, cy);
+  console.log('this is text: ' + text);
+  removeAndRecreateOverlappingElements(svg, text);
 }
 
 function removeAndRecreateOverlappingElements(svg, text) {
@@ -91,10 +85,11 @@ function createSVGEllipseText(svg, text, leftWeight, rightWeight, cy) {
 var meta = false;
 document.addEventListener('keydown', async () => {
   console.log("Received input: " + event.key);
-  if (event.key == 'Enter' || event.key == 'ArrowUp' || event.key == 'ArrowDown' || event.key == 'ArrowLeft'
-   || event.key == 'ArrowRight') {
-    createSVGEllipseWithText(document.getElementById('svg'));
-    svgText.textContent = " ..."
+  if (event.key == 'Enter') {
+      createSVGEllipseWithText(document.getElementById('svg'));
+      svgText.textContent = " ..."
+  } else if (event.key == 'ArrowUp' || event.key == 'ArrowDown' || event.key == 'ArrowLeft' || event.key == 'ArrowRight') {
+    moveSelected(document.getElementById('svg'), event.key);
   } else if (event.key == 'Backspace') {
     svgText.textContent = svgText.textContent.slice(0, -5) + " ..."
   } else if (event.key == 'Shift') {
@@ -117,3 +112,48 @@ document.addEventListener('keydown', async () => {
     svgText.textContent = svgText.textContent.slice(0, -4) + event.key + " ...";
   }
 });
+
+function moveElements(elements, x_delta, y_delta) {
+  var ellipse;
+  var text;
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].tagName == 'ellipse') {
+      ellipse = elements[i];
+    }
+    if (elements[i].tagName == 'text') {
+      text = elements[i];
+    }
+  }
+  var cx = Number(ellipse.getAttribute('cx'))
+  var cy = Number(ellipse.getAttribute('cy'))
+  var x = parseFloat(text.getAttribute('x'));
+  var y = parseFloat(text.getAttribute('y'));
+  do {
+    cx = cx + x_delta;
+    cy = cy + y_delta;
+    x = x + x_delta;
+    y = y + y_delta;
+    ellipse.setAttribute('cx', cx);
+    ellipse.setAttribute('cy', cy);
+    text.setAttribute('x', x);
+    text.setAttribute('y', y);
+  }while (cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry') && cx < 600 && cy < 700);
+}
+
+function moveSelected(svg, key) {
+  const elements = document.getElementsByClassName('1_Hello');
+
+  if (key == 'ArrowUp') {
+    moveElements(elements, -0.5, -0.5);
+  }
+  if (key == 'ArrowLeft') {
+    moveElements(elements, -0.5, 0.5);
+  }
+  if (key == 'ArrowDown') {
+    moveElements(elements, 0.5, 0.5);
+  }
+  if (key == 'ArrowRight') {
+    moveElements(elements, 0.5, -0.5);
+  }
+  console.log("Finished moving!");
+}

@@ -2,8 +2,10 @@ const svg = document.querySelector('svg');
 let activeEllipse = null;
 let offset = { x: 0, y: 0 };
 
-let svg2 = generateCircleOfEllipses(250, 250, 200, 16);
-document.getElementById('circleOfEllipses').innerHTML = svg2;
+//let svg2 = generateCircleOfEllipses(370, 250, 200, 16);
+//let svg3 = generateCircleOfEllipses(370, 250, 140, 16);
+//document.getElementById('svg').innerHTML += svg2;
+//document.getElementById('svg').innerHTML += svg3;
 
 function handleMouseDown(e) {
   activeEllipse = e.target;
@@ -12,6 +14,10 @@ function handleMouseDown(e) {
     x: e.clientX - bbox.x,
     y: e.clientY - bbox.y
   };
+  activeText = document.getElementById(e.target.id);
+  const elements = document.getElementsByClassName('1_Hello');
+
+  console.log(activeText);
 }
 
 function handleMouseMove(e) {
@@ -19,6 +25,8 @@ function handleMouseMove(e) {
     const bbox = activeEllipse.getBBox();
     activeEllipse.setAttribute('cx', e.clientX - offset.x);
     activeEllipse.setAttribute('cy', e.clientY - offset.y);
+    activeText.setAttribute('cx', e.clientX - offset.x);
+    activeText.setAttribute('cy', e.clientY - offset.y);
 
     checkForOverlap(activeEllipse)
   }
@@ -27,6 +35,7 @@ function handleMouseMove(e) {
 function handleMouseUp() {
   if (activeEllipse) {
     checkForOverlap(activeEllipse)
+    save(activeEllipse);
     activeEllipse = null;
   }
 }
@@ -56,6 +65,7 @@ function checkForOverlap(activeEllipse) {
 }
 
 
+const texts = document.querySelectorAll('text');
 const ellipses = document.querySelectorAll('ellipse');
 ellipses.forEach(ellipse => {
   ellipse.addEventListener('mousedown', handleMouseDown);
@@ -97,3 +107,43 @@ function generateCircleOfEllipses(centerX, centerY, radius, numEllipses) {
   return svgCode2;
 }
 
+function gravity() {
+    ellipses.forEach(ellipse => {
+      ellipse.setAttribute('cy', Number(ellipse.getAttribute('cy')) + 0.1);
+    });
+
+    texts.forEach(text => {
+      text.setAttribute('y', parseFloat(text.getAttribute('y')) + 0.1);
+    });
+}
+
+// Call the function every 10 milliseconds
+//setInterval(gravity, 10);
+
+
+// Make an AJAX request to the Symfony controller
+function save(ellipse) {
+  // Create a JSON object
+  var jsonData = {
+    x: Number(ellipse.getAttribute('cx')),
+    y: Number(ellipse.getAttribute('cy'))
+  };
+
+  console.log(JSON.stringify(jsonData));
+  // Make a POST request to the Symfony controller
+  fetch('/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(jsonData),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+}

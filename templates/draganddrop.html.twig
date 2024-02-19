@@ -5,24 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draggable SVG Ellipses</title>
     <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     svg {
-      position: absolute;
     }
   </style>
 </head>
 <body>
-<div id="circleOfEllipses"></div>
-<svg width="500" height="500">
-    <ellipse cx="100" cy="100" rx="50" ry="30" fill="red"></ellipse>
-    <ellipse cx="200" cy="200" rx="40" ry="25" fill="blue"></ellipse>
-    <ellipse cx="300" cy="300" rx="60" ry="35" fill="green"></ellipse>
-
-</svg>
+    <div id="circleOfEllipses"></div>
+    <svg width="700" height="700" id="svg">
+        <ellipse cx="350" cy="250" rx="80" ry="50" fill="lightblue"  class="1_Hello"/>
+        <a href="Hello">
+        <text x="350" y="250" text-anchor="middle" alignment-baseline="middle" class="1_Hello" text-decoration="underline">Hello!</text>
+        </a>
+        <text x="50%" y="270" text-anchor="middle" alignment-baseline="middle" id="inputText">... </text>
+    </svg>
 
 {% for js_script in js_scripts %}
-
     <script src="{{ asset( js_script ) }}"></script>
-
 {% endfor %}
 
 <script>
