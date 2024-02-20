@@ -1,5 +1,6 @@
 // Select the SVG text element
 const svgText = document.getElementById('inputText');
+var movingDirection;
 
 function createSVGEllipseWithText(svg) {
   var text = svgText.textContent.slice(0, -4);
@@ -113,7 +114,7 @@ document.addEventListener('keydown', async () => {
   }
 });
 
-function moveElements(elements, x_delta, y_delta) {
+async function moveElements(elements, x_delta, y_delta) {
   var ellipse;
   var text;
   for (var i = 0; i < elements.length; i++) {
@@ -129,20 +130,38 @@ function moveElements(elements, x_delta, y_delta) {
   var x = parseFloat(text.getAttribute('x'));
   var y = parseFloat(text.getAttribute('y'));
   do {
-    cx = cx + x_delta;
-    cy = cy + y_delta;
-    x = x + x_delta;
-    y = y + y_delta;
+    cx = Number(ellipse.getAttribute('cx')) + x_delta;
+    cy = Number(ellipse.getAttribute('cy')) + y_delta;
+    x = parseFloat(text.getAttribute('x')) + x_delta;
+    y = parseFloat(text.getAttribute('y')) + y_delta;
     ellipse.setAttribute('cx', cx);
     ellipse.setAttribute('cy', cy);
     text.setAttribute('x', x);
     text.setAttribute('y', y);
-  }while (cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry') && cx < 600 && cy < 700);
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    await sleep(10);
+  } while (continueMoving(cx, cy, ellipse));
+}
+
+function continueMoving(cx, cy, ellipse) {
+  if (movingDirection == 'ArrowUp') {
+    return cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry');
+  }
+  if (movingDirection == 'ArrowLeft') {
+    return cx > ellipse.getAttribute('rx') && cy < 600 ;
+  }
+  if (movingDirection == 'ArrowDown') {
+    return cx < 600 && cy < 600;
+  }
+  if (movingDirection == 'ArrowRight') {
+    return cy > ellipse.getAttribute('ry') && cx < 600;
+  }
+  return cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry') && cx < 600 && cy < 600;
 }
 
 function moveSelected(svg, key) {
   const elements = document.getElementsByClassName('1_Hello');
-
+  movingDirection = key;
   if (key == 'ArrowUp') {
     moveElements(elements, -0.5, -0.5);
   }
