@@ -31,9 +31,15 @@ class SvgController extends AbstractController
     {
         $svg = "";
         $json = $this->getJsonResponse($this->v2_jsonFfile);
-        //dd($json['person_1']['entities']);
-        foreach ($json['person_1']['entities'] as $entity) {
-            $svg .= str_replace('{{ text }}', $entity['text'], $entity['svg']);
+        $entities = $json['person_1']['entities'];
+       //dd($entities);
+        foreach ($entities as $key => $entity) {
+            foreach (['text'] as $replacement) {
+                if (array_key_exists($replacement, $entity)) {
+                    $entitySvg = str_replace('{{ ' . $replacement . ' }}', $entity[$replacement], $this->getSvg($entities, $entity));
+                }
+            }
+            $svg .= str_replace('{{ class }}', $key, $entitySvg);
         }
         // Generate random values for randomTop and randomLeft
         $randomTop = rand(0, 600); // Replace 500 with the maximum top value
@@ -55,8 +61,17 @@ class SvgController extends AbstractController
                     "js/DragAndDropEllipses.js"
                 ],
             'scripts' => [],
-            'link' => 'localhost/v2/'
+            'link' => 'localhost/v2/',
+            'entities' => json_encode($entities)
         ]);
+    }
+
+    private function getSvg($entities, $entity) {
+        if (array_key_exists('svg', $entity)) {
+            return $entity['svg'];
+        } else {
+            return $this->getSvg($entities, $entities[$entity['show_as']]);
+        }
     }
 
     private function prepareEntities($selected, $jsonFile) {

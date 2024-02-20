@@ -19,25 +19,21 @@
 <body>
     <div id="circleOfEllipses"></div>
     <svg width="700" height="700" id="svg">
-        <ellipse cx="350" cy="250" rx="80" ry="50" fill="lightblue"  class="1_Hello"/>
-        <a href="Hello">
-        <text x="350" y="250" text-anchor="middle" alignment-baseline="middle" class="1_Hello" text-decoration="underline">Hello!</text>
-        </a>
-        <text x="50%" y="270" text-anchor="middle" alignment-baseline="middle" id="inputText">... </text>
-
         {{ svg | raw }}
+        <text x="50%" y="270" text-anchor="middle" alignment-baseline="middle" id="inputText">... </text>
     </svg>
 
-{% for js_script in js_scripts %}
-    <script src="{{ asset( js_script ) }}"></script>
-{% endfor %}
+
 
 <script>
+var entities = {{ entities | raw }};
 {% for script in scripts %}
     {{ script | raw }}
 {% endfor %}
 </script>
-
+{% for js_script in js_scripts %}
+<script src="{{ asset( js_script ) }}"></script>
+{% endfor %}
 
 </body>
 </html>

@@ -129,7 +129,8 @@ async function moveElements(elements, x_delta, y_delta) {
   var cy = Number(ellipse.getAttribute('cy'))
   var x = parseFloat(text.getAttribute('x'));
   var y = parseFloat(text.getAttribute('y'));
-  do {
+  while (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
+    await sleep(10);
     cx = Number(ellipse.getAttribute('cx')) + x_delta;
     cy = Number(ellipse.getAttribute('cy')) + y_delta;
     x = parseFloat(text.getAttribute('x')) + x_delta;
@@ -138,29 +139,36 @@ async function moveElements(elements, x_delta, y_delta) {
     ellipse.setAttribute('cy', cy);
     text.setAttribute('x', x);
     text.setAttribute('y', y);
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    await sleep(10);
-  } while (continueMoving(cx, cy, ellipse));
+  }
+  text.style.textDecoration = 'none';
+  console.log("Finished moving!");
+  movingDirection == null;
+  placeNextEntity();
 }
+//  const textElement = document.querySelector('text.1_Hello');
 
-function continueMoving(cx, cy, ellipse) {
+function continueMoving(cx, cy, rx, ry) {
   if (movingDirection == 'ArrowUp') {
-    return cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry');
+    return cx > rx && cy > ry;
   }
   if (movingDirection == 'ArrowLeft') {
-    return cx > ellipse.getAttribute('rx') && cy < 600 ;
+    return cx > rx && cy < 600 ;
   }
   if (movingDirection == 'ArrowDown') {
     return cx < 600 && cy < 600;
   }
   if (movingDirection == 'ArrowRight') {
-    return cy > ellipse.getAttribute('ry') && cx < 600;
+    return cy > ry && cx < 600;
   }
-  return cx > ellipse.getAttribute('rx') && cy > ellipse.getAttribute('ry') && cx < 600 && cy < 600;
+  if (end_x - cx < 10 && end_y - cy) {
+    return false;
+  }
+  return true;
 }
 
 function moveSelected(svg, key) {
-  const elements = document.getElementsByClassName('1_Hello');
+  //const elements = document.getElementsByClassName('1_Hello');
+  const elements = document.getElementsByClassName('3_Ich');
   movingDirection = key;
   if (key == 'ArrowUp') {
     moveElements(elements, -0.5, -0.5);
@@ -174,5 +182,40 @@ function moveSelected(svg, key) {
   if (key == 'ArrowRight') {
     moveElements(elements, 0.5, -0.5);
   }
-  console.log("Finished moving!");
+}
+
+async function sleep(milliseconds) {
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  await sleep(milliseconds);
+}
+
+function placeNextEntity() {
+  //console.log(entities);
+  for (const entityKey in entities) {
+    const svgElements = document.getElementsByClassName(entityKey);
+    moveElementsTo(svgElements, entities[entityKey]['x'], entities[entityKey]['y']);
+  }
+
+}
+placeNextEntity();
+// Call the function every 10 milliseconds
+//setInterval(gravity, 1000);
+
+
+var end_x;
+var end_y;
+async function moveElementsTo(elements, end_x_param, end_y_param) {
+//  while (true) {
+    end_x = end_x_param;
+    end_y = end_y_param;
+    console.log(elements[0].cx);
+    var x = elements[0].cx;
+    var y = elements[0].cy;
+    if (x - end_x < 100 && y - end_y < 100) {
+      return
+    }
+    //moveElements(elements, Number((end_x - x)) / 100, Number((end_y- y) / 100));
+    await sleep(1000);
+
+  //}
 }

@@ -1,21 +1,31 @@
 {
   "person_1": {
     "code": "Wir enthält Sven. Sven mag Musik. Ich mag Musik. Wir enthält mich. Mich darstellen als Ich.  Ich will mich treffen um Musik zu machen.",
-    "entities": [
-      {
-        "text": "Ich",
-        "x": "0",
-        "y": "0",
-        "svg": ""
-      }, {
-        "text": "Ansicht auf alles",
-        "svg": "",
-        "html": "",
-        "js": ""
-      }, {
+    "entities": {
+      "1_Hello": {
         "text": "Hallo",
-        "svg": "<ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"1_Hello\"/>\n        <a href=\"Hello\">\n        <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"1_Hello\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
+        "x": 400,
+        "y": 400,
+        "svg": "<ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n        <a href=\"{{ text }}\">\n        <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
+      },
+      "2_Mir_geht_es_gut": {
+        "text": "Mir geht es gut.",
+        "show_as": "1_Hello",
+        "x": 200,
+        "y": 400
+      },
+      "3_Ich": {
+        "text": "Ich.",
+        "show_as": "1_Hello",
+        "x": 300,
+        "y": 300
+      },
+      "4_Alles": {
+        "text": "Alles",
+        "show_as": "1_Hello",
+        "x": 100,
+        "y": 100
       }
-    ]
+    }
   }
 }
