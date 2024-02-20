@@ -17,7 +17,7 @@ class SvgController extends AbstractController
 {
     private $file = 'test.json';
     private $svgFile = 'test.svg';
-    private $v2_jsonFfile = 'test.json';
+    private $v2_jsonFfile = 'v2.json';
     private $v2_svgFile = 'Werte_v3.6_controls.svg';
 
     public function __construct()
@@ -29,19 +29,24 @@ class SvgController extends AbstractController
     #[Route('/v2/{selected}', name: 'app_v2')]
     public function v2($selected): Response
     {
-        $entities = $this->prepareEntities($selected, $this->v2_jsonFfile);
+        $svg = "";
+        $json = $this->getJsonResponse($this->v2_jsonFfile);
+        //dd($json['person_1']['entities']);
+        foreach ($json['person_1']['entities'] as $entity) {
+            $svg .= str_replace('{{ text }}', $entity['text'], $entity['svg']);
+        }
         // Generate random values for randomTop and randomLeft
         $randomTop = rand(0, 600); // Replace 500 with the maximum top value
         $randomLeft = rand(0, 1200); // Replace 500 with the maximum left value
 
-        $svg = XmlUtils::loadFile($this->v2_svgFile);
+        //$svg = XmlUtils::loadFile($this->v2_svgFile);
         //...
-
+//dd($entities);
         // Pass the randomTop and randomLeft variables to the Twig template
         return $this->render('draganddrop.html.twig', [
             'randomTop' => $randomTop,
             'randomLeft' => $randomLeft,
-            'svg' => $this->createSvg($entities, $this->serverName . '/v2/'),
+            'svg' => $svg,
             'font' => 'Courier New',
             'iFrame' => "<iframe src=\"https://www.audio.com/pukpuk\" width=\"100%\" height=\"200\" style=\"border:none;\">
                   </iframe>",

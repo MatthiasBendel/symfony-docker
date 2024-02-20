@@ -12,6 +12,9 @@
         "svg": "",
         "html": "",
         "js": ""
+      }, {
+        "text": "Hallo",
+        "svg": "<ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"1_Hello\"/>\n        <a href=\"Hello\">\n        <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"1_Hello\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
       }
     ]
   }
