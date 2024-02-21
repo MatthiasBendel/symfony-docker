@@ -162,20 +162,11 @@ function continueMoving(cx, cy, rx, ry) {
   if (movingDirection == 'ArrowRight') {
     return cy > ry && cx < 600;
   }
-  if (end_x - cx < 10 && end_y - cy) {
+  if (Math.abs(end_x - cx) < 1 && Math.abs(end_y - cy) < 1) {
     return false;
   }
+  console.log("Always continueMoving!");
   return true;
-}
-
-function finishedMoving() {
-  text.style.textDecoration = 'none';
-  console.log("Finished moving!");
-  movingDirection == null;
-  ellipse = null;
-  text = null;
-  entityIterator++;
-  placeNextEntity();
 }
 
 // - - - - - - - - - - ENTITY-ITERATOR - - - - - - - - - - - -
@@ -191,6 +182,8 @@ function placeNextEntity() {
         end_x = entities[entityKey]['x'];
         end_y = entities[entityKey]['y'];
         //console.log(svgElements[0].cx);
+        const elements = document.getElementsByClassName(selectedId);
+        moveElements(elements, 0, 0);
         console.log("Started Iteration: " + entityKey);
     }
     i++;
@@ -212,10 +205,16 @@ function gravity() {
   //console.log("ToDo: bring selected element to end coordinates");
   if (ellipse != null) {
     console.log("ellipse is set. Going to proceed " + selectedId);
+    if (end_x != null) {
+      delta_x = (end_x - Number(ellipse.getAttribute('cx'))) / 10;
+      delta_y = (end_y - Number(ellipse.getAttribute('cy'))) / 10;
+    }
     cx = Number(ellipse.getAttribute('cx')) + delta_x;
     cy = Number(ellipse.getAttribute('cy')) + delta_y;
     x = parseFloat(text.getAttribute('x')) + delta_x;
     y = parseFloat(text.getAttribute('y')) + delta_y;
+
+  console.log("Continue moving! with movingDirection:" + movingDirection);
     if (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
       ellipse.setAttribute('cx', cx);
       ellipse.setAttribute('cy', cy);
@@ -225,4 +224,14 @@ function gravity() {
       finishedMoving();
     }
   }
+}
+
+function finishedMoving() {
+  text.style.textDecoration = 'none';
+  console.log("Finished moving! with movingDirection:" + movingDirection);
+  movingDirection == null;
+  ellipse = null;
+  text = null;
+  entityIterator++;
+  placeNextEntity();
 }
