@@ -90,7 +90,7 @@ document.addEventListener('keydown', async () => {
       createSVGEllipseWithText(document.getElementById('svg'));
       svgText.textContent = " ..."
   } else if (event.key == 'ArrowUp' || event.key == 'ArrowDown' || event.key == 'ArrowLeft' || event.key == 'ArrowRight') {
-    moveSelected(document.getElementById('svg'), event.key);
+    moveSelected(event.key);
   } else if (event.key == 'Backspace') {
     svgText.textContent = svgText.textContent.slice(0, -5) + " ..."
   } else if (event.key == 'Shift') {
@@ -114,9 +114,11 @@ document.addEventListener('keydown', async () => {
   }
 });
 
-function moveSelected(svg, key) {
+function moveSelected(key) {
+//  const textElement = document.querySelector('text.1_Hello');
   //const elements = document.getElementsByClassName('1_Hello');
   const elements = document.getElementsByClassName(selectedId);
+  console.log(selectedId);
   movingDirection = key;
   if (key == 'ArrowUp') {
     moveElements(elements, -0.5, -0.5);
@@ -132,27 +134,20 @@ function moveSelected(svg, key) {
   }
 }
 
-async function moveElements(elements, x_delta, y_delta) {
+function moveElements(elements, x_delta, y_delta) {
   for (var i = 0; i < elements.length; i++) {
     if (elements[i].tagName == 'ellipse') {
       ellipse = elements[i];
+      console.log("ellipse was set to:")
+      console.log(ellipse);
     }
     if (elements[i].tagName == 'text') {
       text = elements[i];
     }
   }
-  var cx = Number(ellipse.getAttribute('cx'))
-  var cy = Number(ellipse.getAttribute('cy'))
-  var x = parseFloat(text.getAttribute('x'));
   delta_x = x_delta;
   delta_y = y_delta;
-  var y = parseFloat(text.getAttribute('y'));
-  //while (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
-    // no moving anymore
-  //}
-
 }
-//  const textElement = document.querySelector('text.1_Hello');
 
 function continueMoving(cx, cy, rx, ry) {
   if (movingDirection == 'ArrowUp') {
@@ -179,6 +174,7 @@ function finishedMoving() {
   movingDirection == null;
   ellipse = null;
   text = null;
+  entityIterator++;
   placeNextEntity();
 }
 
@@ -186,10 +182,9 @@ function finishedMoving() {
 
 var entityIterator = 0
 function placeNextEntity() {
-  //console.log(entities);
+  console.log(entities);
   var i = 0;
   for (const entityKey in entities) {
-    i++;
     if (i == entityIterator) {
         const svgElements = document.getElementsByClassName(entityKey);
         selectedId = entityKey;
@@ -198,6 +193,7 @@ function placeNextEntity() {
         //console.log(svgElements[0].cx);
         console.log("Started Iteration: " + entityKey);
     }
+    i++;
   }
 }
 placeNextEntity();
@@ -215,6 +211,7 @@ var end_y;
 function gravity() {
   //console.log("ToDo: bring selected element to end coordinates");
   if (ellipse != null) {
+    console.log("ellipse is set. Going to proceed " + selectedId);
     cx = Number(ellipse.getAttribute('cx')) + delta_x;
     cy = Number(ellipse.getAttribute('cy')) + delta_y;
     x = parseFloat(text.getAttribute('x')) + delta_x;
