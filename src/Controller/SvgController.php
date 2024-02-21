@@ -58,6 +58,7 @@ class SvgController extends AbstractController
                   </iframe>",
             'js_scripts' => [
                     "js/KeyboardReader.js",
+                    "js/SvgMover.js",
                     "js/DragAndDropEllipses.js"
                 ],
             'scripts' => [],

@@ -114,9 +114,25 @@ document.addEventListener('keydown', async () => {
   }
 });
 
+function moveSelected(svg, key) {
+  //const elements = document.getElementsByClassName('1_Hello');
+  const elements = document.getElementsByClassName(selectedId);
+  movingDirection = key;
+  if (key == 'ArrowUp') {
+    moveElements(elements, -0.5, -0.5);
+  }
+  if (key == 'ArrowLeft') {
+    moveElements(elements, -0.5, 0.5);
+  }
+  if (key == 'ArrowDown') {
+    moveElements(elements, 0.5, 0.5);
+  }
+  if (key == 'ArrowRight') {
+    moveElements(elements, 0.5, -0.5);
+  }
+}
+
 async function moveElements(elements, x_delta, y_delta) {
-  var ellipse;
-  var text;
   for (var i = 0; i < elements.length; i++) {
     if (elements[i].tagName == 'ellipse') {
       ellipse = elements[i];
@@ -128,22 +144,13 @@ async function moveElements(elements, x_delta, y_delta) {
   var cx = Number(ellipse.getAttribute('cx'))
   var cy = Number(ellipse.getAttribute('cy'))
   var x = parseFloat(text.getAttribute('x'));
+  delta_x = x_delta;
+  delta_y = y_delta;
   var y = parseFloat(text.getAttribute('y'));
-  while (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
-    await sleep(10);
-    cx = Number(ellipse.getAttribute('cx')) + x_delta;
-    cy = Number(ellipse.getAttribute('cy')) + y_delta;
-    x = parseFloat(text.getAttribute('x')) + x_delta;
-    y = parseFloat(text.getAttribute('y')) + y_delta;
-    ellipse.setAttribute('cx', cx);
-    ellipse.setAttribute('cy', cy);
-    text.setAttribute('x', x);
-    text.setAttribute('y', y);
-  }
-  text.style.textDecoration = 'none';
-  console.log("Finished moving!");
-  movingDirection == null;
-  placeNextEntity();
+  //while (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
+    // no moving anymore
+  //}
+
 }
 //  const textElement = document.querySelector('text.1_Hello');
 
@@ -166,56 +173,59 @@ function continueMoving(cx, cy, rx, ry) {
   return true;
 }
 
-function moveSelected(svg, key) {
-  //const elements = document.getElementsByClassName('1_Hello');
-  const elements = document.getElementsByClassName('3_Ich');
-  movingDirection = key;
-  if (key == 'ArrowUp') {
-    moveElements(elements, -0.5, -0.5);
-  }
-  if (key == 'ArrowLeft') {
-    moveElements(elements, -0.5, 0.5);
-  }
-  if (key == 'ArrowDown') {
-    moveElements(elements, 0.5, 0.5);
-  }
-  if (key == 'ArrowRight') {
-    moveElements(elements, 0.5, -0.5);
-  }
+function finishedMoving() {
+  text.style.textDecoration = 'none';
+  console.log("Finished moving!");
+  movingDirection == null;
+  ellipse = null;
+  text = null;
+  placeNextEntity();
 }
 
-async function sleep(milliseconds) {
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  await sleep(milliseconds);
-}
+// - - - - - - - - - - ENTITY-ITERATOR - - - - - - - - - - - -
 
+var entityIterator = 0
 function placeNextEntity() {
   //console.log(entities);
+  var i = 0;
   for (const entityKey in entities) {
-    const svgElements = document.getElementsByClassName(entityKey);
-    moveElementsTo(svgElements, entities[entityKey]['x'], entities[entityKey]['y']);
+    i++;
+    if (i == entityIterator) {
+        const svgElements = document.getElementsByClassName(entityKey);
+        selectedId = entityKey;
+        end_x = entities[entityKey]['x'];
+        end_y = entities[entityKey]['y'];
+        //console.log(svgElements[0].cx);
+        console.log("Started Iteration: " + entityKey);
+    }
   }
-
 }
 placeNextEntity();
-// Call the function every 10 milliseconds
-//setInterval(gravity, 1000);
 
+// - - - - - - - - - - GRAVITY - - - - - - - - - - - -
+setInterval(gravity, 10);
 
+var delta_x;
+var delta_y;
+var ellipse;
+var text;
+var selectedId;
 var end_x;
 var end_y;
-async function moveElementsTo(elements, end_x_param, end_y_param) {
-//  while (true) {
-    end_x = end_x_param;
-    end_y = end_y_param;
-    console.log(elements[0].cx);
-    var x = elements[0].cx;
-    var y = elements[0].cy;
-    if (x - end_x < 100 && y - end_y < 100) {
-      return
+function gravity() {
+  //console.log("ToDo: bring selected element to end coordinates");
+  if (ellipse != null) {
+    cx = Number(ellipse.getAttribute('cx')) + delta_x;
+    cy = Number(ellipse.getAttribute('cy')) + delta_y;
+    x = parseFloat(text.getAttribute('x')) + delta_x;
+    y = parseFloat(text.getAttribute('y')) + delta_y;
+    if (continueMoving(cx, cy, ellipse.getAttribute('rx'), ellipse.getAttribute('ry'))) {
+      ellipse.setAttribute('cx', cx);
+      ellipse.setAttribute('cy', cy);
+      text.setAttribute('x', x);
+      text.setAttribute('y', y);
+    } else {
+      finishedMoving();
     }
-    //moveElements(elements, Number((end_x - x)) / 100, Number((end_y- y) / 100));
-    await sleep(1000);
-
-  //}
+  }
 }
