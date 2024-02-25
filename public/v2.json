@@ -6,7 +6,7 @@
         "text": "Hallo",
         "x": 400,
         "y": 400,
-        "svg": "<ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n        <a href=\"{{ text }}\">\n        <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
+        "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
       },
       "2_Mir_geht_es_gut": {
         "text": "Mir geht es gut.",
@@ -17,14 +17,38 @@
       "3_Ich": {
         "text": "Ich.",
         "show_as": "1_Hello",
-        "x": 300,
-        "y": 300
+        "x": "50%",
+        "y": "50%"
       },
       "4_Alles": {
         "text": "Alles",
         "show_as": "1_Hello",
         "x": 200,
         "y": 100
+      },
+      "5_Akzeptanz": {
+        "text": "Akzeptanz",
+        "show_as": "1_Hello",
+        "x": "25%",
+        "y": "25%"
+      },
+      "6_Toleranz": {
+        "text": "Toleranz",
+        "show_as": "5_Akzeptanz",
+        "x": "25%",
+        "y": "75%"
+      },
+      "7_Ignoranz": {
+        "text": "Ignoranz",
+        "show_as": "5_Akzeptanz",
+        "x": "75%",
+        "y": "75%"
+      },
+      "8_Ablehnung": {
+        "text": "Ablehnung",
+        "show_as": "5_Akzeptanz",
+        "x": "75%",
+        "y": "25%"
       }
     }
   }

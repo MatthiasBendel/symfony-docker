@@ -181,6 +181,12 @@ function placeNextEntity() {
         selectedId = entityKey;
         end_x = entities[entityKey]['x'];
         end_y = entities[entityKey]['y'];
+        if ((typeof end_x === 'string' || end_x instanceof String) && end_x.endsWith("%")) {
+          end_x = Number(end_x.replace("%", "")) * 600 / 100;
+        }
+        if ((typeof end_y === 'string' || end_y instanceof String) && end_y.endsWith("%")) {
+          end_y = Number(end_y.replace("%", "")) * 600 / 100;
+        }
         //console.log(svgElements[0].cx);
         const elements = document.getElementsByClassName(selectedId);
         moveElements(elements, 0, 0);
@@ -206,8 +212,8 @@ function gravity() {
   if (ellipse != null) {
     console.log("ellipse is set. Going to proceed " + selectedId);
     if (end_x != null) {
-      delta_x = (end_x - Number(ellipse.getAttribute('cx'))) / 10;
-      delta_y = (end_y - Number(ellipse.getAttribute('cy'))) / 10;
+      delta_x = (end_x - Number(ellipse.getAttribute('cx'))) / 100;
+      delta_y = (end_y - Number(ellipse.getAttribute('cy'))) / 100;
     }
     cx = Number(ellipse.getAttribute('cx')) + delta_x;
     cy = Number(ellipse.getAttribute('cy')) + delta_y;
