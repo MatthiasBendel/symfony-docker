@@ -29,7 +29,8 @@ class SvgController extends AbstractController
     #[Route('/v2/{selected}', name: 'app_v2')]
     public function v2($selected): Response
     {
-        $svg = "";
+        $svg = array();
+        $svg[0] = "";
         $json = $this->getJsonResponse($this->v2_jsonFfile);
         $entities = $json['person_1']['entities'];
        //dd($entities);
@@ -39,7 +40,20 @@ class SvgController extends AbstractController
                     $entitySvg = str_replace('{{ ' . $replacement . ' }}', $entity[$replacement], $this->getSvg($entities, $entity));
                 }
             }
-            $svg .= str_replace('{{ class }}', $key, $entitySvg);
+            if (array_key_exists('z', $entity)) {
+                if (!array_key_exists($entity['z'], $svg)) {
+                    $svg[$entity['z']] = "";
+                }
+                $svg[$entity['z']] .= str_replace('{{ class }}', $key, $entitySvg);
+            } else {
+                $svg[0] .= str_replace('{{ class }}', $key, $entitySvg);
+            }
+        }
+ //       dd($svg);
+        ksort($svg);
+        $svgString = "";
+        foreach($svg as $z => $svgEntity) {
+            $svgString .= $svgEntity;
         }
         // Generate random values for randomTop and randomLeft
         $randomTop = rand(0, 600); // Replace 500 with the maximum top value
@@ -52,7 +66,7 @@ class SvgController extends AbstractController
         return $this->render('draganddrop.html.twig', [
             'randomTop' => $randomTop,
             'randomLeft' => $randomLeft,
-            'svg' => $svg,
+            'svg' => $svgString,
             'font' => 'Courier New',
             'iFrame' => "<iframe src=\"https://www.audio.com/pukpuk\" width=\"100%\" height=\"200\" style=\"border:none;\">
                   </iframe>",

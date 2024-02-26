@@ -30,25 +30,34 @@
         "text": "Akzeptanz",
         "show_as": "1_Hello",
         "x": "25%",
-        "y": "25%"
+        "y": "25%",
+        "z": "-1"
       },
       "6_Toleranz": {
         "text": "Toleranz",
         "show_as": "5_Akzeptanz",
         "x": "25%",
-        "y": "75%"
+        "y": "75%",
+        "z": "-1"
       },
       "7_Ignoranz": {
         "text": "Ignoranz",
         "show_as": "5_Akzeptanz",
         "x": "75%",
-        "y": "75%"
+        "y": "75%",
+        "z": "-1"
       },
       "8_Ablehnung": {
         "text": "Ablehnung",
         "show_as": "5_Akzeptanz",
         "x": "75%",
-        "y": "25%"
+        "y": "25%",
+        "z": "-1"
+      },
+      "9_paths": {
+        "text": "",
+        "z": -2,
+        "svg": "<g><path d=\"M 0 300 L 600 300\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/><path d=\"M 300 0 L 300 600\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/></g>"
       }
     }
   }
