@@ -107,20 +107,6 @@ function generateCircleOfEllipses(centerX, centerY, radius, numEllipses) {
   return svgCode2;
 }
 
-function gravity() {
-    ellipses.forEach(ellipse => {
-      ellipse.setAttribute('cy', Number(ellipse.getAttribute('cy')) + 0.1);
-    });
-
-    texts.forEach(text => {
-      text.setAttribute('y', parseFloat(text.getAttribute('y')) + 0.1);
-    });
-}
-
-// Call the function every 10 milliseconds
-//setInterval(gravity, 10);
-
-
 // Make an AJAX request to the Symfony controller
 function save(ellipse) {
   // Create a JSON object

@@ -165,7 +165,7 @@ function continueMoving(cx, cy, rx, ry) {
   if (Math.abs(end_x - cx) < 1 && Math.abs(end_y - cy) < 1) {
     return false;
   }
-  console.log("Always continueMoving!");
+  //console.log("Always continueMoving!");
   return true;
 }
 
@@ -190,6 +190,8 @@ function placeNextEntity() {
         //console.log(svgElements[0].cx);
         const elements = document.getElementsByClassName(selectedId);
         moveElements(elements, 0, 0);
+        text.style.textDecoration = 'underline';
+
         console.log("Started Iteration: " + entityKey);
     }
     i++;

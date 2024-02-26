@@ -6,7 +6,7 @@
         "text": "Hallo",
         "x": 400,
         "y": 400,
-        "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\" text-decoration=\"underline\">{{ text }}</text>\n        </a>"
+        "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\">{{ text }}</text>\n        </a>"
       },
       "2_Mir_geht_es_gut": {
         "text": "Mir geht es gut.",
@@ -18,7 +18,8 @@
         "text": "Ich.",
         "show_as": "1_Hello",
         "x": "50%",
-        "y": "50%"
+        "y": "50%",
+        "z": 1
       },
       "4_Alles": {
         "text": "Alles",
@@ -54,10 +55,19 @@
         "y": "25%",
         "z": "-1"
       },
-      "9_paths": {
+      "10_horizontal_path": {
         "text": "",
         "z": -2,
-        "svg": "<g><path d=\"M 0 300 L 600 300\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/><path d=\"M 300 0 L 300 600\" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/></g>"
+        "M": "0 300",
+        "L": "600 300",
+        "svg": "<path d=\"M {{ M }} L {{ L }} \" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/>"
+      },
+      "9_vertical_paths": {
+        "text": "",
+        "z": -2,
+        "M": "300 0",
+        "L": "300 600",
+        "show_as": "10_horizontal_path"
       }
     }
   }

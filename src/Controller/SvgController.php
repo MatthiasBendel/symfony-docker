@@ -29,17 +29,23 @@ class SvgController extends AbstractController
     #[Route('/v2/{selected}', name: 'app_v2')]
     public function v2($selected): Response
     {
+        $log = [];
         $svg = array();
         $svg[0] = "";
         $json = $this->getJsonResponse($this->v2_jsonFfile);
         $entities = $json['person_1']['entities'];
        //dd($entities);
         foreach ($entities as $key => $entity) {
-            foreach (['text'] as $replacement) {
+            $entitySvg = $this->getSvg($entities, $entity);
+            foreach (['text', 'L', 'M'] as $replacement) {
                 if (array_key_exists($replacement, $entity)) {
-                    $entitySvg = str_replace('{{ ' . $replacement . ' }}', $entity[$replacement], $this->getSvg($entities, $entity));
+                    $log[$replacement] = $entity[$replacement];
+                    //array_push($log, $replacement);
+                    $entitySvg = str_replace('{{ ' . $replacement . ' }}', $entity[$replacement], $entitySvg);
                 }
             }
+
+            // sort by z-achse
             if (array_key_exists('z', $entity)) {
                 if (!array_key_exists($entity['z'], $svg)) {
                     $svg[$entity['z']] = "";
@@ -49,12 +55,13 @@ class SvgController extends AbstractController
                 $svg[0] .= str_replace('{{ class }}', $key, $entitySvg);
             }
         }
- //       dd($svg);
+        //dd($log);
         ksort($svg);
         $svgString = "";
         foreach($svg as $z => $svgEntity) {
             $svgString .= $svgEntity;
         }
+        //dd($svg);
         // Generate random values for randomTop and randomLeft
         $randomTop = rand(0, 600); // Replace 500 with the maximum top value
         $randomLeft = rand(0, 1200); // Replace 500 with the maximum left value
@@ -72,7 +79,6 @@ class SvgController extends AbstractController
                   </iframe>",
             'js_scripts' => [
                     "js/KeyboardReader.js",
-                    "js/SvgMover.js",
                     "js/DragAndDropEllipses.js"
                 ],
             'scripts' => [],
