@@ -12,6 +12,7 @@
       height: 100vh;
       margin: 0;
       flex-direction: column;
+      font-family: "Courier New", Courier, monospace;
     }
     h2 {
       text-align: center;
@@ -26,6 +27,7 @@
     }
     button {
       margin-left: 10px; /* Adjust the space between text and button */
+      font-family: "Courier New", Courier, monospace;
     }
   </style>
 </head>
@@ -36,8 +38,10 @@
   <ul>
     <li>checkout_generator.html.twig<button onclick="handleButtonClick(this)">Check out for development</button></li>
     {% for file in files %}
-        <li>{{ file }}</li>
-        <button onclick="handleButtonClick(this)">Check out for development</button>
+        <li>
+            {{ file }}
+            <button onclick="handleButtonClick(this)">Check out for development</button>
+        </li>
     {% endfor %}
   </ul>
 
