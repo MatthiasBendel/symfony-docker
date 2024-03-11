@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Entries with Buttons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+    h2 {
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+    li {
+      margin-bottom: 10px; /* Adjust the space between list items */
+    }
+    button {
+      margin-left: 10px; /* Adjust the space between text and button */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Check out files for development</h2>
+
+  <ul>
+    <li>checkout_generator.html.twig<button onclick="handleButtonClick(this)">Check out for development</button></li>
+    {% for file in files %}
+        <li>{{ file }}</li>
+        <button onclick="handleButtonClick(this)">Check out for development</button>
+    {% endfor %}
+  </ul>
+
+  <script>
+    function handleButtonClick(button) {
+        let listItemText = button.parentNode.textContent.trim();
+        if (button.textContent === 'Check out for development') {
+            // Make an AJAX request to a Symfony endpoint
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', '/checkout/' + listItemText, true);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 400) {
+                    // Handle successful response from the Symfony endpoint
+                    console.log(xhr.responseText);
+                    button.textContent = 'Check out of development';
+                    button.style.backgroundColor = '#98FF98';
+                } else {
+                    // Handle error response
+                    console.error('Error: ' + xhr.status);
+                }
+            };
+            xhr.send();
+        } else {
+            // Make an AJAX request to a Symfony endpoint
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', '/checkin/' + listItemText, true);
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 400) {
+                    // Handle successful response from the Symfony endpoint
+                    console.log(xhr.responseText);
+                    button.textContent = 'Check out of development';
+                    button.style.backgroundColor = '#98FF98';
+                } else {
+                    // Handle error response
+                    console.error('Error: ' + xhr.status);
+                }
+            };
+            xhr.send();
+            button.textContent = 'Check out for development';
+            button.style.backgroundColor = ''; // Revert back to normal color
+        }
+    }
+  </script>
+
+</body>
+</html>

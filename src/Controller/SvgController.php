@@ -160,6 +160,32 @@ class SvgController extends AbstractController
         return $svg;
     }
 
+    #[Route('/checkout/{file}', name: 'app_checkout')]
+    public function checkout($file): Response
+    {
+      $entities = $this->prepareEntities($selected, $this->file);
+
+        return $this->render('checkout_generator.html.twig', [
+            'files' => [
+                    "js/KeyboardReader.js",
+                    "js/DragAndDropEllipses.js"
+                ],
+        ]);
+    }
+
+    #[Route('/checkin/{file}', name: 'app_checkin')]
+    public function checkin($file): Response
+    {
+      $entities = $this->prepareEntities($selected, $this->file);
+
+        return $this->render('checkout_generator.html.twig', [
+            'files' => [
+                    "js/KeyboardReader.js",
+                    "js/DragAndDropEllipses.js"
+                ],
+        ]);
+    }
+
     #[Route('/svg/{selected}', name: 'app_svg')]
     public function index($selected): Response
     {
