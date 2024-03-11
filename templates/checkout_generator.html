@@ -36,11 +36,20 @@
   <h2>Check out files for development</h2>
 
   <ul>
-    <li>checkout_generator.html.twig<button onclick="handleButtonClick(this)">Check out for development</button></li>
+    <li>
+      checkout_generator.html.twig
+      {{ if dev }}
+      <button onclick="handleButtonClick(this)">Check out for development</button>
+      {{ endif }}
+      <button onclick="handleButtonClick(this)">Open Editor</button>
+    </li>
     {% for file in files %}
         <li>
             {{ file }}
-            <button onclick="handleButtonClick(this)">Check out for development</button>
+            {{ if dev }}
+              <button onclick="handleButtonClick(this)">Check out for development</button>
+            {{ endif }}
+            <button onclick="handleButtonClick(this)">Open Editor</button>
         </li>
     {% endfor %}
   </ul>
@@ -61,10 +70,12 @@
                 } else {
                     // Handle error response
                     console.error('Error: ' + xhr.status);
+                    alert("An error happened. Please contact dev team!");
                 }
             };
             xhr.send();
-        } else {
+        } else if (button.textContent === 'Check out of development') {
+
             // Make an AJAX request to a Symfony endpoint
             let xhr = new XMLHttpRequest();
             xhr.open('GET', '/checkin/' + listItemText, true);

@@ -170,6 +170,7 @@ class SvgController extends AbstractController
                     "js/KeyboardReader.js",
                     "js/DragAndDropEllipses.js"
                 ],
+            'dev' => true;
         ]);
     }
 
