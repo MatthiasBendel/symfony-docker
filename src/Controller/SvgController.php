@@ -188,7 +188,9 @@ class SvgController extends AbstractController
         $key = array_search($file, $json['checkedOutFiles']);
         unset($json['checkedOutFiles'][$key]);
         file_put_contents($this->v2_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
-        unlink($this->template_prefix."base2.html.twig");
+        if (file_exists($this->template_prefix."base2.html.twig")) {
+            unlink($this->template_prefix."base2.html.twig");
+        }
 
         return $this->render('checkout_generator.html.twig', [
             'files' => $json['files'],
