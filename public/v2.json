@@ -1,74 +1,75 @@
 {
-  "person_1": {
-    "code": "Wir enthält Sven. Sven mag Musik. Ich mag Musik. Wir enthält mich. Mich darstellen als Ich.  Ich will mich treffen um Musik zu machen.",
-    "entities": {
-      "1_Hello": {
-        "text": "Hallo",
-        "x": 400,
-        "y": 400,
-        "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\">{{ text }}</text>\n        </a>"
-      },
-      "2_Mir_geht_es_gut": {
-        "text": "Mir geht es gut.",
-        "show_as": "1_Hello",
-        "x": 200,
-        "y": 400
-      },
-      "3_Ich": {
-        "text": "Ich.",
-        "show_as": "1_Hello",
-        "x": "50%",
-        "y": "50%",
-        "z": 1
-      },
-      "4_Alles": {
-        "text": "Alles",
-        "show_as": "1_Hello",
-        "x": 200,
-        "y": 100
-      },
-      "5_Akzeptanz": {
-        "text": "Akzeptanz",
-        "show_as": "1_Hello",
-        "x": "25%",
-        "y": "25%",
-        "z": "-1"
-      },
-      "6_Toleranz": {
-        "text": "Toleranz",
-        "show_as": "5_Akzeptanz",
-        "x": "25%",
-        "y": "75%",
-        "z": "-1"
-      },
-      "7_Ignoranz": {
-        "text": "Ignoranz",
-        "show_as": "5_Akzeptanz",
-        "x": "75%",
-        "y": "75%",
-        "z": "-1"
-      },
-      "8_Ablehnung": {
-        "text": "Ablehnung",
-        "show_as": "5_Akzeptanz",
-        "x": "75%",
-        "y": "25%",
-        "z": "-1"
-      },
-      "10_horizontal_path": {
-        "text": "",
-        "z": -2,
-        "M": "0 300",
-        "L": "600 300",
-        "svg": "<path d=\"M {{ M }} L {{ L }} \" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"/>"
-      },
-      "9_vertical_paths": {
-        "text": "",
-        "z": -2,
-        "M": "300 0",
-        "L": "300 600",
-        "show_as": "10_horizontal_path"
-      }
-    }
-  }
+    "person_1": {
+        "code": "Wir enth\u00e4lt Sven. Sven mag Musik. Ich mag Musik. Wir enth\u00e4lt mich. Mich darstellen als Ich.  Ich will mich treffen um Musik zu machen.",
+        "entities": {
+            "1_Hello": {
+                "text": "Hallo",
+                "x": 400,
+                "y": 400,
+                "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"\/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\">{{ text }}<\/text>\n        <\/a>"
+            },
+            "2_Mir_geht_es_gut": {
+                "text": "Mir geht es gut.",
+                "show_as": "1_Hello",
+                "x": 200,
+                "y": 400
+            },
+            "3_Ich": {
+                "text": "Ich.",
+                "show_as": "1_Hello",
+                "x": "50%",
+                "y": "50%",
+                "z": 1
+            },
+            "4_Alles": {
+                "text": "Alles",
+                "show_as": "1_Hello",
+                "x": 200,
+                "y": 100
+            },
+            "5_Akzeptanz": {
+                "text": "Akzeptanz",
+                "show_as": "1_Hello",
+                "x": "25%",
+                "y": "25%",
+                "z": "-1"
+            },
+            "6_Toleranz": {
+                "text": "Toleranz",
+                "show_as": "5_Akzeptanz",
+                "x": "25%",
+                "y": "75%",
+                "z": "-1"
+            },
+            "7_Ignoranz": {
+                "text": "Ignoranz",
+                "show_as": "5_Akzeptanz",
+                "x": "75%",
+                "y": "75%",
+                "z": "-1"
+            },
+            "8_Ablehnung": {
+                "text": "Ablehnung",
+                "show_as": "5_Akzeptanz",
+                "x": "75%",
+                "y": "25%",
+                "z": "-1"
+            },
+            "10_horizontal_path": {
+                "text": "",
+                "z": -2,
+                "M": "0 300",
+                "L": "600 300",
+                "svg": "<path d=\"M {{ M }} L {{ L }} \" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"\/>"
+            },
+            "9_vertical_paths": {
+                "text": "",
+                "z": -2,
+                "M": "300 0",
+                "L": "300 600",
+                "show_as": "10_horizontal_path"
+            }
+        }
+    },
+    "checkedOutFiles": []
 }

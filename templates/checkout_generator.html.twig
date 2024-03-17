@@ -63,7 +63,9 @@
   <script>
     function handleButtonClick(button) {
         let listItemText = button.parentNode.textContent.trim();
-        if (button.textContent === 'Check out for development') {
+        if (button.textContent === 'Open Editor') {
+            alert("Not yet implemented!");
+            return;
             // Make an AJAX request to a Symfony endpoint
             let xhr = new XMLHttpRequest();
             xhr.open('GET', '/checkout/' + listItemText, true);

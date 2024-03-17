@@ -166,14 +166,17 @@ class SvgController extends AbstractController
     #[Route('/checkout/{file}', name: 'app_checkout')]
     public function checkout($file, Request $request): Response
     {
+        $json = $this->getJsonResponse($this->v2_jsonFfile);
+        $entities = $json['person_1']['entities'];
+        array_push($json['checkedOutFiles'], $file);
+        file_put_contents($this->v2_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+
         return $this->render('checkout_generator.html.twig', [
             'files' => [
                 "checkout_generator.html.twig",
                 "base.html.twig"
             ],
-            'checkedOutFiles' => [
-                "checkout_generator.html.twig"
-            ],
+            'checkedOutFiles' => $json['checkedOutFiles'],
             'dev' => true,
         ]);
     }
@@ -181,14 +184,19 @@ class SvgController extends AbstractController
     #[Route('/checkin/{file}', name: 'app_checkin')]
     public function checkin($file): Response
     {
+        $json = $this->getJsonResponse($this->v2_jsonFfile);
+        $entities = $json['person_1']['entities'];
+        $key = array_search($file, $json['checkedOutFiles']);
+        unset($json['checkedOutFiles'][$key]);
+        file_put_contents($this->v2_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
 
         return $this->render('checkout_generator.html.twig', [
             'files' => [
                 "checkout_generator.html.twig",
                 "base.html.twig"
             ],
-            'checkedOutFiles' => [
-            ],
+            'checkedOutFiles' => $json['checkedOutFiles'],
+
             'dev' => true,
         ]);
     }
