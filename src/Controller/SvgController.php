@@ -22,6 +22,7 @@ class SvgController extends AbstractController
     private $svgFile = 'test.svg';
     private $v2_jsonFfile = 'v2.json';
     private $v2_svgFile = 'Werte_v3.6_controls.svg';
+    private $template_prefix = '../templates/';
 
     public function __construct()
     {
@@ -170,12 +171,10 @@ class SvgController extends AbstractController
         $entities = $json['person_1']['entities'];
         array_push($json['checkedOutFiles'], $file);
         file_put_contents($this->v2_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+        file_put_contents($this->template_prefix."base2.html.twig", "Test");
 
         return $this->render('checkout_generator.html.twig', [
-            'files' => [
-                "checkout_generator.html.twig",
-                "base.html.twig"
-            ],
+            'files' => $json['files'],
             'checkedOutFiles' => $json['checkedOutFiles'],
             'dev' => true,
         ]);
@@ -189,12 +188,10 @@ class SvgController extends AbstractController
         $key = array_search($file, $json['checkedOutFiles']);
         unset($json['checkedOutFiles'][$key]);
         file_put_contents($this->v2_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+        unlink($this->template_prefix."base2.html.twig");
 
         return $this->render('checkout_generator.html.twig', [
-            'files' => [
-                "checkout_generator.html.twig",
-                "base.html.twig"
-            ],
+            'files' => $json['files'],
             'checkedOutFiles' => $json['checkedOutFiles'],
 
             'dev' => true,

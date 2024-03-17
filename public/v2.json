@@ -71,5 +71,9 @@
             }
         }
     },
-    "checkedOutFiles": []
+    "checkedOutFiles": [],
+    "files": [
+        "checkout_generator.html.twig",
+        "base2.html.twig"
+    ]
 }
