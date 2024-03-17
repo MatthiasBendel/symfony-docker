@@ -5,9 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Config\Util\XmlUtils;
 use Symfony\Component\Config\Resource\FileResource;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use App\Entity\Entity;
 
@@ -161,29 +164,32 @@ class SvgController extends AbstractController
     }
 
     #[Route('/checkout/{file}', name: 'app_checkout')]
-    public function checkout($file): Response
+    public function checkout($file, Request $request): Response
     {
-      $entities = $this->prepareEntities($selected, $this->file);
-
         return $this->render('checkout_generator.html.twig', [
             'files' => [
-                    "js/KeyboardReader.js",
-                    "js/DragAndDropEllipses.js"
-                ],
-            'dev' => true;
+                "checkout_generator.html.twig",
+                "base.html.twig"
+            ],
+            'checkedOutFiles' => [
+                "checkout_generator.html.twig"
+            ],
+            'dev' => true,
         ]);
     }
 
     #[Route('/checkin/{file}', name: 'app_checkin')]
     public function checkin($file): Response
     {
-      $entities = $this->prepareEntities($selected, $this->file);
 
         return $this->render('checkout_generator.html.twig', [
             'files' => [
-                    "js/KeyboardReader.js",
-                    "js/DragAndDropEllipses.js"
-                ],
+                "checkout_generator.html.twig",
+                "base.html.twig"
+            ],
+            'checkedOutFiles' => [
+            ],
+            'dev' => true,
         ]);
     }
 

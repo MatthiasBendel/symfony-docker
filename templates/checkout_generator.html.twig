@@ -29,6 +29,11 @@
       margin-left: 10px; /* Adjust the space between text and button */
       font-family: "Courier New", Courier, monospace;
     }
+    .checkedButton {
+        background-color: lightgreen;
+        border: none;
+        cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -36,19 +41,20 @@
   <h2>Check out files for development</h2>
 
   <ul>
-    <li>
-      checkout_generator.html.twig
-      {{ if dev }}
-      <button onclick="handleButtonClick(this)">Check out for development</button>
-      {{ endif }}
-      <button onclick="handleButtonClick(this)">Open Editor</button>
-    </li>
     {% for file in files %}
         <li>
             {{ file }}
-            {{ if dev }}
-              <button onclick="handleButtonClick(this)">Check out for development</button>
-            {{ endif }}
+            {% if dev %}
+              {% if file in checkedOutFiles %}
+                <a href="/checkin/{{ file }}">
+                  <button class="checkedButton">Check out of development</button>
+                </a>
+              {% else %}
+                <a href="/checkout/{{ file }}">
+                  <button>Check out for development</button>
+                </a>
+              {% endif %}
+            {% endif %}
             <button onclick="handleButtonClick(this)">Open Editor</button>
         </li>
     {% endfor %}
