@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inline SVG Background with Centered Text Input</title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="blue"/></svg>');
+    background-size: cover;
+  }
+  .input-container {
+    text-align: center;
+  }
+  input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px; /* Adjust width as needed */
+    font-family: 'Courier New', Courier, monospace; /* Change font to Courier New */
+  }
+</style>
+</head>
+<body>
+<div class="input-container">
+  <input type="text" placeholder="Enter your text here">
+</div>
+</body>
+</html>

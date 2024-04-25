@@ -68,6 +68,11 @@
         "M": "300 0",
         "L": "300 600",
         "show_as": "10_horizontal_path"
+      },
+      "10_wir": {
+        "text": "wir",
+        "z": -2,
+        "svg": "<defs>\n            <linearGradient x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\" id=\"mx-gradient-f8d4b5-1-ea6b66-1-s-0\">\n                <stop offset=\"0%\" style=\"stop-color:#f8d4b5;stop-opacity:1\"/>\n                <stop offset=\"100%\" style=\"stop-color:#ea6b66;stop-opacity:1\"/>\n            </linearGradient>\n        </defs><ellipse cx=\"350\" cy=\"480\" rx=\"300\" ry=\"160\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"/>\n    <ellipse cx=\"150\" cy=\"300\" rx=\"150\" ry=\"300\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"/>\n    <ellipse cx=\"190\" cy=\"390\" rx=\"150\" ry=\"220\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"/>"
       }
     }
   }

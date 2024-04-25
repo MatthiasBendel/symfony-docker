@@ -19,12 +19,56 @@ class SvgController extends AbstractController
     private $svgFile = 'test.svg';
     private $v2_jsonFfile = 'v2.json';
     private $v2_svgFile = 'Werte_v3.6_controls.svg';
+    private $v3_jsonFfile = 'v3.json';
 
     public function __construct()
     {
         //$env = parse_ini_file('../.env');
-        $this->serverName = 'https://' . "multidimensional.online";//$env["SERVER_NAME"];
+        $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
     }
+
+    #[Route('/v3/{text}', name: 'app_v3')]
+    public function v3($text): Response {
+        $json = $this->readJsonFile($this->v3_jsonFfile);
+
+        $response = $this->processRequest($json, $text);
+
+        file_put_contents($this->v3_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+
+        return new Response(
+                    $response,
+                    Response::HTTP_OK,
+                    ['content-type' => 'text/html']
+                );
+    }
+
+    private function processRequest($json, $text) {
+        $nanoseconds = hrtime(true);
+
+        if (isset($json["person_1"]["entities"][$text])) {
+            if (isset($json["person_1"]["entities"][$text]["html"])) {
+                $response = $json["person_1"]["entities"][$text]["html"];
+            } else {
+                $response = $text;
+            }
+
+            if (!isset($json["person_1"]["entities"][$text]["seen"])) {
+                $json["person_1"]["entities"][$text]["seen"] = [];
+            }
+            array_push($json["person_1"]["entities"][$text]["seen"], $nanoseconds);
+        } else {
+            $json["person_1"]["entities"][$text]["seen"] = [$nanoseconds];
+        }
+        return $response;
+    }
+
+    private function readJsonFile($jsonFile) {
+        $str = file_get_contents($jsonFile);
+        $json = json_decode($str, true);
+        return $json;
+    }
+
+    # Todo remove the following code!
 
     #[Route('/v2/{selected}', name: 'app_v2')]
     public function v2($selected): Response
