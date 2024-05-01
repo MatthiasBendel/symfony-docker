@@ -33,8 +33,6 @@ class SvgController extends AbstractController
 
         $response = $this->processRequest($json, $text);
 
-        file_put_contents($this->v3_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
-
         return new Response(
                     $response,
                     Response::HTTP_OK,
@@ -58,6 +56,25 @@ class SvgController extends AbstractController
             array_push($json["person_1"]["entities"][$text]["seen"], $nanoseconds);
         } else {
             $json["person_1"]["entities"][$text]["seen"] = [$nanoseconds];
+        }
+
+        file_put_contents($this->v3_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+
+        $response = $this->replaceValues($json['person_1']['entities'], $text, $response);
+        return $response;
+    }
+
+    private function replaceValues($entities, $text, $response) { # todo!
+//       dd($entities);
+        foreach ($entities[$text] as $key => $entity) {
+            //echo $key.': ';
+            //echo ' - '.var_dump($entity).' / ';
+            if (gettype($entity) == 'string') {
+                $response = str_replace('{{ ' . $key . ' }}', $entity, $response);
+            }
+        }
+        if (isset($json["show_as"])) {
+            return $this->replaceValues($json, $json["show_as"], $response);
         }
         return $response;
     }
