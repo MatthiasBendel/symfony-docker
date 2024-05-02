@@ -101,16 +101,20 @@
             },
             "test_MI-29": {
                 "html": "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Example Page<\/title><script>{{ js }}<\/script><style>{{ css }}<\/style><\/head>{{ body }}<\/html>",
-                "body": "<body><header><h1>Welcome!<\/h1><\/header><main><svg>{{ svg }}<\/svg><p>{{ text }}<\/p><a href='{{ link1 }}'>Link to our conversation<\/a><p>For more details on the project, visit the <a href='{{ link2 }}'>Project Page<\/a>.<\/p><\/main><footer><p>Thank you for visiting!<\/p><\/footer><\/body>",
+                "body": "<body>{{ header }}{{ main }}{{ footer }}<\/body>",
+                "header": "<header><h1>Welcome<\/h1><h2>to the product of <a href='{{ link2 }}'>MI-29<\/a>!<\/h2><\/header>",
+                "main": "<main><svg>{{ svg }}<\/svg><p>{{ text }}<\/p><a href='{{ link1 }}'>Link to our conversation<\/a><p>For more details on the project, visit the <a href='{{ link2 }}'>Project Page<\/a>.<\/p><\/main>",
+                "footer": "<footer><p>Thank you for visiting!<\/p><\/footer>",
                 "js": "console.log('Hello from JavaScript!');",
-                "svg": "<svg xmlns='http:\/\/www.w3.org\/2000\/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' stroke='green' stroke-width='4' fill='yellow' \/><\/svg>",
+                "svg": "<svg xmlns='http:\/\/www.w3.org\/2000\/svg' viewBox='0 0 100 80'><circle cx='50' cy='40' r='10' stroke='green' stroke-width='4' fill='yellow'>{{ fancy_modulation }}<\/circle><\/svg>",
+                "fancy_modulation": "<animate attributeName='cy' values='40;10;40;70;40' dur='5s' repeatCount='indefinite'\/><animate attributeName='fill' values='yellow;red;yellow;green;yellow' dur='5s' repeatCount='indefinite'\/>",
                 "text": "Hallo! This is a simple example of SVG and HTML integration.",
                 "link1": "https:\/\/chat.openai.com\/share\/e343a698-044b-4b25-9acf-5eb69dafcf21",
                 "link2": "https:\/\/kurzarbeit.atlassian.net\/jira\/polaris\/projects\/MI\/ideas\/view\/4100162?selectedIssue=MI-29&issueViewLayout=sidebar&issueViewSection=overview",
-                "css": "body { font-family: Arial, sans-serif; } header, footer { text-align: center; background-color: #f8f9fa; padding: 10px; } main { margin: 20px; text-align: center; } svg { margin-top: 20px; } a { color: blue; text-decoration: none; } a:hover { text-decoration: underline; }",
+                "css": "body { font-family: Arial, sans-serif; } header, footer { text-align: center; background-color: #f8f9fa; padding: 10px; } main { margin: 20px; text-align: center; } svg { margin-top: 20px; } a { color: blue; text-decoration: none; } a:hover { text-decoration: underline; } h2 { margin-top: 0; font-size: 1.2em; color: #333; }",
                 "seen": [
-                    506189957666974,
-                    506212704703949
+                    514874952773904,
+                    514947951124136
                 ]
             }
         }
