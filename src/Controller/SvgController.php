@@ -29,11 +29,11 @@ class SvgController extends AbstractController
         $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
     }
 
-    #[Route('/v3/{text}', name: 'app_v3')]
-    public function v3($text): Response {
+    #[Route('/v3/Ziel/{param1}', name: 'app_v3_aim')]
+    public function v3_aim($param1): Response {
         $this->json = $this->readJsonFile($this->v3_jsonFfile);
 
-        $response = $this->processRequest($text);
+        $response = $this->processRequest($param1);
 
         return new Response(
                     $response,
@@ -42,38 +42,53 @@ class SvgController extends AbstractController
                 );
     }
 
-    private function processRequest($text) {
+    #[Route('/v3/{param1}', name: 'app_v3')]
+    public function v3($param1): Response {
+        $this->json = $this->readJsonFile($this->v3_jsonFfile);
+
+        $response = $this->processRequest($param1);
+
+        return new Response(
+                    $response,
+                    Response::HTTP_OK,
+                    ['content-type' => 'text/html']
+                );
+    }
+
+    private function processRequest($param1) {
         $nanoseconds = hrtime(true);
 
-        if (isset($this->json["person_1"]["entities"][$text])) {
-            if (isset($this->json["person_1"]["entities"][$text]["html"])) {
-                $response = $this->json["person_1"]["entities"][$text]["html"];
+        if (isset($this->json["person_1"]["entities"][$param1])) {
+            if (isset($this->json["person_1"]["entities"][$param1]["html"])) {
+                $response = $this->json["person_1"]["entities"][$param1]["html"];
+            } else if (isset($this->json["person_1"]["entities"][$param1]["show_as"])) {
+                $response = $this->json["person_1"]["entities"][$param1]["html"];
             } else {
-                $response = $text;
+                $response = $param1;
             }
 
-            if (!isset($this->json["person_1"]["entities"][$text]["seen"])) {
-                $this->json["person_1"]["entities"][$text]["seen"] = [];
+            if (!isset($this->json["person_1"]["entities"][$param1]["seen"])) {
+                $this->json["person_1"]["entities"][$param1]["seen"] = [];
             }
-            array_push($this->json["person_1"]["entities"][$text]["seen"], $nanoseconds);
+            array_push($this->json["person_1"]["entities"][$param1]["seen"], $nanoseconds);
         } else {
-            $this->json["person_1"]["entities"][$text]["seen"] = [$nanoseconds];
+            $this->json["person_1"]["entities"][$param1]["seen"] = [$nanoseconds];
         }
 
         file_put_contents($this->v3_jsonFfile, json_encode($this->json, JSON_PRETTY_PRINT));
 
-        $response = $this->replaceValues($this->json['person_1']['entities'], $text, $response);
+        $response = $this->replaceValues($this->json['person_1']['entities'], $param1, $response);
         return $response;
     }
 
-    private function replaceValues($entities, $text, $response) {
-        foreach ($entities[$text] as $key => $entity) {
+    private function replaceValues($entities, $param1, $response) {
+        foreach ($entities[$param1] as $key => $entity) {
             if (gettype($entity) == 'string') {
                 $response = str_replace('{{ ' . $key . ' }}', $entity, $response);
             }
         }
         if (isset($entities["show_as"])) {
-            return $this->replaceValues($this->json[$entities["show_as"]], $text, $response);
+            return $this->replaceValues($this->json[$entities["show_as"]], $param1, $response);
         }
         return $response;
     }
