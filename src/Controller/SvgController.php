@@ -21,6 +21,8 @@ class SvgController extends AbstractController
     private $v2_svgFile = 'Werte_v3.6_controls.svg';
     private $v3_jsonFfile = 'v3.json';
 
+    private $json = []; // loaded json
+
     public function __construct()
     {
         //$env = parse_ini_file('../.env');
@@ -29,9 +31,9 @@ class SvgController extends AbstractController
 
     #[Route('/v3/{text}', name: 'app_v3')]
     public function v3($text): Response {
-        $json = $this->readJsonFile($this->v3_jsonFfile);
+        $this->json = $this->readJsonFile($this->v3_jsonFfile);
 
-        $response = $this->processRequest($json, $text);
+        $response = $this->processRequest($text);
 
         return new Response(
                     $response,
@@ -40,41 +42,38 @@ class SvgController extends AbstractController
                 );
     }
 
-    private function processRequest($json, $text) {
+    private function processRequest($text) {
         $nanoseconds = hrtime(true);
 
-        if (isset($json["person_1"]["entities"][$text])) {
-            if (isset($json["person_1"]["entities"][$text]["html"])) {
-                $response = $json["person_1"]["entities"][$text]["html"];
+        if (isset($this->json["person_1"]["entities"][$text])) {
+            if (isset($this->json["person_1"]["entities"][$text]["html"])) {
+                $response = $this->json["person_1"]["entities"][$text]["html"];
             } else {
                 $response = $text;
             }
 
-            if (!isset($json["person_1"]["entities"][$text]["seen"])) {
-                $json["person_1"]["entities"][$text]["seen"] = [];
+            if (!isset($this->json["person_1"]["entities"][$text]["seen"])) {
+                $this->json["person_1"]["entities"][$text]["seen"] = [];
             }
-            array_push($json["person_1"]["entities"][$text]["seen"], $nanoseconds);
+            array_push($this->json["person_1"]["entities"][$text]["seen"], $nanoseconds);
         } else {
-            $json["person_1"]["entities"][$text]["seen"] = [$nanoseconds];
+            $this->json["person_1"]["entities"][$text]["seen"] = [$nanoseconds];
         }
 
-        file_put_contents($this->v3_jsonFfile, json_encode($json, JSON_PRETTY_PRINT));
+        file_put_contents($this->v3_jsonFfile, json_encode($this->json, JSON_PRETTY_PRINT));
 
-        $response = $this->replaceValues($json['person_1']['entities'], $text, $response);
+        $response = $this->replaceValues($this->json['person_1']['entities'], $text, $response);
         return $response;
     }
 
-    private function replaceValues($entities, $text, $response) { # todo!
-//       dd($entities);
+    private function replaceValues($entities, $text, $response) {
         foreach ($entities[$text] as $key => $entity) {
-            //echo $key.': ';
-            //echo ' - '.var_dump($entity).' / ';
             if (gettype($entity) == 'string') {
                 $response = str_replace('{{ ' . $key . ' }}', $entity, $response);
             }
         }
-        if (isset($json["show_as"])) {
-            return $this->replaceValues($json, $json["show_as"], $response);
+        if (isset($entities["show_as"])) {
+            return $this->replaceValues($this->json[$entities["show_as"]], $text, $response);
         }
         return $response;
     }
