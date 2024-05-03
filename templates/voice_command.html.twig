@@ -1,0 +1,39 @@
+{# templates/voice_command.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speak to Symfony</title>
+</head>
+<body>
+<h1>Speak to Symfony</h1>
+<button id="speakButton">Speak</button>
+<script>
+        const button = document.getElementById('speakButton');
+        let recognizing = false;
+        const recognition = new webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.lang = 'en-US';
+        recognition.onstart = function() { recognizing = true; console.log('Start speaking.'); };
+        recognition.onerror = function(event) { console.log('Error: ' + event.error); };
+        recognition.onend = function() { recognizing = false; console.log('Stopped.'); };
+        recognition.onresult = function(event) {
+            let finalTranscript = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) { finalTranscript += event.results[i][0].transcript; }
+            }
+            console.log('You said: ' + finalTranscript);
+            fetch('/voice-command', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({command: finalTranscript})
+            })
+            .then(response => response.json())
+            .then(data => console.log(data));
+        };
+        button.onclick = function() {
+            if (recognizing) { recognition.stop(); } else { recognition.start(); }
+        };
+    </script>
+</body>
+</html>

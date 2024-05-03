@@ -30,6 +30,12 @@ class SvgController extends AbstractController
         $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
     }
 
+    #[Route('/voice', name: 'app_v3.1_voice')]
+    public function voice(): Response
+    {
+        return $this->render('voice_command.html.twig');
+    }
+
     #[Route('/v3.1', name: 'app_v3.1_ai')]
     public function ai(): Response {
         $jsonString = file_get_contents($this->v31_jsonFfile);
