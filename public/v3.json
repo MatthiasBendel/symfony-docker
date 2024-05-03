@@ -1,144 +1,117 @@
 {
     "person_1": {
-        "code": "Wir enth\u00e4lt Sven. Sven mag Musik. Ich mag Musik. Wir enth\u00e4lt mich. Mich darstellen als Ich.  Ich will mich treffen um Musik zu machen.",
         "entities": {
-            "1_Hello": {
-                "text": "Hallo",
-                "x": 400,
-                "y": 400,
-                "svg": "<a href=\"{{ text }}\">\n <ellipse cx=\"350\" cy=\"250\" rx=\"80\" ry=\"50\" fill=\"lightblue\"  class=\"{{ class }}\"\/>\n               <text x=\"350\" y=\"250\" text-anchor=\"middle\" alignment-baseline=\"middle\" class=\"{{ class }}\">{{ text }}<\/text>\n        <\/a>"
-            },
-            "2_Mir_geht_es_gut": {
-                "text": "Mir geht es gut.",
-                "show_as": "1_Hello",
-                "x": 200,
-                "y": 400
-            },
-            "3_Ich": {
-                "text": "Ich.",
-                "show_as": "1_Hello",
-                "x": "50%",
-                "y": "50%",
-                "z": 1
-            },
-            "4_Alles": {
-                "text": "Alles",
-                "show_as": "1_Hello",
-                "x": 200,
-                "y": 100
-            },
-            "5_Akzeptanz": {
-                "text": "Akzeptanz",
-                "show_as": "1_Hello",
-                "x": "25%",
-                "y": "25%",
-                "z": "-1"
-            },
-            "6_Toleranz": {
-                "text": "Toleranz",
-                "show_as": "5_Akzeptanz",
-                "x": "25%",
-                "y": "75%",
-                "z": "-1"
-            },
-            "7_Ignoranz": {
-                "text": "Ignoranz",
-                "show_as": "5_Akzeptanz",
-                "x": "75%",
-                "y": "75%",
-                "z": "-1"
-            },
-            "8_Ablehnung": {
-                "text": "Ablehnung",
-                "show_as": "5_Akzeptanz",
-                "x": "75%",
-                "y": "25%",
-                "z": "-1"
-            },
-            "10_horizontal_path": {
-                "text": "",
-                "z": -2,
-                "M": "0 300",
-                "L": "600 300",
-                "svg": "<path d=\"M {{ M }} L {{ L }} \" fill=\"none\" stroke=\"rgb(0, 0, 0)\" stroke-miterlimit=\"10\" pointer-events=\"stroke\"\/>"
-            },
-            "9_vertical_paths": {
-                "text": "",
-                "z": -2,
-                "M": "300 0",
-                "L": "300 600",
-                "show_as": "10_horizontal_path"
-            },
-            "10_wir": {
-                "text": "wir",
-                "z": -2,
-                "svg": "<defs>\n            <linearGradient x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\" id=\"mx-gradient-f8d4b5-1-ea6b66-1-s-0\">\n                <stop offset=\"0%\" style=\"stop-color:#f8d4b5;stop-opacity:1\"\/>\n                <stop offset=\"100%\" style=\"stop-color:#ea6b66;stop-opacity:1\"\/>\n            <\/linearGradient>\n        <\/defs><ellipse cx=\"350\" cy=\"480\" rx=\"300\" ry=\"160\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"\/>\n    <ellipse cx=\"150\" cy=\"300\" rx=\"150\" ry=\"300\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"\/>\n    <ellipse cx=\"190\" cy=\"390\" rx=\"150\" ry=\"220\" fill=\"url(#mx-gradient-f8d4b5-1-ea6b66-1-s-0)\" pointer-events=\"all\"\/>"
-            },
-            "text": {
-                "html": "<html>{{ text }}<\/html>",
+            "Ziele": {
+                "title": "Ziele",
+                "html": "<!DOCTYPE html><html lang='de'><head><meta charset='UTF-8'><title>{{ title }}<\/title><style>{{ css }}<\/style><\/head><body><header><h1>{{ title }}<\/h1><\/header><main><ul>{{ test }}{% for key, aim in children %}<li><strong>{{ aim.description }}<\/strong> - <a href='{{ aim.details_link }}'>Mehr Details<\/a> - <a href='{{ aim.plan_link }}'>Planen<\/a><\/li>{% endfor %}<\/ul><\/main><\/body><\/html>",
+                "css": "body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 40px; background-color: #f4f4f9; color: #333; display: flex; flex-direction: column; align-items: center; } ul { list-style-type: none; padding: 0; margin-top: 20px; width: 100%; max-width: 600px; } li { margin-bottom: 10px; padding: 10px; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-radius: 5px; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; }",
+                "children": {
+                    "aim1": {
+                        "description": "Den Projektbericht abschlie\u00dfen",
+                        "details_link": "https:\/\/localhost\/v3\/Ziel\/Den_Projektbericht_abschlie\u00dfen",
+                        "plan_link": "https:\/\/localhost\/v3\/Ziel\/Den_Projektbericht_abschlie\u00dfen\/planen"
+                    },
+                    "aim2": {
+                        "description": "Das neue Kundenfeedback umsetzen",
+                        "details_link": "https:\/\/localhost\/v3\/Ziel\/Das_neue_Kundenfeedback_umsetzen",
+                        "plan_link": "https:\/\/localhost\/v3\/Ziel\/Das_neue_Kundenfeedback_umsetzen\/planen"
+                    },
+                    "aim3": {
+                        "description": "Projektfortschritt",
+                        "details_link": "https:\/\/localhost\/v3\/Ziel\/Projektfortschritt",
+                        "plan_link": "https:\/\/localhost\/v3\/Ziel\/Projektfortschritt\/planen"
+                    }
+                },
                 "seen": [
-                    4870527182131,
-                    4900186819261,
-                    6627108118798,
-                    6639897864693,
-                    363671377148966,
-                    363684923577537,
-                    363708874350645,
-                    363846828550128,
-                    363864597396544,
-                    363892632613565,
-                    363903470325750,
-                    364025256174611,
-                    364505769762239,
-                    364565983382430,
-                    364778718307063,
-                    364823385965657,
-                    364862603233059,
-                    364863673994583,
-                    364864327613304
-                ],
-                "text": "Text"
-            },
-            "test_MI-29": {
-                "html": "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Example Page<\/title><script>{{ js }}<\/script><style>{{ css }}<\/style><\/head>{{ body }}<\/html>",
-                "body": "<body>{{ header }}{{ main }}{{ footer }}<\/body>",
-                "header": "<header><h1>Welcome<\/h1><h2>to the product of <a href='{{ link2 }}'>MI-29<\/a>!<\/h2><\/header>",
-                "main": "<main><svg>{{ svg }}<\/svg><p>{{ text }}<\/p><a href='{{ link1 }}'>Link to our conversation<\/a><p>For more details on the project, visit the <a href='{{ link2 }}'>Project Page<\/a>.<\/p><\/main>",
-                "footer": "<footer><p>Thank you for visiting!<\/p><\/footer>",
-                "js": "console.log('Hello from JavaScript!');",
-                "svg": "<svg xmlns='http:\/\/www.w3.org\/2000\/svg' viewBox='0 0 100 80'><circle cx='50' cy='40' r='10' stroke='green' stroke-width='4' fill='yellow'>{{ fancy_modulation }}<\/circle><\/svg>",
-                "fancy_modulation": "<animate attributeName='cy' values='40;10;40;70;40' dur='5s' repeatCount='indefinite'\/><animate attributeName='fill' values='yellow;red;yellow;green;yellow' dur='5s' repeatCount='indefinite'\/>",
-                "text": "Hallo! This is a simple example of SVG and HTML integration.",
-                "link1": "https:\/\/chat.openai.com\/share\/e343a698-044b-4b25-9acf-5eb69dafcf21",
-                "link2": "https:\/\/kurzarbeit.atlassian.net\/jira\/polaris\/projects\/MI\/ideas\/view\/4100162?selectedIssue=MI-29&issueViewLayout=sidebar&issueViewSection=overview",
-                "css": "body { font-family: Arial, sans-serif; } header, footer { text-align: center; background-color: #f8f9fa; padding: 10px; } main { margin: 20px; text-align: center; } svg { margin-top: 20px; } a { color: blue; text-decoration: none; } a:hover { text-decoration: underline; } h2 { margin-top: 0; font-size: 1.2em; color: #333; }",
-                "seen": [
-                    514874952773904,
-                    514947951124136,
-                    515655461896698,
-                    515779497966267,
-                    516037568880007,
-                    516038444087309,
-                    516048177531257,
-                    516376888701535,
-                    516378714829991,
-                    516423009824255,
-                    516423926611741,
-                    516425556993952
-                ]
-            },
-            "MI-30": {
-                "show_as": "test_MI-29",
-                "seen": [
-                    516118932684547,
-                    516321307802928,
-                    516340060841282
+                    573024868394829,
+                    573235023159489,
+                    573235858840372,
+                    573236545794675,
+                    573236814150656,
+                    573236999623271,
+                    573237174587219,
+                    573237418804305,
+                    573398942452306,
+                    573565574409994,
+                    573568634710566,
+                    573569666285676,
+                    573569876629354,
+                    573570077697605,
+                    573570244773433,
+                    573570409625484,
+                    573570558707458,
+                    573572375823575,
+                    573572559745068,
+                    573572844484433,
+                    573573161748260,
+                    573573483908621,
+                    573573842788044,
+                    573574202922187,
+                    577013109084927,
+                    577015638306782,
+                    577032479389959,
+                    578141340267179,
+                    578142408335754,
+                    578364262872419,
+                    585820953229857,
+                    585991881338812,
+                    585993080408233,
+                    585994214695120,
+                    586007567971260,
+                    586008771266403,
+                    586095457501771,
+                    586096500422781,
+                    586097663766005,
+                    587587652306991,
+                    587625569316158,
+                    589489225463084,
+                    589490637822741,
+                    589492297468331,
+                    589492744143795,
+                    589493997326931,
+                    589745319628657,
+                    589757741565206
                 ]
             },
             "MI-29": {
                 "seen": [
-                    516517913356514
+                    577054864470845,
+                    577069535381730,
+                    577107114998302,
+                    577356939244197,
+                    577392826467328,
+                    577480713853728,
+                    577792304668748,
+                    577828600121338,
+                    577853023383568,
+                    577853801750803,
+                    577991815918863,
+                    577997434899902,
+                    577999180653296,
+                    577999959740987,
+                    578000796422509,
+                    578001851753392,
+                    578008886196647,
+                    578035949968041,
+                    578055665677243,
+                    578056550834609,
+                    578058710516479,
+                    578059456145190,
+                    578059755480002,
+                    578059955455736,
+                    578060134988047,
+                    578060331081965,
+                    578148089355843,
+                    578149046448301,
+                    578181010721689,
+                    578217671079293,
+                    578238045567414,
+                    578250934799913,
+                    586138881815704
                 ]
+            },
+            "standard": {
+                "html": "<!DOCTYPE html>\n<html>\n<head>\n    <meta charset='UTF-8'>\n    <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n    <title>Greeting<\/title>\n<\/head>\n<body>\n    <h1> {{ param1 }} <\/h1> {{ param2 }}\n<\/body>\n<\/html>"
             }
         }
     }

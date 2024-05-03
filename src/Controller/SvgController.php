@@ -20,6 +20,7 @@ class SvgController extends AbstractController
     private $v2_jsonFfile = 'v2.json';
     private $v2_svgFile = 'Werte_v3.6_controls.svg';
     private $v3_jsonFfile = 'v3.json';
+    private $v31_jsonFfile = 'v3.1.json';
 
     private $json = []; // loaded json
 
@@ -29,24 +30,44 @@ class SvgController extends AbstractController
         $this->serverName = 'https://' . "localhost";//$env["SERVER_NAME"];
     }
 
+    #[Route('/v3.1', name: 'app_v3.1_ai')]
+    public function ai(): Response {
+        $jsonString = file_get_contents($this->v31_jsonFfile);
+        $jsonData = json_decode($jsonString, true);
+
+        return $this->render('v3.1.html.twig', [
+            'data' => $jsonData
+        ]);
+    }
+
     #[Route('/v3/Ziel/{param1}', name: 'app_v3_aim')]
     public function v3_aim($param1): Response {
         $this->json = $this->readJsonFile($this->v3_jsonFfile);
 
-        $response = $this->processRequest($param1);
+        $response = $this->getHtmlFromJson($param1);
+        // Create a template from the string
+        $twig = $this->container->get('twig');
+        $template = $twig->createTemplate($response);
 
-        return new Response(
-                    $response,
-                    Response::HTTP_OK,
-                    ['content-type' => 'text/html']
-                );
+        // Render the template with some context
+        $response = $template->render([
+                    "Ziele" => $this->json["person_1"]["entities"]["Ziele"],
+                    "param1" => $param1,
+                    'param2' => 'test für Nico'
+                ]);
+
+        return $this->render('v3.html.twig', [
+                    'html' => $response,
+                    'param1' => $param1,
+                    'param2' => 'test'
+                ]);
     }
 
     #[Route('/v3/{param1}', name: 'app_v3')]
     public function v3($param1): Response {
         $this->json = $this->readJsonFile($this->v3_jsonFfile);
 
-        $response = $this->processRequest($param1);
+        $response = $this->getHtmlFromJson($param1);
 
         return new Response(
                     $response,
@@ -55,16 +76,16 @@ class SvgController extends AbstractController
                 );
     }
 
-    private function processRequest($param1) {
+    private function getHtmlFromJson($param1) {
         $nanoseconds = hrtime(true);
 
         if (isset($this->json["person_1"]["entities"][$param1])) {
             if (isset($this->json["person_1"]["entities"][$param1]["html"])) {
                 $response = $this->json["person_1"]["entities"][$param1]["html"];
             } else if (isset($this->json["person_1"]["entities"][$param1]["show_as"])) {
-                $response = $this->json["person_1"]["entities"][$param1]["html"];
+                $response = $this->json["person_1"]["entities"][$this->json["person_1"]["entities"][$param1]["show_as"]]["html"];
             } else {
-                $response = $param1;
+                $response = $this->json["person_1"]["entities"]["standard"]["html"];
             }
 
             if (!isset($this->json["person_1"]["entities"][$param1]["seen"])) {
@@ -77,18 +98,18 @@ class SvgController extends AbstractController
 
         file_put_contents($this->v3_jsonFfile, json_encode($this->json, JSON_PRETTY_PRINT));
 
-        $response = $this->replaceValues($this->json['person_1']['entities'], $param1, $response);
+        $response = $this->replaceValues($this->json['person_1']['entities'][$param1], $param1, $response);
         return $response;
     }
 
     private function replaceValues($entities, $param1, $response) {
-        foreach ($entities[$param1] as $key => $entity) {
+        foreach ($entities as $key => $entity) {
             if (gettype($entity) == 'string') {
                 $response = str_replace('{{ ' . $key . ' }}', $entity, $response);
             }
         }
         if (isset($entities["show_as"])) {
-            return $this->replaceValues($this->json[$entities["show_as"]], $param1, $response);
+            return $this->replaceValues($this->json['person_1']['entities'][$entities["show_as"]], $param1, $response);
         }
         return $response;
     }

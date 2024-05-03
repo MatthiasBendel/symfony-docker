@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Ziele</title>
+    <style>
+        /* Your CSS styles */
+    </style>
+</head>
+<body>
+<header>
+    <h1>Ziele</h1>
+</header>
+<main>
+    <ul>
+        {% for child in data.children %}
+        <li><strong>{{ child.description }}</strong> - <a href='{{ child.details_link }}'>Mehr Details</a> - <a href='{{ child.plan_link }}'>Planen</a></li>
+        {% endfor %}
+    </ul>
+</main>
+</body>
+</html>

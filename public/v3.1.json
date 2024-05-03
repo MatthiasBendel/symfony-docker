@@ -1,0 +1,15 @@
+{
+  "attributes": "test",
+  "children": [
+    {
+      "description": "Learn Symfony",
+      "details_link": "https://localhost/v3.1/",
+      "plan_link": "https://localhost/v3.1"
+    },
+    {
+      "description": "Build a Project",
+      "details_link": "/details/project",
+      "plan_link": "/plan/project"
+    }
+  ]
+}
