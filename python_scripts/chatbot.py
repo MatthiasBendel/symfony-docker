@@ -37,6 +37,31 @@ def stop_music():
     subprocess.run(["osascript", "-e", script])
     print("Music stopped.")
 
+def set_volume(level):
+    """
+    Set the system volume to the specified level (0-100).
+    :param level: int
+    """
+    if 0 <= level <= 100:
+        script = f"set volume output volume {level}"
+        subprocess.run(["osascript", "-e", script])
+    else:
+        raise ValueError("Volume level must be between 0 and 100.")
+
+
+def increase_volume(increment=20):
+    try:
+        # Get the current volume level
+        result = subprocess.run(["osascript", "-e", "output volume of (get volume settings)"],
+                                capture_output=True, text=True)
+        current_volume = int(result.stdout.strip())
+        # Calculate the new volume
+        new_volume = min(current_volume + increment, 100)
+        set_volume(new_volume)
+        print(f"Changed volume to {new_volume}%")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 # Process microphone input
 while True:
     data = stream.read(4000, exception_on_overflow=False)
@@ -47,11 +72,18 @@ while True:
             current_result.append(result)
             last_word_time = time.time()  # Update the last word time
             result_text = ' '.join(current_result).lower()
+            print(result_text)
             if 'musik an' in result_text:
                 play_music()
                 current_result = []  # Clear results after action
             elif 'musik aus' in result_text:
                 stop_music()
+                current_result = []  # Clear results after action
+            elif 'lauter' in result_text:
+                increase_volume()
+                current_result = []  # Clear results after action
+            elif 'leiser' in result_text:
+                increase_volume(increment=-20)
                 current_result = []  # Clear results after action
 
     # Check if it's been more than 1 second since the last word
