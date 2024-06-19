@@ -26,7 +26,7 @@ stream.start_stream()
 last_word_time = time.time()
 current_result = []
 
-# Define actions for music control
+# Define actions for music control and system sleep
 def play_music():
     script = 'tell application "Music" to play'
     subprocess.run(["osascript", "-e", script])
@@ -48,7 +48,6 @@ def set_volume(level):
     else:
         raise ValueError("Volume level must be between 0 and 100.")
 
-
 def increase_volume(increment=20):
     try:
         # Get the current volume level
@@ -62,7 +61,13 @@ def increase_volume(increment=20):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+def sleep_system():
+    # Command to put the system to sleep
+    subprocess.run(["pmset", "sleepnow"])
+    print("System is going to sleep...")
+
 # Process microphone input
+print('listening ...')
 while True:
     data = stream.read(4000, exception_on_overflow=False)
     if rec.AcceptWaveform(data):
@@ -84,6 +89,9 @@ while True:
                 current_result = []  # Clear results after action
             elif 'leiser' in result_text:
                 increase_volume(increment=-20)
+                current_result = []  # Clear results after action
+            elif 'ruhezustand' in result_text or 'gute nacht' in result_text:
+                sleep_system()
                 current_result = []  # Clear results after action
 
     # Check if it's been more than 1 second since the last word
