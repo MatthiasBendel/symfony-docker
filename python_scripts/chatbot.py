@@ -90,7 +90,7 @@ while True:
             elif 'leiser' in result_text:
                 increase_volume(increment=-20)
                 current_result = []  # Clear results after action
-            elif 'ruhezustand' in result_text or 'gute nacht' in result_text:
+            elif 'Ausschalten' in result_text or 'Gute Nacht' in result_text:
                 sleep_system()
                 current_result = []  # Clear results after action
 
